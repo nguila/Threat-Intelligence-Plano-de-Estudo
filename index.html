@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Threat Intelligence – Plano 10 Semanas + Cheat Sheet Labs</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    h1, h2, h3 { color: #1a3a5a; }
+    h2 { margin-top: 25px; }
+    h3 { margin-top: 20px; }
+    ul { margin-top: 5px; }
+    .block { margin-bottom: 18px; }
+    .label { font-weight: bold; }
+    .tip { background: #f9f9f9; border-left: 4px solid #1a3a5a; padding: 8px 12px; margin: 15px 0; }
+    a { color: #1a3a5a; }
+    hr { margin: 28px 0; }
+    .level { margin-bottom: 18px; }
+  </style>
+</head>
+<body>
+
+<h1>Threat Intelligence – Plano de Estudo (10 Semanas, 3h/sem) + Cheat Sheet de Labs</h1>
+<p>
+  Usa esta página como o teu “hub” de estudo: em cima tens o plano semanal, em baixo tens uma lista rápida de laboratórios e recursos práticos.
+</p>
+
+<div class="tip">
+  <strong>Como usar:</strong>
+  Em cada semana, segue o plano resumido e escolhe 1–2 labs da secção de cheat sheet para pôr em prática o que aprendeste.
+</div>
+
+<hr />
+
+<!-- ===================== SECÇÃO 1 – PLANO DE 10 SEMANAS ===================== -->
+
+<h2>Secção 1 – Plano de 10 Semanas (3 Horas por Semana)</h2>
+
+<p>
+  Este plano assume cerca de 3 horas de estudo por semana. É tempo suficiente para ires dos fundamentos até conseguires montar um pequeno workflow de CTI por tua conta.
+</p>
+
+<h3>Semanas 1–2: Nível 1 – Fundamentos</h3>
+<p>Objetivo: Perceber o que é Threat Intelligence e dominar o vocabulário básico.</p>
+
+<div class="block">
+  <span class="label">Semana 1 (≈3h) – O que é CTI?</span>
+  <ul>
+    <li>Ver 1–2 vídeos/introduções a CTI para perceber:
+      o que é CTI, que tipos existem (tático, operacional, estratégico) e para que é usada no dia a dia.</li>
+    <li>Escrever 1 página (ou 10–15 pontos) em português a explicar:
+      o que é CTI, quem a usa e 3 problemas concretos que ajuda a resolver.</li>
+    <li>Marco: Consegues explicar CTI em linguagem simples a alguém não técnico (por exemplo, um amigo ou familiar).</li>
+  </ul>
+</div>
+
+<div class="block">
+  <span class="label">Semana 2 (≈3h) – Dados, Indicadores e Inteligência</span>
+  <ul>
+    <li>Rever os conceitos de IOC, IOA, TTP e a diferença entre dado em bruto, indicador e inteligência.</li>
+    <li>Juntar 10–15 exemplos (notícias de cibersegurança, linhas de log que inventes, IPs/domínios).
+      Classificar cada um como: dado, IOC ou inteligência – e escrever 1 frase a justificar a escolha.</li>
+    <li>Pergunta de autoavaliação: Consigo explicar a diferença entre um IOC e um TTP em apenas 1 frase?</li>
+  </ul>
+</div>
+
+<h3>Semanas 3–4: Nível 2 – Ciclo de Inteligência &amp; Processo</h3>
+<p>Objetivo: Passar a olhar para CTI como um processo (ciclo de inteligência) e não só como feeds ou ferramentas.</p>
+
+<div class="block">
+  <span class="label">Semana 3 (≈3h) – Ciclo de Inteligência</span>
+  <ul>
+    <li>Estudar as 6 fases do ciclo de inteligência:
+      direção, recolha, processamento, análise, disseminação e feedback.</li>
+    <li>Desenhar o ciclo e escrever 1 exemplo concreto por fase,
+      usando um cenário simples (por exemplo, phishing a clientes de uma loja online em Portugal).</li>
+    <li>Marco: Consegues dizer as 6 fases de cabeça, sem precisar de consultar apontamentos.</li>
+  </ul>
+</div>
+
+<div class="block">
+  <span class="label">Semana 4 (≈3h) – Requisitos &amp; Fontes</span>
+  <ul>
+    <li>Aprender a escrever “requisitos de inteligência” (as perguntas específicas que a CTI deve responder).</li>
+    <li>Definir 3–5 requisitos de inteligência para uma organização fictícia
+      e criar a tabela: Requisito → Fontes possíveis (blogs, feeds, relatórios, OSINT) → Motivo.</li>
+    <li>Pergunta de autoavaliação: Sei dizer qual é a pergunta que quero responder antes de abrir uma ferramenta nova?</li>
+  </ul>
+</div>
+
+<h3>Semanas 5–6: Nível 3 – Trabalhar com Dados Reais</h3>
+<p>Objetivo: Conseguir transformar dados e IOCs em notas de inteligência úteis para outra pessoa.</p>
+
+<div class="block">
+  <span class="label">Semana 5 (≈3h) – Ler Relatórios &amp; Extrair IOCs</span>
+  <ul>
+    <li>Ler 1 relatório de incidente (ou artigo técnico) sobre um ataque real, de um fornecedor de segurança ou blog especializado.</li>
+    <li>Criar uma tabela: IOC | Tipo (IP, domínio, hash, ficheiro, etc.) | Onde surgiu no relatório | Porque é relevante.</li>
+    <li>Opcional: usar ferramentas públicas (VirusTotal, URLScan, AbuseIPDB) para acrescentar 1–2 linhas de contexto a alguns IOCs.</li>
+    <li>Marco: Já consegues pegar num texto técnico e extrair uma lista organizada de IOCs com contexto básico.</li>
+  </ul>
+</div>
+
+<div class="block">
+  <span class="label">Semana 6 (≈3h) – Nota Analítica Curta</span>
+  <ul>
+    <li>Ver 1 exemplo de relatório CTI curto (ou apresentação) para perceber a estrutura:
+      resumo, detalhes importantes, IOCs principais e recomendações.</li>
+    <li>Usando o relatório da semana 5, escrever 5–10 pontos que respondam:
+      o que aconteceu, quem foi visado, que IOCs são mais importantes, e o que um defensor deve fazer a seguir.</li>
+    <li>Pergunta de autoavaliação: Um analista de SOC conseguiria criar uma regra ou alerta concreto a partir da tua nota?</li>
+  </ul>
+</div>
+
+<h3>Semanas 7–8: Nível 4 – Comportamento &amp; MITRE ATT&amp;CK</h3>
+<p>Objetivo: Descrever ataques em termos de comportamentos (tácticas e técnicas), não só em listas de IOCs.</p>
+
+<div class="block">
+  <span class="label">Semana 7 (≈3h) – Introdução ao ATT&amp;CK &amp; Tácticas</span>
+  <ul>
+    <li>Explorar a matriz MITRE ATT&amp;CK:
+      ver as tácticas (Initial Access, Execution, Persistence, etc.) e algumas técnicas por cada uma.</li>
+    <li>Escolher 3 tácticas e 1 técnica por táctica. Para cada técnica, escrever:
+      “O atacante faz X usando esta técnica; o defensor pode Y para detetar ou mitigar”.</li>
+    <li>Marco: Consegues dar pelo menos 3 exemplos claros de técnicas ATT&amp;CK e de como defenderes‑te delas.</li>
+  </ul>
+</div>
+
+<div class="block">
+  <span class="label">Semana 8 (≈3h) – Mapear Relatório para ATT&amp;CK</span>
+  <ul>
+    <li>Pegar num relatório (pode ser o mesmo da semana 5 ou um novo) e sublinhar as frases que descrevem comportamentos
+      do atacante (como obteve acesso, como se movimentou, como executou código, etc.).</li>
+    <li>Mapear pelo menos 2–3 desses comportamentos para técnicas ATT&amp;CK.</li>
+    <li>Para cada técnica, escrever 1–2 recomendações defensivas específicas (logs a ativar, regras a criar, controlos a reforçar).</li>
+    <li>Pergunta de autoavaliação: Consigo contar a história do ataque quase sem mencionar IPs ou domínios, só falando em tácticas e técnicas?</li>
+  </ul>
+</div>
+
+<h3>Semanas 9–10: Nível 5 – Mini Workflow de CTI</h3>
+<p>Objetivo: Correr um pequeno ciclo de CTI completo e produzir um relatório acionável.</p>
+
+<div class="block">
+  <span class="label">Semana 9 (≈3h) – Planear &amp; Recolher</span>
+  <ul>
+    <li>Escolher um tema bem focado
+      (por exemplo: uma campanha de phishing específica, um malware comum em Portugal, ou um grupo APT concreto).</li>
+    <li>Escrever 3 perguntas de inteligência sobre esse tema (o quê, quem, como, porquê, etc.).</li>
+    <li>Recolher 3–5 fontes públicas (posts de blog, relatórios, avisos CERT, etc.) e, para cada uma, anotar:
+      data, quem publicou e 3–5 pontos principais.</li>
+    <li>Marco: Ficas com um pequeno “dossiê” de fontes, todas sobre o mesmo tema.</li>
+  </ul>
+</div>
+
+<div class="block">
+  <span class="label">Semana 10 (≈3h) – Analisar &amp; Escrever Relatório</span>
+  <ul>
+    <li>Usar as fontes da semana 9 para identificar padrões:
+      tácticas e técnicas usadas, tipos de alvo, infraestrutura recorrente, IOCs comuns.</li>
+    <li>Mapear, se possível, 2–3 comportamentos para ATT&amp;CK.</li>
+    <li>Escrever um relatório de 1–2 páginas (ou 15–25 pontos) com:
+      escopo/perguntas, principais conclusões, comportamentos mais relevantes, e 5–10 recomendações priorizadas.</li>
+    <li>Pergunta de autoavaliação final: Um defensor ou gestor conseguiria tomar decisões práticas só com base no teu relatório?</li>
+  </ul>
+</div>
+
+<hr />
+
+<!-- ===================== SECÇÃO 2 – CHEAT SHEET DE LABS ===================== -->
+
+<h2>Secção 2 – Cheat Sheet de Laboratórios e Recursos Práticos</h2>
+<p>
+  Usa esta lista para escolher labs e plataformas práticas de acordo com o teu nível atual.
+</p>
+
+<div class="level">
+  <h3>Nível 1 – Fundamentos</h3>
+  <ul>
+    <li>ArcX – Cyber Threat Intelligence 101 (curso grátis, introdutório de CTI)<br />
+      <!-- Curso introdutório de CTI, confirmado: página do curso ArcX -->
+      <a href="https://arcx.io/courses/cyber-threat-intelligence-101" target="_blank">
+        https://arcx.io/courses/cyber-threat-intelligence-101
+      </a>
+    </li>
+    <li>TryHackMe – Intro to Cyber Threat Intel (sala/lab introdutório de CTI)<br />
+      <!-- Room TryHackMe "Intro to Cyber Threat Intel", focada em tarefas práticas de CTI -->
+      <a href="https://tryhackme.com/room/cyberthreatintel" target="_blank">
+        https://tryhackme.com/room/cyberthreatintel
+      </a>
+    </li>
+    <li>Cybrary – Intro to Cyber Threat Intelligence (curso de introdução a CTI)<br />
+      <!-- Curso "Intro to Cyber Threat Intelligence" na Cybrary -->
+      <a href="https://www.cybrary.it/course/intro-cyber-threat-intelligence" target="_blank">
+        https://www.cybrary.it/course/intro-cyber-threat-intelligence
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="level">
+  <h3>Nível 2 – Ciclo de Inteligência &amp; OSINT básico</h3>
+  <ul>
+    <li>ArcX – vídeos sobre o ciclo de inteligência (incluídos no CTI 101).</li>
+    <li>CyberDefenders – labs de OSINT/Intel iniciais (plataforma de desafios blue team)<br />
+      <!-- Plataforma CyberDefenders, com laboratórios para SOC/threat intel -->
+      <a href="https://cyberdefenders.org" target="_blank">
+        https://cyberdefenders.org
+      </a>
+    </li>
+    <li>GitHub – Awesome Threat Intelligence (lista de feeds, ferramentas e recursos de CTI)<br />
+      <!-- Lista "Awesome Threat Intelligence" com recursos curados -->
+      <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
+        https://github.com/hslatman/awesome-threat-intelligence
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="level">
+  <h3>Nível 3 – IOCs, Enriquecimento &amp; Notas CTI</h3>
+  <ul>
+    <li>TryHackMe – Intro to Cyber Threat Intel (rever a parte de enriquecimento de IOCs)<br />
+      <a href="https://tryhackme.com/room/cyberthreatintel" target="_blank">
+        https://tryhackme.com/room/cyberthreatintel
+      </a>
+    </li>
+    <li>Ferramentas de reputação / enriquecimento (para testar com IOCs de relatórios públicos):<br />
+      VirusTotal, URLScan, AbuseIPDB (acesso via browser).</li>
+    <li>MISP – materiais de treino com dados estruturados de threat intel<br />
+      <!-- Repositório oficial "misp-training" com labs e exemplos -->
+      <a href="https://github.com/MISP/misp-training" target="_blank">
+        https://github.com/MISP/misp-training
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="level">
+  <h3>Nível 4 – MITRE ATT&amp;CK &amp; Comportamentos</h3>
+  <ul>
+    <li>MITRE – ATT&amp;CK for Cyber Threat Intelligence Training (série de módulos online)<br />
+      <!-- Página oficial MITRE ATT&CK CTI Training com 5 módulos -->
+      <a href="https://attack.mitre.org/resources/learn-more-about-attack/training/cti/" target="_blank">
+        https://attack.mitre.org/resources/learn-more-about-attack/training/cti/
+      </a>
+    </li>
+    <li>YouTube – How to Use the MITRE ATT&amp;CK Framework for CTI (vídeo explicativo)<br />
+      <!-- Vídeo no YouTube a explicar como usar ATT&CK para CTI -->
+      <a href="https://www.youtube.com/watch?v=a8SazLVJQ4o" target="_blank">
+        https://www.youtube.com/watch?v=a8SazLVJQ4o
+      </a>
+    </li>
+    <li>Blue Team Labs Online – plataforma de investigações e desafios blue team<br />
+      <!-- Plataforma BTLO com cenários de defesa, investigação e análise -->
+      <a href="https://blueteamlabs.online" target="_blank">
+        https://blueteamlabs.online
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="level">
+  <h3>Nível 5 – Workflow de CTI &amp; Projetos</h3>
+  <ul>
+    <li>CyberDefenders – desafios mais avançados (OSINT, threat hunting, incident response)<br />
+      <a href="https://cyberdefenders.org" target="_blank">
+        https://cyberdefenders.org
+      </a>
+    </li>
+    <li>MISP – plataforma de threat intel open source + materiais de treino<br />
+      <!-- Site oficial do MISP, com documentação e info da plataforma -->
+      <a href="https://misp.github.io/misp-website/index.html" target="_blank">
+        https://misp.github.io/misp-website/index.html
+      </a><br />
+      <!-- Repositório de treino MISP -->
+      <a href="https://github.com/MISP/misp-training" target="_blank">
+        https://github.com/MISP/misp-training
+      </a>
+    </li>
+    <li>Blue Team Labs Online – usar investigações completas como base para escrever relatórios CTI<br />
+      <a href="https://blueteamlabs.online" target="_blank">
+        https://blueteamlabs.online
+      </a>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>
