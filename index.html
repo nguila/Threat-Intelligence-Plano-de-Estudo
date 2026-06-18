@@ -235,14 +235,16 @@
       border-left: 3px solid var(--warning);
     }
 
-    .labs-grid {
+    .labs-grid,
+    .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 14px;
       margin-top: 8px;
     }
 
-    .lab-card {
+    .lab-card,
+    .tool-card {
       background: rgba(15, 23, 42, 0.95);
       border-radius: 10px;
       padding: 12px 12px 10px;
@@ -250,35 +252,41 @@
       transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s;
     }
 
-    .lab-card:hover {
+    .lab-card:hover,
+    .tool-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
       border-color: var(--accent);
     }
 
-    .lab-title {
+    .lab-title,
+    .tool-title {
       font-size: 0.92rem;
       font-weight: 600;
       margin-bottom: 4px;
     }
 
-    .lab-meta {
+    .lab-meta,
+    .tool-meta {
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-bottom: 6px;
     }
 
-    .lab-link a {
+    .lab-link a,
+    .tool-link a {
       font-size: 0.82rem;
       color: var(--accent);
       text-decoration: none;
     }
 
-    .lab-link a:hover {
+    .lab-link a:hover,
+    .tool-link a:hover {
       text-decoration: underline;
     }
 
-    .lab-tag {
+    .lab-tag,
+    .tool-tag {
       display: inline-block;
       font-size: 0.7rem;
       padding: 2px 6px;
@@ -315,12 +323,13 @@
       Plano prático de 10 semanas · ~3h/semana
     </div>
     <h1>Roadmap de Threat Intelligence</h1>
-    <p>De principiante a praticante confiante, com foco em exercícios, labs gratuitos e produção de relatórios reais.</p>
+    <p>De principiante a praticante confiante, com foco em exercícios, labs gratuitos, ferramentas open source e produção de relatórios reais.</p>
   </header>
 
   <nav>
     <a href="#plano-10-semanas">Plano semanal</a>
     <a href="#cheatsheet-labs">Cheat sheet de labs</a>
+    <a href="#ferramentas">Ferramentas & GitHub</a>
     <a href="#nivel1">Nível 1</a>
     <a href="#nivel2">Nível 2</a>
     <a href="#nivel3">Nível 3</a>
@@ -370,13 +379,13 @@
       <div class="block-title">Estudo (≈1,5–2h)</div>
       <ul>
         <li>Ler uma introdução curta a CTI, por exemplo:
-          <a href="https://ismalicious.com/glossary" target="_blank">Glossário isMalicious (secção CTI, IOC, TTP)</a>.</li>
+          <a href="https://ismalicious.com/glossary" target="_blank">Glossário isMalicious (termos CTI)</a>.</li>
         <li>Ler um artigo introdutório, por exemplo:
           <a href="https://medium.com/@A.fellow.human/quick-introduction-to-cyber-threat-intelligence-11830858c45f" target="_blank">
             Quick Introduction to Cyber Threat Intelligence
           </a>.</li>
         <li>Enquanto lês, anota:
-          quem são os “threat actors”, para que serve CTI e exemplos de decisões que ela melhora.</li>
+          quem são os “threat actors”, que tipos de CTI existem e exemplos de decisões que ela melhora.</li>
       </ul>
 
       <div class="block-title">Prática (≈1h)</div>
@@ -414,16 +423,16 @@
       <ul>
         <li>Ler definições de:
           <a href="https://ismalicious.com/glossary/ioc" target="_blank">IOC (Indicator of Compromise)</a> e TTP (Tactics, Techniques, Procedures).</li>
-        <li>Ler um pequeno guia sobre tipos de CTI (estratégica, tática, operacional, técnica), por exemplo:
+        <li>Ler um guia simples sobre tipos de CTI (estratégica, tática, operacional, técnica), por exemplo:
           <a href="https://safe.security/resources/insights/cyber-threat-intelligence-guide/" target="_blank">
             Cyber Threat Intelligence Guide (SAFE Security)
-          </a> – foca‑te nas secções de exemplos.</li>
+          </a> (secções de tipos e exemplos).</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
       <ul>
         <li>Recolher 10–15 itens:
-          títulos de notícias de cibersegurança, excertos de alertas (por ex. CERT), IPs/domínios de exemplos públicos.</li>
+          títulos de notícias de cibersegurança, excertos de alertas públicos (CERT, vendors), IPs/domínios de exemplos públicos.</li>
         <li>Para cada item, classificar:
           <span class="pill">dado em bruto</span>,
           <span class="pill">IOC</span> ou
@@ -476,13 +485,12 @@
       <div class="block-title">Prática (≈1,5h)</div>
       <ul>
         <li>Desenhar as 6 fases e, para cada, escrever:
-          - que tipo de dados entram;  
-          - que tipo de resultado sai.</li>
+          que tipo de dados entram e que tipo de resultado sai.</li>
         <li>Exemplo (Direção): “Definir se queremos focar em ransomware ou phishing este trimestre.”</li>
       </ul>
 
       <div class="highlight-box success">
-        <strong>Marco:</strong> dizes de memória as 6 fases e consegues descrever 1 ação prática que aconteceria em cada uma numa empresa real.
+        <strong>Marco:</strong> dizes de memória as 6 fases e consegues descrever 1 ação prática em cada uma numa empresa real.
       </div>
     </div>
 
@@ -505,19 +513,19 @@
 
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
-        <li>Ler exemplos de requisitos de inteligência em guias ou blogs de CTI (procura por “intelligence requirements examples”).</li>
+        <li>Ler exemplos de requisitos de inteligência em blogs/whitepapers (procura “intelligence requirements examples” para inspiração).</li>
         <li>Explorar rapidamente a lista
           <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
             Awesome Threat Intelligence
-          </a> para ver exemplos de fontes (feeds, blogs, plataformas).</li>
+          </a> para ver exemplos de fontes (feeds, blogs, plataformas) [web:43][web:69].</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
       <ul>
         <li>Inventar uma pequena empresa (ex.: e‑commerce em Portugal) e escrever 3–5 perguntas de inteligência,
-          como “Que ransomware está a atacar o setor do retalho este mês?”.</li>
-        <li>Para cada pergunta, listar 3 fontes possíveis (blogs de vendors, feeds, notícias, etc.) e justificar:
-          “Uso este blog porque publica relatórios mensais sobre ransomware ao retalho”.</li>
+          como “Que ransomware está a atacar o setor do retalho este mês?”</li>
+        <li>Para cada pergunta, listar 3 fontes possíveis (blogs de vendors, feeds, notícias, plataformas tipo MISP/OpenCTI)
+          e justificar: “Uso este blog porque publica relatórios mensais sobre ransomware ao retalho”.</li>
       </ul>
 
       <div class="highlight-box question">
@@ -560,7 +568,7 @@
       <ul>
         <li>Escolher 1 relatório público curto, por exemplo:
           um blogpost de vendor sobre uma campanha de phishing ou ransomware.</li>
-        <li>Se precisares de inspiração, procura “ransomware report 2025 vendor blog” ou “phishing campaign analysis”.</li>
+        <li>Se precisares de inspiração, procura “ransomware report vendor blog 2025” ou “phishing campaign analysis vendor”.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
@@ -599,8 +607,8 @@
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
         <li>Ver um exemplo de relatório CTI curto ou artigo bem estruturado (resumo → detalhes → IOCs → recomendações).</li>
-        <li>Se quiseres algo mais formal, dá uma vista de olhos a exemplos de relatórios em guias de CTI como:
-          <a href="https://safe.security/resources/insights/cyber-threat-intelligence-guide/" target="_blank">SAFE CTI Guide</a>.</li>
+        <li>Se quiseres algo mais formal, ver slides/relatórios de treino MISP:
+          <a href="https://github.com/MISP/misp-training" target="_blank">MISP Training</a> [web:44].</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
@@ -650,14 +658,14 @@
 
       <div class="block-title">Estudo (≈1,5–2h)</div>
       <ul>
-        <li>Visitar a matriz MITRE ATT&CK e navegar pelas tácticas e técnicas:
+        <li>Visitar a matriz MITRE ATT&CK:
           <a href="https://attack.mitre.org/matrices/enterprise/" target="_blank">
             ATT&amp;CK Enterprise Matrix
           </a>.</li>
         <li>Ver o Módulo 1 do treino ATT&CK for CTI (vídeo):
           <a href="https://www.youtube.com/watch?v=mm4j4g3NL-Q" target="_blank">
-            ATT&amp;CK for CTI – Module 1
-          </a> para perceber porque ATT&CK é útil para CTI.</li>
+            ATT&amp;CK for Cyber Threat Intelligence – Module 1
+          </a> [web:56].</li>
       </ul>
 
       <div class="block-title">Prática (≈1–1,5h)</div>
@@ -693,7 +701,7 @@
       <div class="block-title">Estudo (≈1,5–2h)</div>
       <ul>
         <li>Rever rapidamente o relatório usado nas semanas 5–6 ou escolher outro relatório público de incidente.</li>
-        <li>Reler os exemplos de TTPs e comportamento em glossários/artigos (por ex. isMalicious Glossary e CTI guides).</li>
+        <li>Reler exemplos de TTPs e comportamento em glossários/artigos (por ex. isMalicious Glossary e CTI guides).</li>
       </ul>
 
       <div class="block-title">Prática (≈1–1,5h)</div>
@@ -750,7 +758,7 @@
         <li>Se quiseres mais contexto, ler exemplos de casos reais em guias como:
           <a href="https://flare.io/learn/resources/blog/threat-intelligence/" target="_blank">
             Flare – Threat Intelligence Guide
-          </a> (vê os exemplos de uso de CTI em organizações).</li>
+          </a> [web:67].</li>
       </ul>
 
       <div class="block-title">Prática (≈2h)</div>
@@ -794,7 +802,7 @@
         <li>Opcional: ver o Módulo 5 do treino ATT&CK for CTI (como transformar mapeamentos em recomendações):
           <a href="https://www.youtube.com/watch?v=RpCpKc4m3gI" target="_blank">
             ATT&amp;CK for CTI – Module 5
-          </a>.</li>
+          </a> [web:56].</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
@@ -898,7 +906,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Todos os níveis</span>
         <span class="lab-tag">Lista</span>
-        Lista curada de feeds, ferramentas e recursos de CTI. Consulta ocasionalmente nas semanas 4–10.
+        Lista curada de feeds, ferramentas e recursos de CTI [web:43][web:69]. Consulta ocasionalmente nas semanas 4–10.
       </div>
       <div class="lab-link">
         <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
@@ -913,7 +921,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Nível 3–5</span>
         <span class="lab-tag">Plataforma</span>
-        Exemplos de dados estruturados de threat intel e labs com MISP. Bom a partir das semanas 6–10.
+        Exemplos de dados estruturados de threat intel e labs com MISP [web:44]. Bom a partir das semanas 6–10.
       </div>
       <div class="lab-link">
         <a href="https://github.com/MISP/misp-training" target="_blank">
@@ -928,7 +936,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Nível 4–5</span>
         <span class="lab-tag">Curso</span>
-        5 módulos sobre como usar ATT&CK em CTI (vídeos + exercícios). Perfeito para semanas 7–10.
+        5 módulos sobre como usar ATT&CK em CTI (vídeos + exercícios). Perfeito para semanas 7–10 [web:56].
       </div>
       <div class="lab-link">
         <a href="https://attack.mitre.org/resources/learn-more-about-attack/training/cti/" target="_blank">
@@ -966,6 +974,136 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- ===================== SECÇÃO 3 – FERRAMENTAS & GITHUB ===================== -->
+
+  <hr class="divider" />
+
+  <h2 id="ferramentas">Secção 3 · Ferramentas & Repositórios GitHub</h2>
+  <p class="section-note">
+    Esta secção lista ferramentas e repositórios GitHub focados em CTI, OSINT e automação. Usa‑os para explorar o que as equipas profissionais utilizam no dia a dia.
+  </p>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-title">Awesome Threat Intelligence · Lista Curada</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Coleção</span>
+        <span class="tool-tag">GitHub</span>
+        Lista extensa de feeds, plataformas e ferramentas para CTI [web:43][web:69].
+      </div>
+      <div class="tool-link">
+        <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
+          github.com/hslatman/awesome-threat-intelligence
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-title">MISP · Threat Intelligence Platform</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Plataforma</span>
+        <span class="tool-tag">Open Source</span>
+        Plataforma de partilha e gestão de indicadores amplamente usada [web:71][web:44].
+      </div>
+      <div class="tool-link">
+        <a href="https://github.com/MISP/MISP" target="_blank">
+          github.com/MISP/MISP
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-title">OpenCTI · Threat Intelligence Platform</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Plataforma</span>
+        <span class="tool-tag">Graph</span>
+        Plataforma para gerir conhecimento sobre ameaças (actores, TTPs, campanhas) com grafo e integrações [web:72].
+      </div>
+      <div class="tool-link">
+        <a href="https://github.com/OpenCTI-Platform/opencti" target="_blank">
+          github.com/OpenCTI-Platform/opencti
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-title">BushidoUK · Open Source Tools for CTI</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Coleção</span>
+        <span class="tool-tag">Ferramentas CTI</span>
+        Repositório público com ferramentas open source úteis para analistas CTI [web:71].
+      </div>
+      <div class="tool-link">
+        <a href="https://github.com/BushidoUK/Open-source-tools-for-CTI" target="_blank">
+          github.com/BushidoUK/Open-source-tools-for-CTI
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-title">Digitalside Threat-Intel · Feeds CTI</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Feed</span>
+        <span class="tool-tag">GitHub</span>
+        Repositório com IOC feeds open source baseados em malware e URLs comprometidos [web:76].
+      </div>
+      <div class="tool-link">
+        <a href="https://github.com/davidonzo/Threat-Intel" target="_blank">
+          github.com/davidonzo/Threat-Intel
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-title">Threat Hunting & Intel Resources</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Coleção</span>
+        <span class="tool-tag">Hunting</span>
+        Secção de CTI em “Awesome Threat Detection and Hunting” (inclui OpenCTI, Yeti, etc.) [web:72].
+      </div>
+      <div class="tool-link">
+        <a href="https://threat-hunting.github.io/awesome_Threat-Hunting/Threat%20Intelligence/" target="_blank">
+          threat-hunting.github.io/.../Threat%20Intelligence/
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-title">GitHub Topic · threatintel</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Explorar</span>
+        <span class="tool-tag">GitHub Topic</span>
+        Página de tópicos GitHub com múltiplos projetos relacionados com CTI (MISP, OSINT, feeds, tooling) [web:71].
+      </div>
+      <div class="tool-link">
+        <a href="https://github.com/topics/threatintel" target="_blank">
+          github.com/topics/threatintel
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-title">Tracery · Metasearch OSINT</div>
+      <div class="tool-meta">
+        <span class="tool-tag">OSINT</span>
+        <span class="tool-tag">Metasearch</span>
+        Projeto open source para automatizar recolha OSINT para CTI [web:73].
+      </div>
+      <div class="tool-link">
+        <a href="https://github.com/arachne-threat-intel/tracery" target="_blank">
+          github.com/arachne-threat-intel/tracery
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box warn">
+    <strong>Como usar estas ferramentas:</strong><br />
+    · Níveis 1–2: explora listas (Awesome Threat Intelligence, BushidoUK) para ter noção do “ecossistema”.<br />
+    · Níveis 3–4: lê feeds (Digitalside) e tenta extrair IOCs / TTPs para as tuas tabelas e notas.<br />
+    · Nível 5: se tiveres recursos, instala um lab simples com MISP/OpenCTI para perceber o fluxo de dados numa plataforma de CTI.
   </div>
 
   <footer>
