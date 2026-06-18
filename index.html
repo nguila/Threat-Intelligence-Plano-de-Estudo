@@ -346,7 +346,7 @@
   <!-- NÍVEL 1 -->
   <h3 id="nivel1">Semanas 1–2 · Nível 1 – Fundamentos</h3>
   <p class="section-note">
-    Objetivo do nível: perceber o que é CTI, quem usa, e saber distinguir dados brutos de inteligência.
+    Objetivo do nível: perceber o que é CTI, quem a usa, e saber distinguir dados brutos de inteligência.
   </p>
 
   <div class="grid">
@@ -369,18 +369,27 @@
 
       <div class="block-title">Estudo (≈1,5–2h)</div>
       <ul>
-        <li>Ver 1–2 introduções a CTI (vídeos ou cursos gratuitos) para entender:
-          o que é CTI, que tipos existem (tático, operacional, estratégico) e para que serve.</li>
+        <li>Ler uma introdução curta a CTI, por exemplo:
+          <a href="https://ismalicious.com/glossary" target="_blank">Glossário isMalicious (secção CTI, IOC, TTP)</a>.</li>
+        <li>Ler um artigo introdutório, por exemplo:
+          <a href="https://medium.com/@A.fellow.human/quick-introduction-to-cyber-threat-intelligence-11830858c45f" target="_blank">
+            Quick Introduction to Cyber Threat Intelligence
+          </a>.</li>
+        <li>Enquanto lês, anota:
+          quem são os “threat actors”, para que serve CTI e exemplos de decisões que ela melhora.</li>
       </ul>
 
       <div class="block-title">Prática (≈1h)</div>
       <ul>
         <li>Escrever 1 página (ou 10–15 pontos) em PT a explicar:
-          o que é CTI, quem a usa e 3 problemas concretos que ajuda a resolver.</li>
+          o que é CTI, quem a usa (SOC, Red Team, gestão, etc.) e 3 problemas concretos que ajuda a resolver
+          (ex.: reduzir phishing bem‑sucedido, priorizar patches, evitar ransomware).</li>
+        <li>Exemplo de frase:
+          “Uma equipa CTI pode analisar campanhas de ransomware ativas e priorizar controlos e backups antes de a organização ser atingida.”</li>
       </ul>
 
       <div class="highlight-box success">
-        <strong>Marco:</strong> consegues explicar CTI claramente a alguém não técnico, sem jargão.
+        <strong>Marco:</strong> consegues explicar CTI claramente a alguém não técnico, usando pelo menos 1 exemplo realista.
       </div>
     </div>
 
@@ -403,19 +412,28 @@
 
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
-        <li>Rever os conceitos de IOC, IOA, TTP e as diferenças entre dado em bruto, indicador e inteligência.</li>
+        <li>Ler definições de:
+          <a href="https://ismalicious.com/glossary/ioc" target="_blank">IOC (Indicator of Compromise)</a> e TTP (Tactics, Techniques, Procedures).</li>
+        <li>Ler um pequeno guia sobre tipos de CTI (estratégica, tática, operacional, técnica), por exemplo:
+          <a href="https://safe.security/resources/insights/cyber-threat-intelligence-guide/" target="_blank">
+            Cyber Threat Intelligence Guide (SAFE Security)
+          </a> – foca‑te nas secções de exemplos.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
       <ul>
-        <li>Juntar 10–15 exemplos (notícias, linhas de log fictícias, IPs/domínios) e classificar cada um:
-          <span class="pill">dado</span>
-          <span class="pill">IOC</span>
-          <span class="pill">inteligência</span> com 1 frase de justificação.</li>
+        <li>Recolher 10–15 itens:
+          títulos de notícias de cibersegurança, excertos de alertas (por ex. CERT), IPs/domínios de exemplos públicos.</li>
+        <li>Para cada item, classificar:
+          <span class="pill">dado em bruto</span>,
+          <span class="pill">IOC</span> ou
+          <span class="pill">inteligência</span>,
+          com 1 frase de justificação. Exemplo:
+          “IP 203.0.113.10 – IOC, porque é um endereço concreto usado num ataque de phishing descrito no relatório X.”</li>
       </ul>
 
       <div class="highlight-box question">
-        <strong>Autoavaliação:</strong> consigo explicar a diferença entre IOC e TTP em 1 frase?
+        <strong>Autoavaliação:</strong> consigo explicar a diferença entre IOC (coisa concreta) e TTP (comportamento/hábito do atacante) em 1 frase?
       </div>
     </div>
   </div>
@@ -425,7 +443,7 @@
   <!-- NÍVEL 2 -->
   <h3 id="nivel2">Semanas 3–4 · Nível 2 – Ciclo de Inteligência & Processo</h3>
   <p class="section-note">
-    Objetivo do nível: passar a ver CTI como um ciclo completo (direção → feedback), não só como feeds de dados.
+    Objetivo do nível: passar a ver CTI como um ciclo completo (direção → recolha → análise → feedback), não só como feeds de dados.
   </p>
 
   <div class="grid">
@@ -448,18 +466,23 @@
 
       <div class="block-title">Estudo (≈1,5h)</div>
       <ul>
-        <li>Estudar as 6 fases do ciclo de inteligência:
-          direção, recolha, processamento, análise, disseminação e feedback.</li>
+        <li>Ler uma explicação do ciclo de inteligência (6 fases), por exemplo no guia de CTI da SAFE Security:
+          <a href="https://safe.security/resources/insights/cyber-threat-intelligence-guide/" target="_blank">
+            Cyber Threat Intelligence Guide
+          </a> (secção “lifecycle”).</li>
+        <li>Opcional: ver um vídeo introdutório ao ciclo de inteligência (por ex. “Introduction to Cyber Threat Intelligence – TryHackMe” no YouTube).</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5h)</div>
       <ul>
-        <li>Desenhar o ciclo e escrever 1 exemplo concreto por fase,
-          usando um cenário simples (ex.: phishing numa PME em Portugal).</li>
+        <li>Desenhar as 6 fases e, para cada, escrever:
+          - que tipo de dados entram;  
+          - que tipo de resultado sai.</li>
+        <li>Exemplo (Direção): “Definir se queremos focar em ransomware ou phishing este trimestre.”</li>
       </ul>
 
       <div class="highlight-box success">
-        <strong>Marco:</strong> dizes de cabeça as 6 fases e consegues dar 1 exemplo por cada.
+        <strong>Marco:</strong> dizes de memória as 6 fases e consegues descrever 1 ação prática que aconteceria em cada uma numa empresa real.
       </div>
     </div>
 
@@ -482,18 +505,23 @@
 
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
-        <li>Aprender a escrever <em>requisitos de inteligência</em>:
-          perguntas específicas que a CTI deve responder.</li>
+        <li>Ler exemplos de requisitos de inteligência em guias ou blogs de CTI (procura por “intelligence requirements examples”).</li>
+        <li>Explorar rapidamente a lista
+          <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
+            Awesome Threat Intelligence
+          </a> para ver exemplos de fontes (feeds, blogs, plataformas).</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
       <ul>
-        <li>Definir 3–5 requisitos para uma organização fictícia.</li>
-        <li>Criar tabela: Requisito → Fontes possíveis (blogs, feeds, relatórios, OSINT) → Motivo.</li>
+        <li>Inventar uma pequena empresa (ex.: e‑commerce em Portugal) e escrever 3–5 perguntas de inteligência,
+          como “Que ransomware está a atacar o setor do retalho este mês?”.</li>
+        <li>Para cada pergunta, listar 3 fontes possíveis (blogs de vendors, feeds, notícias, etc.) e justificar:
+          “Uso este blog porque publica relatórios mensais sobre ransomware ao retalho”.</li>
       </ul>
 
       <div class="highlight-box question">
-        <strong>Autoavaliação:</strong> consigo enunciar as perguntas que quero responder antes de escolher ferramentas?
+        <strong>Autoavaliação:</strong> antes de imaginar ferramentas, consigo pensar primeiro em “que decisão quero apoiar” e “que pergunta quero responder”?
       </div>
     </div>
   </div>
@@ -530,18 +558,24 @@
 
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
-        <li>Ler 1 relatório de incidente (ou artigo técnico) sobre um ataque real.</li>
+        <li>Escolher 1 relatório público curto, por exemplo:
+          um blogpost de vendor sobre uma campanha de phishing ou ransomware.</li>
+        <li>Se precisares de inspiração, procura “ransomware report 2025 vendor blog” ou “phishing campaign analysis”.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
       <ul>
-        <li>Criar uma tabela: IOC | Tipo | Onde surgiu no relatório | Porque é relevante.</li>
-        <li>Opcional: usar VirusTotal, URLScan ou AbuseIPDB para adicionar contexto a alguns IOCs.</li>
-        <li><strong>Nota de segurança:</strong> usa apenas IOCs públicos; nunca envies dados sensíveis.</li>
+        <li>Ler o relatório e sublinhar tudo o que pareça IOC:
+          IPs, domínios, hashes, nomes de ficheiro, URLs, endereços de email.</li>
+        <li>Transformar isso numa tabela:  
+          IOC | Tipo (ex.: IP, domínio, hash) | Fonte (qual relatório/parágrafo) | Porque é relevante.</li>
+        <li>Usar 1 ferramenta pública (VirusTotal, URLScan, AbuseIPDB) para enriquecer 2–3 IOCs com:
+          localização, reputação, frequência de deteção, etc.</li>
+        <li><strong>Nota de segurança:</strong> usa apenas IOCs públicos de relatórios; não envies dados sensíveis teus ou da tua empresa.</li>
       </ul>
 
       <div class="highlight-box success">
-        <strong>Marco:</strong> consegues ir de “texto corrido” a uma tabela de IOCs com contexto básico.
+        <strong>Marco:</strong> consegues ir de “texto corrido” a uma tabela de IOCs bem organizada, com notas de contexto.
       </div>
     </div>
 
@@ -564,14 +598,22 @@
 
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
-        <li>Ver 1 exemplo de relatório CTI curto (ou apresentação) para perceber a estrutura:
-          resumo, detalhes, IOCs, recomendações.</li>
+        <li>Ver um exemplo de relatório CTI curto ou artigo bem estruturado (resumo → detalhes → IOCs → recomendações).</li>
+        <li>Se quiseres algo mais formal, dá uma vista de olhos a exemplos de relatórios em guias de CTI como:
+          <a href="https://safe.security/resources/insights/cyber-threat-intelligence-guide/" target="_blank">SAFE CTI Guide</a>.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
       <ul>
-        <li>Com base no relatório da semana 5, escrever 5–10 pontos que respondam:
-          o que aconteceu, quem foi visado, IOCs principais e ações para defensores.</li>
+        <li>Usar o relatório e a tabela de IOCs da semana 5 para escrever uma nota CTI com:
+          <ul>
+            <li>2–3 linhas de resumo executivo.</li>
+            <li>Lista de IOCs principais (os mais fáceis de usar em deteção).</li>
+            <li>3–5 ações para SOC/defesa (bloquear, monitorizar, alertar, treinar utilizadores, etc.).</li>
+          </ul>
+        </li>
+        <li>Exemplo de ação:
+          “Adicionar estes domínios à lista de bloqueio no proxy e criar regra de alerta para qualquer tentativa de ligação.”</li>
       </ul>
 
       <div class="highlight-box question">
@@ -608,18 +650,26 @@
 
       <div class="block-title">Estudo (≈1,5–2h)</div>
       <ul>
-        <li>Explorar a matriz MITRE ATT&CK e ler descrições de algumas tácticas e técnicas relevantes.</li>
+        <li>Visitar a matriz MITRE ATT&CK e navegar pelas tácticas e técnicas:
+          <a href="https://attack.mitre.org/matrices/enterprise/" target="_blank">
+            ATT&amp;CK Enterprise Matrix
+          </a>.</li>
+        <li>Ver o Módulo 1 do treino ATT&CK for CTI (vídeo):
+          <a href="https://www.youtube.com/watch?v=mm4j4g3NL-Q" target="_blank">
+            ATT&amp;CK for CTI – Module 1
+          </a> para perceber porque ATT&CK é útil para CTI.</li>
       </ul>
 
       <div class="block-title">Prática (≈1–1,5h)</div>
       <ul>
-        <li>Escolher 3 tácticas; para cada uma, 1 técnica.</li>
+        <li>Escolher 3 tácticas relevantes (por exemplo: Initial Access, Execution, Exfiltration).</li>
+        <li>Para cada táctica, escolher 1 técnica na matriz (por exemplo: Spearphishing Attachment, PowerShell, Exfiltration Over Web Services).</li>
         <li>Para cada técnica, escrever:
-          “O atacante faz X; o defensor pode Y para detetar/mitigar”.</li>
+          “O atacante faz X; um defensor pode Y para detetar/mitigar” (ex.: logar eventos, alertar sobre processos suspeitos, bloquear anexos perigosos).</li>
       </ul>
 
       <div class="highlight-box success">
-        <strong>Marco:</strong> tens pelo menos 3 exemplos claros de técnicas ATT&CK com respetivas ações defensivas.
+        <strong>Marco:</strong> tens pelo menos 3 exemplos concretos de técnicas ATT&CK e sabes dizer como as detetar ou mitigar.
       </div>
     </div>
 
@@ -642,17 +692,21 @@
 
       <div class="block-title">Estudo (≈1,5–2h)</div>
       <ul>
-        <li>Pegar num relatório e sublinhar frases que descrevem comportamentos do atacante.</li>
+        <li>Rever rapidamente o relatório usado nas semanas 5–6 ou escolher outro relatório público de incidente.</li>
+        <li>Reler os exemplos de TTPs e comportamento em glossários/artigos (por ex. isMalicious Glossary e CTI guides).</li>
       </ul>
 
       <div class="block-title">Prática (≈1–1,5h)</div>
       <ul>
-        <li>Mapear pelo menos 2–3 comportamentos para técnicas ATT&CK.</li>
-        <li>Para cada técnica, definir 1–2 recomendações defensivas concretas.</li>
+        <li>Sublinhar no relatório as frases de comportamento:
+          “O atacante enviou emails com anexos maliciosos”; “movimentou‑se lateralmente via RDP”; etc.</li>
+        <li>Usar a matriz ATT&CK para mapear 2–3 desses comportamentos a técnicas específicas.</li>
+        <li>Para cada técnica mapeada, escrever 1–2 recomendações práticas, como:
+          “Ativar logging detalhado de PowerShell e criar alerta para execução de scripts de localização suspeitos.”</li>
       </ul>
 
       <div class="highlight-box question">
-        <strong>Autoavaliação:</strong> consigo contar a história do ataque quase sem mencionar IPs/domínios?
+        <strong>Autoavaliação:</strong> consigo descrever o ataque em termos de tácticas/técnicas (TTPs) e propor melhorias defensivas com base nisso?
       </div>
     </div>
   </div>
@@ -691,18 +745,28 @@
 
       <div class="block-title">Estudo (≈1h)</div>
       <ul>
-        <li>Rever requisitos de inteligência, ciclo de inteligência e ATT&CK.</li>
+        <li>Rever rapidamente:
+          requisitos de inteligência, ciclo de inteligência e ATT&CK (apontamentos das semanas anteriores).</li>
+        <li>Se quiseres mais contexto, ler exemplos de casos reais em guias como:
+          <a href="https://flare.io/learn/resources/blog/threat-intelligence/" target="_blank">
+            Flare – Threat Intelligence Guide
+          </a> (vê os exemplos de uso de CTI em organizações).</li>
       </ul>
 
       <div class="block-title">Prática (≈2h)</div>
       <ul>
-        <li>Escolher um tema focado (campanha de phishing, malware ou grupo APT).</li>
-        <li>Escrever 3 perguntas de inteligência sobre esse tema.</li>
-        <li>Recolher 3–5 fontes públicas e anotar data, autor e 3–5 pontos chave de cada uma.</li>
+        <li>Escolher um tema focado, por exemplo:
+          “Ransomware contra hospitais”, “phishing a bancos em PT” ou “APT específico”.</li>
+        <li>Escrever 3 perguntas de inteligência, como:
+          “Que TTPs este grupo usa para acesso inicial?”,
+          “Que indústrias são mais afetadas?”,
+          “Que IOCs são mais recorrentes?”.</li>
+        <li>Recolher 3–5 fontes públicas (blogs, relatórios, advisories) e, para cada uma, anotar:
+          data, autor, 3–5 pontos chave + URLs.</li>
       </ul>
 
       <div class="highlight-box success">
-        <strong>Marco:</strong> tens um pequeno “dossiê” de fontes organizado em torno de um único tema.
+        <strong>Marco:</strong> tens um pequeno “dossiê” de fontes organizadas sobre um único tema de ameaça.
       </div>
     </div>
 
@@ -725,19 +789,31 @@
 
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
-        <li>Rever exemplos de bons relatórios CTI (estrutura, linguagem clara e recomendações acionáveis).</li>
+        <li>Rever exemplos de relatórios CTI públicos (mesmo que resumos) para veres como estruturam:
+          contexto → análise → recomendações.</li>
+        <li>Opcional: ver o Módulo 5 do treino ATT&CK for CTI (como transformar mapeamentos em recomendações):
+          <a href="https://www.youtube.com/watch?v=RpCpKc4m3gI" target="_blank">
+            ATT&amp;CK for CTI – Module 5
+          </a>.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
       <ul>
-        <li>Usar as fontes da semana 9 para identificar padrões de comportamento, alvos e infraestrutura.</li>
-        <li>Mapear, se possível, 2–3 comportamentos a ATT&CK.</li>
+        <li>Das tuas fontes da semana 9, identificar:
+          padrões de TTPs, tipos de alvo, infraestrutura recorrente (domínios, IPs, C2), e qualquer mudança ao longo do tempo.</li>
+        <li>Mapear, se possível, 2–3 comportamentos a ATT&CK (referindo ID da técnica e nome).</li>
         <li>Escrever um relatório de 1–2 páginas (ou 15–25 pontos) com:
-          escopo/perguntas, principais conclusões, comportamentos chave e 5–10 recomendações priorizadas.</li>
+          <ul>
+            <li>Escopo e perguntas iniciais.</li>
+            <li>Principais conclusões (o que aprendes sobre a ameaça).</li>
+            <li>Comportamentos chave (tácticas/técnicas mais críticas).</li>
+            <li>5–10 recomendações priorizadas (High/Medium/Low) para deteção, mitigação e awareness.</li>
+          </ul>
+        </li>
       </ul>
 
       <div class="highlight-box question">
-        <strong>Autoavaliação final:</strong> um defensor ou gestor conseguiria agir com base no teu relatório sem pedir mais contexto?
+        <strong>Autoavaliação final:</strong> um defensor ou gestor conseguiria agir com base no teu relatório sem pedir mais explicações?
       </div>
     </div>
   </div>
