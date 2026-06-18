@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <title>Plano de Threat Intelligence – 10 Semanas</title>
   <style>
-    :root {
+    /* Tema escuro (default) */
+    body[data-theme="dark"] {
       --bg: #0f172a;
       --bg-alt: #111827;
       --card-bg: #020617;
@@ -16,6 +17,25 @@
       --danger: #f97373;
       --success: #4ade80;
       --warning: #fbbf24;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text-main);
+    }
+
+    /* Tema claro */
+    body[data-theme="light"] {
+      --bg: #f3f4f6;
+      --bg-alt: #ffffff;
+      --card-bg: #ffffff;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+      --danger: #dc2626;
+      --success: #16a34a;
+      --warning: #d97706;
+      background: #f3f4f6;
+      color: var(--text-main);
     }
 
     * {
@@ -25,10 +45,9 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
-      color: var(--text-main);
       font-size: 15px;
       line-height: 1.7;
+      transition: background 0.2s ease-out, color 0.2s ease-out;
     }
 
     .page {
@@ -39,7 +58,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     header h1 {
@@ -61,10 +80,15 @@
       font-size: 0.8rem;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 118, 110, 0.1);
-      color: #5eead4;
+      background: rgba(15, 118, 110, 0.08);
+      color: #0f766e;
       border: 1px solid rgba(45, 212, 191, 0.25);
       margin-bottom: 10px;
+    }
+
+    body[data-theme="dark"] .badge {
+      background: rgba(15, 118, 110, 0.1);
+      color: #5eead4;
     }
 
     .badge span {
@@ -74,11 +98,34 @@
       background: #22c55e;
     }
 
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .theme-toggle {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     nav {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 20px auto 24px;
+      margin: 16px auto 20px;
       justify-content: center;
     }
 
@@ -89,8 +136,12 @@
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.4);
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.02);
       backdrop-filter: blur(8px);
+    }
+
+    body[data-theme="dark"] nav a {
+      background: rgba(15, 23, 42, 0.8);
     }
 
     nav a:hover {
@@ -108,7 +159,7 @@
     h3 {
       font-size: 1.05rem;
       margin: 16px 0 4px;
-      color: #e5e7eb;
+      color: var(--text-main);
     }
 
     .section-note {
@@ -130,7 +181,6 @@
       font-size: 0.75rem;
       padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.8);
       border: 1px solid rgba(148, 163, 184, 0.4);
       color: var(--text-muted);
       margin-right: 4px;
@@ -151,10 +201,15 @@
     }
 
     .card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), rgba(15, 23, 42, 0.9));
+      background: var(--card-bg);
       border-radius: 12px;
       padding: 16px 16px 14px;
       border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    body[data-theme="dark"] .card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), rgba(15, 23, 42, 0.9));
       box-shadow: 0 14px 35px rgba(15, 23, 42, 0.8);
     }
 
@@ -184,10 +239,10 @@
       font-size: 0.75rem;
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(148, 163, 184, 0.4);
       color: var(--text-muted);
       margin-bottom: 8px;
+      background: rgba(15, 23, 42, 0.02);
     }
 
     .tag-dot {
@@ -245,17 +300,22 @@
 
     .lab-card,
     .tool-card {
-      background: rgba(15, 23, 42, 0.95);
+      background: var(--bg-alt);
       border-radius: 10px;
       padding: 12px 12px 10px;
       border: 1px solid rgba(148, 163, 184, 0.35);
       transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s;
     }
 
+    body[data-theme="dark"] .lab-card,
+    body[data-theme="dark"] .tool-card {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+    }
+
     .lab-card:hover,
     .tool-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
       border-color: var(--accent);
     }
 
@@ -304,6 +364,10 @@
       text-align: center;
     }
 
+    a {
+      color: var(--accent);
+    }
+
     @media (max-width: 640px) {
       header h1 {
         font-size: 1.8rem;
@@ -312,10 +376,51 @@
         padding: 20px 14px 32px;
       }
     }
+
+    /* Estilos para impressão / PDF */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .page {
+        padding: 10mm;
+        max-width: 100%;
+        box-shadow: none !important;
+      }
+      nav, .top-bar, .badge {
+        display: none !important;
+      }
+      .card {
+        box-shadow: none !important;
+        border-color: #cccccc !important;
+      }
+    }
   </style>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const newTheme = body.dataset.theme === "light" ? "dark" : "light";
+      body.dataset.theme = newTheme;
+      localStorage.setItem("ti-theme", newTheme);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("ti-theme");
+      if (saved === "light" || saved === "dark") {
+        document.body.dataset.theme = saved;
+      } else {
+        document.body.dataset.theme = "dark";
+      }
+    });
+  </script>
 </head>
 <body>
 <div class="page">
+
+  <div class="top-bar">
+    <button class="theme-toggle" onclick="toggleTheme()">Alternar tema</button>
+  </div>
 
   <header>
     <div class="badge">
@@ -325,6 +430,13 @@
     <h1>Roadmap de Threat Intelligence</h1>
     <p>De principiante a praticante confiante, com foco em exercícios, labs gratuitos, ferramentas open source e produção de relatórios reais.</p>
   </header>
+
+  <div class="highlight-box">
+    <strong>Como usar:</strong><br />
+    · Abre um cartão de semana de cada vez e marca o checkbox ao concluir.<br />
+    · Em cada bloco (S1–2, S3–4, etc.), escolhe pelo menos 1 lab da secção de labs.<br />
+    · Guarda notas e relatórios num repositório Git (<code>notes/</code>, <code>labs/</code>, <code>reports/</code>) para construir portefólio.
+  </div>
 
   <nav>
     <a href="#plano-10-semanas">Plano semanal</a>
@@ -350,6 +462,17 @@
     <span class="pill">S5–6 · Dados Reais</span>
     <span class="pill">S7–8 · ATT&CK</span>
     <span class="pill">S9–10 · Workflow</span>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="block-title">Resumo de competências por bloco</div>
+    <ul>
+      <li><strong>S1–2:</strong> defines CTI, tipos, IOC vs TTP; lês notícias e distingues dado vs inteligência.</li>
+      <li><strong>S3–4:</strong> descreves o ciclo de inteligência e escreves requisitos claros.</li>
+      <li><strong>S5–6:</strong> extrais IOCs de relatórios e escreves notas CTI curtas.</li>
+      <li><strong>S7–8:</strong> usas ATT&CK para descrever comportamentos e sugerir deteções.</li>
+      <li><strong>S9–10:</strong> corres um mini workflow de CTI e produzes um relatório completo.</li>
+    </ul>
   </div>
 
   <!-- NÍVEL 1 -->
@@ -397,6 +520,11 @@
           “Uma equipa CTI pode analisar campanhas de ransomware ativas e priorizar controlos e backups antes de a organização ser atingida.”</li>
       </ul>
 
+      <div class="highlight-box">
+        Sugestão: combina esta semana com os labs de <a href="#cheatsheet-labs">Nível 1–2</a>
+        (ArcX CTI 101 + Cybrary Intro CTI).
+      </div>
+
       <div class="highlight-box success">
         <strong>Marco:</strong> consegues explicar CTI claramente a alguém não técnico, usando pelo menos 1 exemplo realista.
       </div>
@@ -437,8 +565,7 @@
           <span class="pill">dado em bruto</span>,
           <span class="pill">IOC</span> ou
           <span class="pill">inteligência</span>,
-          com 1 frase de justificação. Exemplo:
-          “IP 203.0.113.10 – IOC, porque é um endereço concreto usado num ataque de phishing descrito no relatório X.”</li>
+          com 1 frase de justificação.</li>
       </ul>
 
       <div class="highlight-box question">
@@ -513,11 +640,11 @@
 
       <div class="block-title">Estudo (≈1–1,5h)</div>
       <ul>
-        <li>Ler exemplos de requisitos de inteligência em blogs/whitepapers (procura “intelligence requirements examples” para inspiração).</li>
+        <li>Ler exemplos de requisitos de inteligência em blogs/whitepapers (procura “intelligence requirements examples”).</li>
         <li>Explorar rapidamente a lista
           <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
             Awesome Threat Intelligence
-          </a> para ver exemplos de fontes (feeds, blogs, plataformas) [web:43][web:69].</li>
+          </a> para ver exemplos de fontes (feeds, blogs, plataformas).</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
@@ -608,7 +735,7 @@
       <ul>
         <li>Ver um exemplo de relatório CTI curto ou artigo bem estruturado (resumo → detalhes → IOCs → recomendações).</li>
         <li>Se quiseres algo mais formal, ver slides/relatórios de treino MISP:
-          <a href="https://github.com/MISP/misp-training" target="_blank">MISP Training</a> [web:44].</li>
+          <a href="https://github.com/MISP/misp-training" target="_blank">MISP Training</a>.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
@@ -620,8 +747,6 @@
             <li>3–5 ações para SOC/defesa (bloquear, monitorizar, alertar, treinar utilizadores, etc.).</li>
           </ul>
         </li>
-        <li>Exemplo de ação:
-          “Adicionar estes domínios à lista de bloqueio no proxy e criar regra de alerta para qualquer tentativa de ligação.”</li>
       </ul>
 
       <div class="highlight-box question">
@@ -665,7 +790,7 @@
         <li>Ver o Módulo 1 do treino ATT&CK for CTI (vídeo):
           <a href="https://www.youtube.com/watch?v=mm4j4g3NL-Q" target="_blank">
             ATT&amp;CK for Cyber Threat Intelligence – Module 1
-          </a> [web:56].</li>
+          </a>.</li>
       </ul>
 
       <div class="block-title">Prática (≈1–1,5h)</div>
@@ -673,7 +798,7 @@
         <li>Escolher 3 tácticas relevantes (por exemplo: Initial Access, Execution, Exfiltration).</li>
         <li>Para cada táctica, escolher 1 técnica na matriz (por exemplo: Spearphishing Attachment, PowerShell, Exfiltration Over Web Services).</li>
         <li>Para cada técnica, escrever:
-          “O atacante faz X; um defensor pode Y para detetar/mitigar” (ex.: logar eventos, alertar sobre processos suspeitos, bloquear anexos perigosos).</li>
+          “O atacante faz X; um defensor pode Y para detetar/mitigar”.</li>
       </ul>
 
       <div class="highlight-box success">
@@ -709,8 +834,7 @@
         <li>Sublinhar no relatório as frases de comportamento:
           “O atacante enviou emails com anexos maliciosos”; “movimentou‑se lateralmente via RDP”; etc.</li>
         <li>Usar a matriz ATT&CK para mapear 2–3 desses comportamentos a técnicas específicas.</li>
-        <li>Para cada técnica mapeada, escrever 1–2 recomendações práticas, como:
-          “Ativar logging detalhado de PowerShell e criar alerta para execução de scripts de localização suspeitos.”</li>
+        <li>Para cada técnica mapeada, escrever 1–2 recomendações práticas.</li>
       </ul>
 
       <div class="highlight-box question">
@@ -755,10 +879,10 @@
       <ul>
         <li>Rever rapidamente:
           requisitos de inteligência, ciclo de inteligência e ATT&CK (apontamentos das semanas anteriores).</li>
-        <li>Se quiseres mais contexto, ler exemplos de casos reais em guias como:
+        <li>Se quiseres mais contexto, ler exemplos de casos reais, por exemplo:
           <a href="https://flare.io/learn/resources/blog/threat-intelligence/" target="_blank">
             Flare – Threat Intelligence Guide
-          </a> [web:67].</li>
+          </a>.</li>
       </ul>
 
       <div class="block-title">Prática (≈2h)</div>
@@ -799,10 +923,8 @@
       <ul>
         <li>Rever exemplos de relatórios CTI públicos (mesmo que resumos) para veres como estruturam:
           contexto → análise → recomendações.</li>
-        <li>Opcional: ver o Módulo 5 do treino ATT&CK for CTI (como transformar mapeamentos em recomendações):
-          <a href="https://www.youtube.com/watch?v=RpCpKc4m3gI" target="_blank">
-            ATT&amp;CK for CTI – Module 5
-          </a> [web:56].</li>
+        <li>Opcional: ver o Módulo 5 do treino ATT&CK for CTI (como transformar mapeamentos em recomendações)
+          se estiver disponível.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2h)</div>
@@ -811,13 +933,7 @@
           padrões de TTPs, tipos de alvo, infraestrutura recorrente (domínios, IPs, C2), e qualquer mudança ao longo do tempo.</li>
         <li>Mapear, se possível, 2–3 comportamentos a ATT&CK (referindo ID da técnica e nome).</li>
         <li>Escrever um relatório de 1–2 páginas (ou 15–25 pontos) com:
-          <ul>
-            <li>Escopo e perguntas iniciais.</li>
-            <li>Principais conclusões (o que aprendes sobre a ameaça).</li>
-            <li>Comportamentos chave (tácticas/técnicas mais críticas).</li>
-            <li>5–10 recomendações priorizadas (High/Medium/Low) para deteção, mitigação e awareness.</li>
-          </ul>
-        </li>
+          escopo e perguntas iniciais, principais conclusões, comportamentos chave e 5–10 recomendações priorizadas.</li>
       </ul>
 
       <div class="highlight-box question">
@@ -906,7 +1022,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Todos os níveis</span>
         <span class="lab-tag">Lista</span>
-        Lista curada de feeds, ferramentas e recursos de CTI [web:43][web:69]. Consulta ocasionalmente nas semanas 4–10.
+        Lista curada de feeds, ferramentas e recursos de CTI. Consulta ocasionalmente nas semanas 4–10.
       </div>
       <div class="lab-link">
         <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
@@ -921,7 +1037,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Nível 3–5</span>
         <span class="lab-tag">Plataforma</span>
-        Exemplos de dados estruturados de threat intel e labs com MISP [web:44]. Bom a partir das semanas 6–10.
+        Exemplos de dados estruturados de threat intel e labs com MISP. Bom a partir das semanas 6–10.
       </div>
       <div class="lab-link">
         <a href="https://github.com/MISP/misp-training" target="_blank">
@@ -936,7 +1052,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Nível 4–5</span>
         <span class="lab-tag">Curso</span>
-        5 módulos sobre como usar ATT&CK em CTI (vídeos + exercícios). Perfeito para semanas 7–10 [web:56].
+        5 módulos sobre como usar ATT&CK em CTI (vídeos + exercícios). Perfeito para semanas 7–10.
       </div>
       <div class="lab-link">
         <a href="https://attack.mitre.org/resources/learn-more-about-attack/training/cti/" target="_blank">
@@ -991,7 +1107,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Coleção</span>
         <span class="tool-tag">GitHub</span>
-        Lista extensa de feeds, plataformas e ferramentas para CTI [web:43][web:69].
+        Lista extensa de feeds, plataformas e ferramentas para CTI.
       </div>
       <div class="tool-link">
         <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
@@ -1005,7 +1121,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Plataforma</span>
         <span class="tool-tag">Open Source</span>
-        Plataforma de partilha e gestão de indicadores amplamente usada [web:71][web:44].
+        Plataforma de partilha e gestão de indicadores amplamente usada.
       </div>
       <div class="tool-link">
         <a href="https://github.com/MISP/MISP" target="_blank">
@@ -1019,7 +1135,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Plataforma</span>
         <span class="tool-tag">Graph</span>
-        Plataforma para gerir conhecimento sobre ameaças (actores, TTPs, campanhas) com grafo e integrações [web:72].
+        Plataforma para gerir conhecimento sobre ameaças (actores, TTPs, campanhas) com grafo e integrações.
       </div>
       <div class="tool-link">
         <a href="https://github.com/OpenCTI-Platform/opencti" target="_blank">
@@ -1029,11 +1145,11 @@
     </div>
 
     <div class="tool-card">
-      <div class="tool-title">BushidoUK · Open Source Tools for CTI</div>
+      <div class="tool-title">Open Source Tools for CTI</div>
       <div class="tool-meta">
         <span class="tool-tag">Coleção</span>
         <span class="tool-tag">Ferramentas CTI</span>
-        Repositório público com ferramentas open source úteis para analistas CTI [web:71].
+        Repositório público com ferramentas open source úteis para analistas CTI.
       </div>
       <div class="tool-link">
         <a href="https://github.com/BushidoUK/Open-source-tools-for-CTI" target="_blank">
@@ -1047,7 +1163,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Feed</span>
         <span class="tool-tag">GitHub</span>
-        Repositório com IOC feeds open source baseados em malware e URLs comprometidos [web:76].
+        Repositório com IOC feeds open source baseados em malware e URLs comprometidos.
       </div>
       <div class="tool-link">
         <a href="https://github.com/davidonzo/Threat-Intel" target="_blank">
@@ -1061,7 +1177,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Coleção</span>
         <span class="tool-tag">Hunting</span>
-        Secção de CTI em “Awesome Threat Detection and Hunting” (inclui OpenCTI, Yeti, etc.) [web:72].
+        Secção de CTI em “Awesome Threat Detection and Hunting” (inclui OpenCTI, Yeti, etc.).
       </div>
       <div class="tool-link">
         <a href="https://threat-hunting.github.io/awesome_Threat-Hunting/Threat%20Intelligence/" target="_blank">
@@ -1075,7 +1191,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Explorar</span>
         <span class="tool-tag">GitHub Topic</span>
-        Página de tópicos GitHub com múltiplos projetos relacionados com CTI (MISP, OSINT, feeds, tooling) [web:71].
+        Página de tópicos GitHub com múltiplos projetos relacionados com CTI (MISP, OSINT, feeds, tooling).
       </div>
       <div class="tool-link">
         <a href="https://github.com/topics/threatintel" target="_blank">
@@ -1089,7 +1205,7 @@
       <div class="tool-meta">
         <span class="tool-tag">OSINT</span>
         <span class="tool-tag">Metasearch</span>
-        Projeto open source para automatizar recolha OSINT para CTI [web:73].
+        Projeto open source para automatizar recolha OSINT para CTI.
       </div>
       <div class="tool-link">
         <a href="https://github.com/arachne-threat-intel/tracery" target="_blank">
@@ -1101,9 +1217,19 @@
 
   <div class="highlight-box warn">
     <strong>Como usar estas ferramentas:</strong><br />
-    · Níveis 1–2: explora listas (Awesome Threat Intelligence, BushidoUK) para ter noção do “ecossistema”.<br />
+    · Níveis 1–2: explora listas (Awesome Threat Intelligence, ferramentas open source) para ter noção do ecossistema.<br />
     · Níveis 3–4: lê feeds (Digitalside) e tenta extrair IOCs / TTPs para as tuas tabelas e notas.<br />
     · Nível 5: se tiveres recursos, instala um lab simples com MISP/OpenCTI para perceber o fluxo de dados numa plataforma de CTI.
+  </div>
+
+  <!-- ===================== CHANGELOG ===================== -->
+
+  <div class="highlight-box" style="margin-top:24px;">
+    <strong>Changelog (resumido):</strong><br />
+    · v1.3 – Jun 2026: adicionado toggle de tema claro/escuro, secção “Como usar”, resumo de competências e estilos de impressão.<br />
+    · v1.2 – Jun 2026: adicionada secção de Ferramentas & GitHub + mais links semanais.<br />
+    · v1.1 – Jun 2026: melhoria visual (cartões, níveis, timeline) e labs estruturados.<br />
+    · v1.0 – Jun 2026: primeira versão do plano de 10 semanas.
   </div>
 
   <footer>
