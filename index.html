@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Plano de Threat Intelligence – 10 Semanas</title>
   <style>
-    /* Tema escuro (predefinido) */
     body[data-theme="dark"] {
       --bg: #0f172a;
       --bg-alt: #111827;
@@ -21,7 +20,6 @@
       color: var(--text-main);
     }
 
-    /* Tema claro */
     body[data-theme="light"] {
       --bg: #f3f4f6;
       --bg-alt: #ffffff;
@@ -416,7 +414,6 @@
       }
     }
 
-    /* Estilos para impressão / PDF */
     @media print {
       body {
         background: #ffffff !important;
@@ -449,7 +446,7 @@
       if (saved === "light" || saved === "dark") {
         document.body.dataset.theme = saved;
       } else {
-        document.body.dataset.theme = "dark";
+        document.body.dataset-theme = "dark";
       }
       const cta = document.getElementById("cta-start");
       if (cta) {
@@ -489,8 +486,7 @@
     <a href="#proximos-passos">Próximos passos</a>
   </nav>
 
-  <!-- ===================== SECÇÃO 0 – SOBRE ===================== -->
-
+  <!-- SECÇÃO 0 – SOBRE -->
   <h2 id="sobre">Secção 0 · Sobre este roteiro</h2>
   <div class="grid">
     <div class="card">
@@ -504,7 +500,7 @@
       <ul>
         <li>Plano de 10 semanas com ~3 h/semana, organizado em níveis (1 a 5).</li>
         <li>Cada semana tem bloco de estudo + bloco de prática + marco de validação.</li>
-        <li>Laboratórios e ferramentas sugeridos são sobretudo gratuitos ou de código aberto. [web:69][web:38]</li>
+        <li>Laboratórios e ferramentas sugeridos são sobretudo gratuitos ou de código aberto.</li>
       </ul>
     </div>
 
@@ -530,8 +526,7 @@
     · Guarda notas e relatórios num repositório Git (<code>notes/</code>, <code>labs/</code>, <code>reports/</code>) para construíres portefólio.
   </div>
 
-  <!-- ===================== SECÇÃO 1 – PLANO 10 SEMANAS ===================== -->
-
+  <!-- SECÇÃO 1 – PLANO 10 SEMANAS -->
   <h2 id="plano-10-semanas">Secção 1 · Plano de 10 Semanas</h2>
   <p class="section-note">
     Cada cartão corresponde a uma semana (~3 horas). Foca-te em concluir o estudo e a prática; os marcos ajudam-te a perceber se estás pronto para avançar.
@@ -582,30 +577,25 @@
 
       <div class="block-title">Estudo (≈1,5–2 h)</div>
       <ul>
-        <li>Ler uma introdução curta a CTI, por exemplo:
-          <a href="https://ismalicious.com/glossary" target="_blank">Glossário isMalicious (termos de CTI)</a>.</li>
-        <li>Ler um artigo introdutório, por exemplo:
-          <a href="https://medium.com/@A.fellow.human/quick-introduction-to-cyber-threat-intelligence-11830858c45f" target="_blank">
-            Quick Introduction to Cyber Threat Intelligence
-          </a>.</li>
-        <li>Exemplo prático: enquanto lês, sublinha três frases que mostrem claramente:
-          <em>(1)</em> o que é CTI, <em>(2)</em> quem utiliza CTI, <em>(3)</em> uma decisão que ficou melhor por causa de CTI. [web:74]</li>
+        <li>Ler uma introdução curta a CTI (definição, tipos, consumidores, decisões que suporta).</li>
+        <li>Ler um artigo introdutório com exemplos de uso de CTI em equipas defensivas.</li>
+        <li>Enquanto lês, sublinha três frases que mostrem claramente:
+          (1) o que é CTI, (2) quem utiliza CTI, (3) uma decisão que ficou melhor por causa de CTI.</li>
       </ul>
 
       <div class="block-title">Prática (≈1 h)</div>
       <ul>
         <li>Escrever uma página (ou 10–15 pontos) em PT a explicar:
           o que é CTI, quem a utiliza (SOC, Red Team, gestão, etc.) e três problemas concretos que ajuda a resolver.</li>
-        <li>Exemplo prático: escolhe uma notícia recente de ciberataque e responde:
+        <li>Escolher uma notícia recente de ciberataque e responder:
           “Que tipo de inteligência teria ajudado esta organização a preparar-se melhor?” (estratégica, tática, operacional ou técnica?).</li>
       </ul>
 
       <div class="highlight-box">
-        Sugestão: combina esta semana com os laboratórios de <a href="#cheatsheet-labs">Nível 1–2</a>
-        (ArcX CTI 101 + Cybrary Intro CTI).
+        Sugestão: combina esta semana com laboratórios de introdução a CTI (por exemplo, cursos básicos online).
       </div>
 
-      <div class="highlight-box success">
+      <div class="highlight-box.success">
         <strong>Marco:</strong> consegues explicar CTI claramente a alguém não técnico, utilizando pelo menos um exemplo realista.
       </div>
     </div>
@@ -629,10 +619,10 @@
 
       <div class="block-title">Estudo (≈1–1,5 h)</div>
       <ul>
-        <li>Ler definições de IOC (Indicador de Compromisso) e TTP (Táticas, Técnicas e Procedimentos).</li>
+        <li>Ler definições de:
+          IOC (Indicador de Compromisso) e TTP (Táticas, Técnicas e Procedimentos).</li>
         <li>Ler um guia simples sobre tipos de CTI (estratégica, tática, operacional, técnica).</li>
-        <li>Exemplo prático: encontra num blogue técnico uma lista de IPs/domínios num relatório e identifica se o texto em volta está a dar:
-          contexto tático (TTPs) ou apenas uma lista técnica de IOCs. [web:74]</li>
+        <li>Encontrar num blogue técnico uma lista de IPs/domínios num relatório e identificar se o texto em volta dá contexto tático (TTPs) ou apenas uma lista técnica de IOCs.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2 h)</div>
@@ -640,15 +630,12 @@
         <li>Recolher 10–15 itens:
           títulos de notícias, excertos de alertas públicos, IPs/domínios de exemplos públicos.</li>
         <li>Para cada item, classificar:
-          <span class="pill">dado em bruto</span>,
-          <span class="pill">IOC</span> ou
-          <span class="pill">inteligência</span>,
-          com uma frase de justificação.</li>
-        <li>Exemplo prático: pega num único alerta e faz uma mini‑tabela:
+          dado em bruto, IOC ou inteligência, com uma frase de justificação.</li>
+        <li>Fazer uma mini‑tabela:
           IP, domínio, recomendação, conclusão final “Isto é inteligência porque…”.</li>
       </ul>
 
-      <div class="highlight-box question">
+      <div class="highlight-box.question">
         <strong>Autoavaliação:</strong> consigo explicar a diferença entre IOC (coisa concreta) e TTP (comportamento/hábito do atacante) em uma frase?
       </div>
     </div>
@@ -682,7 +669,7 @@
 
       <div class="block-title">Estudo (≈1,5 h)</div>
       <ul>
-        <li>Ler uma explicação do ciclo de inteligência (planeamento/direção, recolha, processamento, análise, disseminação, feedback). [web:74]</li>
+        <li>Ler uma explicação do ciclo de inteligência (planeamento/direção, recolha, processamento, análise, disseminação, feedback).</li>
         <li>Desenhar o ciclo numa folha e, para cada fase, escrever uma pergunta
           que um SOC real poderia fazer nessa fase.</li>
       </ul>
@@ -691,10 +678,10 @@
       <ul>
         <li>Desenhar as 6 fases e, para cada uma, escrever:
           que tipo de dados entram e que tipo de resultado sai.</li>
-        <li>Aplicar o ciclo a um caso fictício (empresa vítima de ransomware) com uma frase por fase.</li>
+        <li>Aplicar o ciclo a um caso fictício (empresa vítima de ransomware) com uma frase por fase a dizer o que farias como analista de CTI.</li>
       </ul>
 
-      <div class="highlight-box success">
+      <div class="highlight-box.success">
         <strong>Marco:</strong> dizes de memória as 6 fases e consegues descrever uma ação prática em cada uma.
       </div>
     </div>
@@ -719,20 +706,17 @@
       <div class="block-title">Estudo (≈1–1,5 h)</div>
       <ul>
         <li>Ler exemplos de requisitos de inteligência em blogues/whitepapers.</li>
-        <li>Explorar a lista
-          <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
-            Awesome Threat Intelligence
-          </a> para ver feeds, blogues, plataformas. [web:69]</li>
+        <li>Explorar listas de recursos de threat intelligence (feeds, blogues, plataformas).</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2 h)</div>
       <ul>
         <li>Inventar uma pequena empresa e escrever 3–5 perguntas de inteligência (ex.: ransomware no retalho).</li>
         <li>Fazer uma mini‑matriz:
-          fonte (blogue/feed/CERT), frequência (diária/semanal/mensal), métrica de sucesso.</li>
+          fonte (blogue/feed/CERT), frequência (diária/semanal/mensal), métrica de sucesso (menos incidentes inesperados, melhor visibilidade, etc.).</li>
       </ul>
 
-      <div class="highlight-box question">
+      <div class="highlight-box.question">
         <strong>Autoavaliação:</strong> antes de pensar em ferramentas, consigo definir primeiro “que decisão quero apoiar” e “que pergunta quero responder”?
       </div>
     </div>
@@ -774,10 +758,10 @@
       <ul>
         <li>Transformar os itens sublinhados numa tabela:
           IOC | Tipo | Fonte (secção/parágrafo) | Porque é relevante.</li>
-        <li>Enriquecer 3 IOCs com ferramentas públicas (por exemplo, serviços de reputação) e acrescentar 1–2 frases de contexto a cada linha.</li>
+        <li>Enriquecer 3 IOCs com ferramentas públicas de reputação e acrescentar 1–2 frases de contexto a cada linha.</li>
       </ul>
 
-      <div class="highlight-box success">
+      <div class="highlight-box.success">
         <strong>Marco:</strong> consegues passar de texto corrido a tabela de IOCs bem organizada, com notas de contexto.
       </div>
     </div>
@@ -812,7 +796,7 @@
         <li>Atribuir para cada acção uma equipa responsável e prioridade (Alta/Média/Baixa).</li>
       </ul>
 
-      <div class="highlight-box question">
+      <div class="highlight-box.question">
         <strong>Autoavaliação:</strong> um analista de SOC conseguiria criar uma regra/alerta concreto a partir da tua nota?
       </div>
     </div>
@@ -846,11 +830,8 @@
 
       <div class="block-title">Estudo (≈1,5–2 h)</div>
       <ul>
-        <li>Visitar:
-          <a href="https://attack.mitre.org/matrices/enterprise/" target="_blank">
-            MITRE ATT&amp;CK Enterprise Matrix
-          </a> e explorar tácticas/técnicas principais. [web:147]</li>
-        <li>Ler um artigo introdutório “Getting started with ATT&CK from a CTI perspective”. [web:147]</li>
+        <li>Visitar a matriz MITRE ATT&CK Enterprise e explorar tácticas/técnicas principais.</li>
+        <li>Ler um artigo introdutório “Getting started with ATT&CK from a CTI perspective”.</li>
       </ul>
 
       <div class="block-title">Prática (≈1–1,5 h)</div>
@@ -859,7 +840,7 @@
         <li>Descrever para 1 técnica como a detectarias (logs, eventos, consultas SIEM) e que alertas criarias.</li>
       </ul>
 
-      <div class="highlight-box success">
+      <div class="highlight-box.success">
         <strong>Marco:</strong> tens pelo menos três técnicas ATT&CK bem entendidas e consegues ligá‑las a detecções.
       </div>
     </div>
@@ -884,7 +865,7 @@
       <div class="block-title">Estudo (≈1,5–2 h)</div>
       <ul>
         <li>Rever o relatório usado nas semanas 5–6 ou escolher outro incidente público.</li>
-        <li>Ler documentação ou blogues que mostrem exemplos de mapeamento “narrativa → técnica ATT&CK → táctica”. [web:147]</li>
+        <li>Ler documentação ou blogues que mostrem exemplos de mapeamento “narrativa → técnica ATT&CK → táctica”.</li>
       </ul>
 
       <div class="block-title">Prática (≈1–1,5 h)</div>
@@ -894,13 +875,13 @@
         <li>Para 1 técnica, escrever um mini‑playbook de deteção (logs, queries, quem é notificado).</li>
       </ul>
 
-      <div class="highlight-box question">
+      <div class="highlight-box.question">
         <strong>Autoavaliação:</strong> consigo descrever o ataque em termos de tácticas/técnicas (TTPs) e propor melhorias defensivas com base nisso?
       </div>
     </div>
   </div>
 
-  <div class="highlight-box warn">
+  <div class="highlight-box.warn">
     <strong>Perguntas típicas de entrevista neste nível:</strong><br />
     · Como explicarias o MITRE ATT&CK a alguém não técnico?<br />
     · Dá um exemplo de como utilizarias ATT&CK para melhorar detecções num SOC.
@@ -935,7 +916,7 @@
       <div class="block-title">Estudo (≈1 h)</div>
       <ul>
         <li>Rever requisitos de inteligência, ciclo de inteligência e ATT&CK (apontamentos anteriores).</li>
-        <li>Ler um artigo sobre CTI prática (“operationalizing indicators”, “practical threat intel”). [web:147]</li>
+        <li>Ler um artigo sobre CTI prática (“operationalizing indicators”, “practical threat intel”).</li>
       </ul>
 
       <div class="block-title">Prática (≈2 h)</div>
@@ -945,7 +926,7 @@
         <li>Para cada pergunta, encontrar pelo menos 1 relatório público e anotar: link, data, 3–5 pontos-chave, nível de confiança (alto/médio/baixo).</li>
       </ul>
 
-      <div class="highlight-box success">
+      <div class="highlight-box.success">
         <strong>Marco:</strong> tens um pequeno “dossiê” de fontes organizadas sobre um único tema de ameaça.
       </div>
     </div>
@@ -970,7 +951,7 @@
       <div class="block-title">Estudo (≈1–1,5 h)</div>
       <ul>
         <li>Rever exemplos de relatórios de CTI públicos (contexto → análise → recomendações).</li>
-        <li>Identificar como expressam conclusões principais e como ligam TTPs a recomendações concretas. [web:147]</li>
+        <li>Identificar como expressam conclusões principais e como ligam TTPs a recomendações concretas.</li>
       </ul>
 
       <div class="block-title">Prática (≈1,5–2 h)</div>
@@ -982,19 +963,18 @@
         <li>Escrever um relatório de 1–2 páginas (ou 15–25 pontos) com âmbito, perguntas, conclusões e 5–10 recomendações priorizadas.</li>
       </ul>
 
-      <div class="highlight-box question">
+      <div class="highlight-box.question">
         <strong>Autoavaliação final:</strong> um defensor ou gestor conseguiria agir com base no teu relatório sem pedir mais explicações?
       </div>
     </div>
   </div>
 
-  <div class="highlight-box success">
+  <div class="highlight-box.success">
     <strong>Dica de portefólio:</strong>
     guarda notas, tabelas de IOCs e relatórios em <code>notes/</code>, <code>labs/</code>, <code>reports/</code>.
   </div>
 
-  <!-- ===================== SECÇÃO 2 – LABORATÓRIOS ===================== -->
-
+  <!-- SECÇÃO 2 – LABORATÓRIOS -->
   <h2 id="cheatsheet-labs">Secção 2 · Cheat sheet de laboratórios e recursos</h2>
   <p class="section-note">
     Utiliza estes laboratórios para tornar o plano mais prático. Níveis e semanas são orientativos.
@@ -1034,7 +1014,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Nível 2–4</span>
         <span class="lab-tag">Laboratório</span>
-        Foca‑se em ferramentas OSINT e fontes de IOCs. [web:74]
+        Foca‑se em ferramentas OSINT e fontes de IOCs.
       </div>
       <div class="lab-link">
         <a href="https://tryhackme.com/room/threatinteltools" target="_blank">
@@ -1076,7 +1056,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Nível 3–5</span>
         <span class="lab-tag">Plataforma</span>
-        Materiais para aprender a usar MISP com dados CTI. [web:38]
+        Materiais para aprender a usar MISP com dados CTI.
       </div>
       <div class="lab-link">
         <a href="https://github.com/MISP/misp-training" target="_blank">
@@ -1090,7 +1070,7 @@
       <div class="lab-meta">
         <span class="lab-tag">Nível 4–5</span>
         <span class="lab-tag">Curso</span>
-        Módulos sobre ATT&CK aplicado a CTI. [web:147]
+        Módulos sobre ATT&CK aplicado a CTI.
       </div>
       <div class="lab-link">
         <a href="https://attack.mitre.org/resources/training/cti/" target="_blank">
@@ -1114,13 +1094,12 @@
     </div>
   </div>
 
-  <!-- ===================== SECÇÃO 3 – FERRAMENTAS ===================== -->
-
+  <!-- SECÇÃO 3 – FERRAMENTAS -->
   <hr class="divider" />
 
   <h2 id="ferramentas">Secção 3 · Ferramentas & Repositórios GitHub</h2>
   <p class="section-note">
-    Ferramentas e repositórios focados em CTI, OSINT e automatização, com destaque para código aberto. [web:69][web:38]
+    Ferramentas e repositórios focados em CTI, OSINT e automatização, com destaque para código aberto.
   </p>
 
   <div class="tools-grid">
@@ -1129,7 +1108,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Colecção</span>
         <span class="tool-tag">GitHub</span>
-        Lista extensa de feeds, plataformas e ferramentas CTI. [web:69]
+        Lista extensa de feeds, plataformas e ferramentas CTI.
       </div>
       <div class="tool-link">
         <a href="https://github.com/hslatman/awesome-threat-intelligence" target="_blank">
@@ -1143,7 +1122,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Blogues</span>
         <span class="tool-tag">RSS</span>
-        Lista curada de blogues de CTI com feeds. [web:148]
+        Lista curada de blogues de CTI com feeds.
       </div>
       <div class="tool-link">
         <a href="https://github.com/muchdogesec/awesome_threat_intel_blogs" target="_blank">
@@ -1157,7 +1136,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Plataforma</span>
         <span class="tool-tag">Código aberto</span>
-        Plataforma de partilha/correlação de IOCs. [web:38]
+        Plataforma de partilha/correlação de IOCs.
       </div>
       <div class="tool-link">
         <a href="https://github.com/MISP/MISP" target="_blank">
@@ -1171,7 +1150,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Plataforma</span>
         <span class="tool-tag">Grafo</span>
-        Gestão de conhecimento sobre ameaças (actores, TTPs, campanhas) com integrações MISP/Yeti/IntelOwl. [web:145]
+        Gestão de conhecimento sobre ameaças (actores, TTPs, campanhas) com integrações MISP/Yeti/IntelOwl.
       </div>
       <div class="tool-link">
         <a href="https://github.com/OpenCTI-Platform/opencti" target="_blank">
@@ -1185,7 +1164,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Plataforma</span>
         <span class="tool-tag">Código aberto</span>
-        Repositório unificado para dados CTI com enriquecimento automático. [web:38]
+        Repositório unificado para dados CTI com enriquecimento automático.
       </div>
       <div class="tool-link">
         <a href="https://github.com/yeti-platform/yeti" target="_blank">
@@ -1199,7 +1178,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Automatização</span>
         <span class="tool-tag">Observáveis</span>
-        Recolhe inteligência sobre observáveis a partir de múltiplas fontes. [web:145]
+        Recolhe inteligência sobre observáveis a partir de múltiplas fontes.
       </div>
       <div class="tool-link">
         <a href="https://github.com/intelowlproject/IntelOwl" target="_blank">
@@ -1213,7 +1192,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Resposta a incidentes</span>
         <span class="tool-tag">SOC</span>
-        Plataforma colaborativa de resposta a incidentes. [web:145]
+        Plataforma colaborativa de resposta a incidentes.
       </div>
       <div class="tool-link">
         <a href="https://github.com/TheHive-Project/TheHive" target="_blank">
@@ -1227,7 +1206,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Análise</span>
         <span class="tool-tag">Automatização</span>
-        Corre múltiplos analisadores em IOCs, integrando com TheHive. [web:145]
+        Corre múltiplos analisadores em IOCs, integrando com TheHive.
       </div>
       <div class="tool-link">
         <a href="https://github.com/TheHive-Project/Cortex" target="_blank">
@@ -1241,7 +1220,7 @@
       <div class="tool-meta">
         <span class="tool-tag">OSINT</span>
         <span class="tool-tag">Automatização</span>
-        Automatiza recolha OSINT sobre IPs, domínios e mais. [web:145]
+        Automatiza recolha OSINT sobre IPs, domínios e mais.
       </div>
       <div class="tool-link">
         <a href="https://github.com/smicallef/spiderfoot" target="_blank">
@@ -1255,7 +1234,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Feed</span>
         <span class="tool-tag">GitHub</span>
-        Feed open source com IOCs baseados em malware/URLs. [web:145]
+        Feed open source com IOCs baseados em malware/URLs.
       </div>
       <div class="tool-link">
         <a href="https://github.com/davidonzo/Threat-Intel" target="_blank">
@@ -1269,7 +1248,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Base de dados</span>
         <span class="tool-tag">Risco</span>
-        Plataforma que agrega feeds, enriquece IOCs e atribui risco. [web:38]
+        Plataforma que agrega feeds, enriquece IOCs e atribui risco.
       </div>
       <div class="tool-link">
         <a href="https://pulsedive.com" target="_blank">
@@ -1283,7 +1262,7 @@
       <div class="tool-meta">
         <span class="tool-tag">Colecção</span>
         <span class="tool-tag">Ferramentas CTI</span>
-        Repositório de ferramentas de CTI open source. [web:143]
+        Repositório de ferramentas de CTI open source.
       </div>
       <div class="tool-link">
         <a href="https://github.com/BushidoUK/Open-source-tools-for-CTI" target="_blank">
@@ -1293,15 +1272,14 @@
     </div>
   </div>
 
-  <div class="highlight-box warn">
+  <div class="highlight-box.warn">
     <strong>Como utilizar estas ferramentas:</strong><br />
-    · Níveis 1–2: explora listas (Awesome Threat Intelligence, blogues). [web:69][web:148]<br />
-    · Níveis 3–4: usa feeds (Digitalside, Pulsedive) e ferramentas como SpiderFoot para enriquecer IOCs. [web:38][web:145]<br />
-    · Nível 5: monta um mini‑lab com MISP + TheHive + Cortex ou OpenCTI + IntelOwl/Yeti para ver o fluxo de CTI fim‑a‑fim. [web:145]
+    · Níveis 1–2: explora listas (Awesome Threat Intelligence, blogues).<br />
+    · Níveis 3–4: usa feeds (Digitalside, Pulsedive) e ferramentas como SpiderFoot para enriquecer IOCs.<br />
+    · Nível 5: monta um mini‑lab com MISP + TheHive + Cortex ou OpenCTI + IntelOwl/Yeti para ver o fluxo de CTI fim‑a‑fim.
   </div>
 
-  <!-- ===================== SECÇÃO 4 – PRÓXIMOS PASSOS ===================== -->
-
+  <!-- SECÇÃO 4 – PRÓXIMOS PASSOS -->
   <hr class="divider" />
 
   <h2 id="proximos-passos">Secção 4 · Próximos passos após as 10 semanas</h2>
@@ -1321,7 +1299,7 @@
     <div class="card">
       <div class="block-title">Conectar com a comunidade</div>
       <ul>
-        <li>Seguir blogues de CTI e feeds RSS para acompanhar campanhas e TTPs. [web:148]</li>
+        <li>Seguir blogues de CTI e feeds RSS para acompanhar campanhas e TTPs.</li>
         <li>Participar em comunidades online de blue team/CTI (Discord, fóruns, etc.).</li>
       </ul>
       <div class="block-title">Aplicar no trabalho</div>
@@ -1332,43 +1310,34 @@
     </div>
   </div>
 
-  <!-- ===================== SECÇÃO 5 – FRAMEWORKS EUROPEIAS ===================== -->
-
+  <!-- SECÇÃO 5 – FRAMEWORKS EUROPEIAS -->
   <hr class="divider" />
 
   <h2 id="frameworks">Secção 5 · Frameworks e enquadramento europeu</h2>
   <p class="section-note">
-    Esta secção apresenta frameworks de cibersegurança usadas internacionalmente, mas com ligação clara à legislação e orientações europeias (nomeadamente diretiva NIS2, Regulamento Geral de Proteção de Dados e documentos da ENISA). [web:150][web:154][web:158]
+    Esta secção apresenta frameworks de cibersegurança usadas internacionalmente, mas com ligação clara à legislação e orientações europeias (diretiva NIS2, Regulamento Geral de Proteção de Dados e documentos da ENISA).
   </p>
 
   <div class="grid">
     <div class="card">
       <div class="block-title">Estrutura de Cibersegurança do NIST</div>
       <ul>
-        <li>Framework de gestão de risco que organiza a segurança em funções como governança, identificação de activos e riscos, protecção, detecção, resposta e recuperação. [web:140]</li>
-        <li>É frequentemente usada na Europa como referência voluntária para estruturar programas de segurança, desde que seja alinhada com os requisitos mínimos da diretiva NIS2 e com a legislação nacional de transposição. [web:150][web:159]</li>
-        <li>Para começar, utiliza o guia “Getting started with the Cybersecurity Framework” do próprio NIST:
-          <a href="https://www.nist.gov/cyberframework/getting-started-csf-11" target="_blank">
-            Guia inicial da estrutura de cibersegurança
-          </a>. [web:140]</li>
+        <li>Framework de gestão de risco que organiza a segurança em funções como governança, identificação de activos e riscos, protecção, detecção, resposta e recuperação.</li>
+        <li>É frequentemente usada na Europa como referência voluntária para estruturar programas de segurança, alinhada com os requisitos mínimos da diretiva NIS2 e com a legislação nacional de transposição.</li>
       </ul>
       <div class="highlight-box">
-        <strong>Ligação à realidade europeia:</strong> as funções da estrutura do NIST ajudam a organizar medidas técnicas e organizativas que as entidades “essenciais” e “importantes” têm de implementar ao abrigo da diretiva NIS2, como gestão de risco, resposta a incidentes e continuidade de negócio. [web:150][web:159]
+        <strong>Ligação à realidade europeia:</strong> as funções da estrutura do NIST ajudam a organizar medidas técnicas e organizativas que as entidades “essenciais” e “importantes” têm de implementar ao abrigo da diretiva NIS2, como gestão de risco, resposta a incidentes e continuidade de negócio.
       </div>
     </div>
 
     <div class="card">
       <div class="block-title">Norma de gestão de segurança da informação</div>
       <ul>
-        <li>Norma internacional amplamente usada na Europa para estruturar um sistema de gestão de segurança da informação (políticas, análise de risco, controlos de segurança e melhoria contínua). [web:135]</li>
-        <li>Serve como base frequente para demonstrar que uma organização tem “medidas técnicas e organizativas adequadas” exigidas pelo Regulamento Geral de Proteção de Dados, em particular no artigo sobre segurança do tratamento. [web:154][web:151]</li>
-        <li>Podes começar por um guia introdutório para principiantes fornecido por fornecedores especializados em conformidade com esta norma:
-          <a href="https://www.isms.online/iso-27001/iso-27001-guide-for-beginners/" target="_blank">
-            Guia de início rápido para gestão de segurança da informação
-          </a>. [web:135][web:141]</li>
+        <li>Norma internacional amplamente usada na Europa para estruturar um sistema de gestão de segurança da informação (políticas, análise de risco, controlos de segurança e melhoria contínua).</li>
+        <li>Serve como base frequente para demonstrar que uma organização tem “medidas técnicas e organizativas adequadas” exigidas pelo Regulamento Geral de Proteção de Dados, em particular no artigo sobre segurança do tratamento.</li>
       </ul>
       <div class="highlight-box">
-        <strong>Ligação à realidade europeia:</strong> muitos reguladores e orientações nacionais aceitam esta norma como uma forma estruturada de demonstrar que implementaste controlos proporcionais ao risco para dados pessoais e serviços essenciais, articulando‑a com RGPD e NIS2. [web:154][web:150][web:159]
+        <strong>Ligação à realidade europeia:</strong> muitos reguladores e orientações nacionais aceitam esta norma como uma forma estruturada de demonstrar que implementaste controlos proporcionais ao risco para dados pessoais e serviços essenciais, articulando‑a com RGPD e NIS2.
       </div>
     </div>
   </div>
@@ -1377,47 +1346,38 @@
     <div class="card">
       <div class="block-title">Controlos críticos de segurança</div>
       <ul>
-        <li>Conjunto priorizado de controlos técnicos e organizativos (inventário de activos, gestão de vulnerabilidades, registos, gestão de contas, etc.) que traduzem frameworks de alto nível em acções concretas. [web:133][web:136]</li>
-        <li>São particularmente úteis para entidades que têm de cumprir medidas mínimas de gestão de risco ao abrigo da diretiva NIS2 e de orientações nacionais baseadas em recomendações da ENISA. [web:150][web:158]</li>
-        <li>Consulta a lista oficial dos controlos críticos, usada como referência por muitos organismos europeus:
-          <a href="https://www.cisecurity.org/controls/cis-controls-list" target="_blank">
-            Lista de controlos críticos de segurança
-          </a>. [web:133]</li>
+        <li>Conjunto priorizado de controlos técnicos e organizativos (inventário de activos, gestão de vulnerabilidades, registos, gestão de contas, etc.) que traduzem frameworks de alto nível em acções concretas.</li>
+        <li>São particularmente úteis para entidades que têm de cumprir medidas mínimas de gestão de risco ao abrigo da diretiva NIS2 e de orientações nacionais baseadas em recomendações da ENISA.</li>
       </ul>
       <div class="highlight-box">
-        <strong>Ligação à realidade europeia:</strong> ao priorizares estes controlos, estás a reforçar áreas que também aparecem em NIS2 (por exemplo, gestão de vulnerabilidades, resposta a incidentes, continuidade de serviço e segurança da cadeia de fornecimento). [web:150][web:159]
+        <strong>Ligação à realidade europeia:</strong> ao priorizares estes controlos, estás a reforçar áreas que também aparecem em NIS2 (por exemplo, gestão de vulnerabilidades, resposta a incidentes, continuidade de serviço e segurança da cadeia de fornecimento).
       </div>
     </div>
 
     <div class="card">
       <div class="block-title">Matriz MITRE ATT&amp;CK</div>
       <ul>
-        <li>Matriz que cataloga tácticas e técnicas utilizadas por atacantes ao longo das diferentes fases de um ataque. [web:139]</li>
-        <li>É uma ferramenta prática para equipas de threat intelligence, operações de segurança e resposta a incidentes mapearem comportamentos reais e conceberem detecções e playbooks. [web:147]</li>
-        <li>Explora a matriz para ambientes empresariais em:
-          <a href="https://attack.mitre.org/matrices/enterprise/" target="_blank">
-            Matriz de técnicas de ataque
-          </a>. [web:147]</li>
+        <li>Matriz que cataloga tácticas e técnicas utilizadas por atacantes ao longo das diferentes fases de um ataque.</li>
+        <li>Usada para mapear relatórios de incidentes, desenhar deteções, guiar threat hunting e estruturar relatórios de CTI.</li>
       </ul>
       <div class="highlight-box">
-        <strong>Ligação à realidade europeia:</strong> as entidades abrangidas por NIS2 são obrigadas a ter capacidades reforçadas de detecção e resposta; utilizar esta matriz ajuda a demonstrar que as tuas medidas de monitorização e análise de incidentes se baseiam em técnicas de ataque reconhecidas internacionalmente. [web:150][web:159]
+        <strong>Ligação à realidade europeia:</strong> as entidades abrangidas por NIS2 são obrigadas a ter capacidades reforçadas de detecção e resposta; utilizar esta matriz ajuda a demonstrar que as tuas medidas de monitorização e análise de incidentes se baseiam em técnicas de ataque reconhecidas internacionalmente.
       </div>
     </div>
   </div>
 
-  <div class="highlight-box success">
+  <div class="highlight-box.success">
     <strong>Como integrar estas frameworks com RGPD, NIS2 e ENISA:</strong><br />
-    · Usa a estrutura de cibersegurança do NIST e os controlos críticos para organizar medidas técnicas e organizativas que respondem às exigências da diretiva NIS2 e do RGPD (por exemplo, gestão de risco, monitorização contínua, resposta a incidentes). [web:150][web:154][web:159]<br />
-    · Apoia‑te na norma de gestão de segurança da informação para construir o teu sistema de governação, políticas e registos que demonstram conformidade perante autoridades de supervisão, em linha com as orientações da ENISA sobre políticas de cibersegurança. [web:158][web:152]<br />
-    · Usa a matriz MITRE ATT&CK para alinhar o teu trabalho de CTI e de deteção com o tipo de capacidades operacionais que as autoridades europeias esperam ver nas entidades essenciais e importantes. [web:150][web:159]
+    · Usa a estrutura de cibersegurança do NIST e os controlos críticos para organizar medidas técnicas e organizativas que respondem às exigências da diretiva NIS2 e do RGPD (por exemplo, gestão de risco, monitorização contínua, resposta a incidentes).<br />
+    · Apoia‑te na norma de gestão de segurança da informação para construir o teu sistema de governação, políticas e registos que demonstram conformidade perante autoridades de supervisão, em linha com as orientações da ENISA sobre políticas de cibersegurança.<br />
+    · Usa a matriz MITRE ATT&CK para alinhar o teu trabalho de CTI e de deteção com o tipo de capacidades operacionais que as autoridades europeias esperam ver nas entidades essenciais e importantes.
   </div>
 
-  <!-- ===================== CHANGELOG ===================== -->
-
+  <!-- CHANGELOG -->
   <div class="highlight-box" style="margin-top:24px;">
     <strong>Changelog (resumido):</strong><br />
-    · v1.6 – Jun 2026: adaptação da Secção 5 ao enquadramento europeu (NIS2, RGPD, ENISA) e remoção de siglas excessivas na descrição das normas. [web:150][web:154][web:158][web:159]<br />
-    · v1.5 – Jun 2026: Secção 5 inicial com frameworks globais.<br />
+    · v1.6 – Jun 2026: adaptação da Secção 5 ao enquadramento europeu (NIS2, RGPD, ENISA) e limpeza das referências internas.<br />
+    · v1.5 – Jun 2026: adicionada Secção 5 com frameworks (NIST CSF, norma de segurança da informação, controlos críticos, MITRE ATT&CK).<br />
     · v1.4 – Jun 2026: “Sobre este roteiro”, “Próximos passos”, navegação sticky e expansão de ferramentas CTI/OSINT.<br />
     · v1.3 – Jun 2026: exemplos práticos em todas as semanas e revisão PT‑PT.<br />
     · v1.2 – Jun 2026: secção Ferramentas & GitHub.<br />
