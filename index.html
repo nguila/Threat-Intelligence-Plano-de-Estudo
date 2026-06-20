@@ -497,6 +497,7 @@
     <a href="#ferramentas">Ferramentas</a>
     <a href="#frameworks">Frameworks</a>
     <a href="#proximos-passos">Próximos passos</a>
+    <a href="#topicos-avancados">Tópicos avançados</a>
   </nav>
 
   <!-- SECÇÃO 0 – SOBRE -->
@@ -1449,10 +1450,134 @@
     · Usa ISO 27001, CIS Controls e ATT&amp;CK como “ponte” entre linguagem regulatória (NIS2/RGPD) e controlos técnicos concretos que o SOC e as equipas de TI conseguem implementar.
   </div>
 
+  <!-- SECÇÃO 6 – TÓPICOS AVANÇADOS DE CTI -->
+  <hr class="divider" />
+
+  <h2 id="topicos-avancados">Secção 6 · Tópicos avançados de CTI</h2>
+  <p class="section-note">
+    Três áreas para aprofundar depois de concluíres o plano base: geopolítica aplicada a CTI, clustering/pivoting de campanhas e redação de relatórios de inteligência.
+  </p>
+
+  <div class="grid">
+    <!-- BLOCO 6.1 – GEOPOLÍTICA -->
+    <div class="card">
+      <div class="block-title">6.1 · Geopolítica e contexto de ameaças</div>
+      <ul>
+        <li>A actividade de muitos grupos (APT, hacktivistas, crime organizado) está ligada a objectivos de Estados, sanções económicas, eleições ou conflitos regionais.</li>
+        <li>A CTI estratégica procura ligar eventos cibernéticos a motivações, alianças e tensões geopolíticas para apoiar decisões de risco ao nível de gestão.</li>
+      </ul>
+
+      <div class="block-title">Estudo sugerido</div>
+      <ul>
+        <li>Ler artigos que explorem a intersecção entre geopolítica e CTI (por exemplo, análises de campanhas contra sectores energéticos durante crises geopolíticas).</li>
+        <li>Ver uma talk ou episódio sobre “geopolitics and nation-state threat actors” em canais de CTI no YouTube.</li>
+        <li>Analisar 1–2 relatórios de vendors que cubram grupos patrocinados por Estados (APT) e identificar como relacionam campanhas com objectivos políticos.</li>
+      </ul>
+
+      <div class="block-title">Laboratório personalizado</div>
+      <ul>
+        <li>Escolher um tema geopolítico (por exemplo, eleições num país, conflito regional, sanções) e recolher 3–5 incidentes cibernéticos noticiados no mesmo período.</li>
+        <li>Para cada incidente, anotar: alvo, tipo de ataque, actores suspeitos, possível motivação e ligação (fraca/forte) ao contexto geopolítico.</li>
+        <li>Escrever um “parágrafo de síntese estratégica” com:
+          <em>“Que tendências de ameaça podem os decisores esperar se este contexto se agravar?”</em></li>
+        <li>Guardar como <code>reports/semanaX_geopolitica_sintese.md</code> e actualizar com novos casos ao longo do tempo.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>Dica:</strong> segue fontes de geopolítica (economia, política externa) em paralelo com relatórios de CTI;
+        a combinação ajuda-te a antecipar sectores e regiões que podem tornar-se alvos prioritários.
+      </div>
+    </div>
+
+    <!-- BLOCO 6.2 – CLUSTERING & PIVOTING -->
+    <div class="card">
+      <div class="block-title">6.2 · Clustering e pivoting em campanhas</div>
+      <ul>
+        <li>Clustering é o processo de agrupar eventos/IOCs em “campanhas” com base em infra‑estruturas partilhadas, TTPs semelhantes, vítimas e janela temporal.</li>
+        <li>Pivoting é usar um indicador conhecido (IP, domínio, hash, certificado TLS, ASN, e‑mail, etc.) para descobrir outros artefactos relacionados e expandir a visão da campanha.</li>
+      </ul>
+
+      <div class="block-title">Estudo sugerido</div>
+      <ul>
+        <li>Ler artigos ou whitepapers que descrevam “campaign analysis” ou “infrastructure pivoting” em CTI, com exemplos de grafos de infraestrutura.</li>
+        <li>Rever modelos como o Diamond Model (adversary–capability–infrastructure–victim) e como se relacionam com ATT&amp;CK e STIX.</li>
+        <li>Explorar documentação de ferramentas de hunting/pivoting baseadas em C2 (por exemplo, técnicas de pivoting sobre IPs, domínios, certificados e registos DNS históricos).</li>
+      </ul>
+
+      <div class="block-title">Laboratório personalizado</div>
+      <ul>
+        <li>Começar com um pequeno conjunto de IOCs (por exemplo, 3 domínios e 2 IPs de uma campanha pública de phishing ou malware).</li>
+        <li>Usar ferramentas como <a href="https://pulsedive.com" target="_blank" rel="noopener">Pulsedive</a>, motores de pesquisa de certificados,
+          passive DNS ou plataformas como MISP/OpenCTI para procurar:
+          domínios relacionados, IPs no mesmo range, certificados em comum, ASNs, WHOIS, etc.</li>
+        <li>Criar um grafo simples (pode ser em draw.io ou em papel) com nós para:
+          IOCs, infra‑estruturas, vítimas/sectores, e ligar arestas com o tipo de relação (mesmo IP, mesmo certificado, mesmo actor, etc.).</li>
+        <li>Definir um critério próprio para dizer:
+          <em>“Quando é que isto deixa de ser um incidente isolado e passa a ser uma campanha?”</em>,
+          por exemplo: &gt;=3 IOCs ligados + TTPs semelhantes + alvo/sector comum numa janela de 30 dias.</li>
+        <li>Guardar o grafo em <code>labs/semanaY_clustering_campanha.*</code> e uma curta nota com a tua “hipótese de campanha”.</li>
+      </ul>
+
+      <div class="highlight-box.success">
+        <strong>Objectivo:</strong> sair do modo “IOC avulso” e começar a pensar em termos de campanhas/cohorts,
+        o que melhora muito a priorização e as recomendações de mitigação.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- BLOCO 6.3 – REDAÇÃO DE RELATÓRIOS -->
+    <div class="card">
+      <div class="block-title">6.3 · Redação de relatórios de inteligência</div>
+      <ul>
+        <li>Relatórios de CTI só criam valor se forem lidos, compreendidos e transformados em decisões;
+          por isso, a escrita deve privilegiar clareza, concisão e accionabilidade.</li>
+        <li>Boas práticas de escrita de CTI incluem “Bottom Line Up Front” (BLUF),
+          linguagem simples, evitar jargão desnecessário e explicitar risco e recomendações.</li>
+      </ul>
+
+      <div class="block-title">Estudo sugerido</div>
+      <ul>
+        <li>Ler artigos sobre “CTI communication &amp; reporting techniques” que abordem frameworks como ABC (Accuracy, Brevity, Clarity) e BLUF.</li>
+        <li>Ver talks ou vídeos sobre escrever relatórios de CTI “como um jornalista”:
+          pirâmide invertida (principal conclusão primeiro), foco em quem, o quê, como, porquê e o que fazer agora.</li>
+        <li>Rever 2–3 relatórios públicos e, para cada um, identificar:
+          resumo executivo, avaliação de probabilidade/confiança, impacto, recomendações.</li>
+      </ul>
+
+      <div class="block-title">Template simples de relatório</div>
+      <ul>
+        <li><strong>Resumo executivo:</strong> 3–6 linhas com o que aconteceu, por que importa e o que fazer agora.</li>
+        <li><strong>Contexto:</strong> quem és, que activos/processos estão em causa, porque esta ameaça é relevante.</li>
+        <li><strong>Detalhes da ameaça:</strong> actores (se conhecidos), TTPs principais (com ATT&amp;CK), IOCs críticos.</li>
+        <li><strong>Impacto e probabilidade:</strong> como pode afectar operações, finanças, reputação; nível de risco e confiança na análise.</li>
+        <li><strong>Recomendações:</strong> 5–10 medidas priorizadas, com equipas responsáveis e horizonte temporal (imediato, 30 dias, 90 dias).</li>
+      </ul>
+
+      <div class="block-title">Laboratório personalizado</div>
+      <ul>
+        <li>Pegar no relatório final que produzes no plano base e reescrevê‑lo com BLUF:
+          começar com 1 parágrafo de resumo executivo extremamente claro e accionável.</li>
+        <li>Escrever duas versões do mesmo output:
+          uma para equipa técnica (SOC/Engenharia) e outra para gestão, ajustando termos, detalhes e foco (risco, compliance, negócio).</li>
+        <li>Pedir feedback a alguém (ou simular feedback) com as perguntas:
+          “Percebeste o risco?”,
+          “Sabes o que tens de fazer nas próximas 24–72h?”,
+          “O texto evita jargão que te afaste da mensagem principal?”.</li>
+        <li>Guardar versões em <code>reports/relatorio_final_tecnico.md</code> e <code>reports/relatorio_final_gestao.md</code> para usar como exemplos em entrevistas.</li>
+      </ul>
+
+      <div class="highlight-box.question">
+        <strong>Auto‑check:</strong> alguém de fora da área de segurança conseguiria, em 1–2 minutos de leitura,
+        explicar em voz alta o que recomendas e porquê?
+      </div>
+    </div>
+  </div>
+
   <footer>
     Planear · Praticar · Escrever relatórios. O objectivo não é apenas consumir conteúdo, é produzir inteligência útil.
   </footer>
 
 </div>
 </body>
-      </html>
+</html>
