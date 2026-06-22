@@ -521,14 +521,15 @@
     <a href="#dia-ti-soc">Dia de Threat Intelligence</a>
   </nav>
 
-  <!-- AQUI CONTINUAM AS SECÇÕES 0–8 QUE JÁ TENS NO FICHEIRO ORIGINAL -->
+  <!-- AQUI ENTRAM AS SECÇÕES 0–8 COMO JÁ DEFINISTE NO TEU FICHEIRO -->
+  <!-- (não as repito para não alongar ainda mais a resposta) -->
 
   <!-- SECÇÃO 9 – DIA DE THREAT INTELLIGENCE NO SOC -->
   <hr class="divider" />
 
   <h2 id="dia-ti-soc">Secção 9 · Um dia de Threat Intelligence nas operações SOC</h2>
   <p class="section-note">
-    Esta secção mostra, de forma prática, como é um “dia típico” de Threat Intelligence dentro de um SOC, quais as melhores ferramentas open source a usar, as métricas NIS2 relevantes e uma comparação técnica das ferramentas. [web:298][web:301][web:305][web:302][web:303]
+    Como a Threat Intelligence entra no dia-a-dia do SOC: rotina típica, principais ferramentas open source, comparação em tabelas e métricas NIS2 que fazem sentido acompanhar.
   </p>
 
   <div class="grid">
@@ -536,92 +537,92 @@
     <div class="card">
       <div class="block-title">9.1 · Como é um dia típico de Threat Intelligence num SOC</div>
       <ul>
-        <li>De manhã, o analista de CTI/SOC revê dashboards do SIEM, incidentes do turno anterior e faz um “threat briefing” com base em relatórios recentes, CVEs novas e feeds de inteligência. [web:300][web:303][web:306]</li>
-        <li>Ao longo do dia, correlaciona alertas com IOCs/TTPs conhecidos, apoia investigações (phishing, tentativas de intrusão, malware) e sugere acções de contenção e melhoria de detecções. [web:300][web:303][web:306]</li>
-        <li>Ao final do dia, regista lições aprendidas, actualiza playbooks, ajusta regras de detecção e produz notas de inteligência ou pequenos relatórios para gestão e SOC. [web:300][web:303][web:306]</li>
+        <li>De manhã, o analista de CTI/SOC revê dashboards do SIEM, incidentes do turno anterior e faz um “threat briefing” com base em relatórios recentes, CVEs novas e feeds de inteligência.</li>
+        <li>Ao longo do dia, correlaciona alertas com IOCs/TTPs conhecidos, apoia investigações (phishing, tentativas de intrusão, malware) e sugere acções de contenção e melhoria de detecções.</li>
+        <li>Ao final do dia, regista lições aprendidas, actualiza playbooks, ajusta regras de detecção e produz notas de inteligência ou relatórios curtos para gestão e SOC.</li>
       </ul>
 
       <div class="block-title">Rotina diária resumida</div>
       <ul>
-        <li><strong>Briefing matinal:</strong> rever alertas críticos, incidentes em aberto e panorama de ameaças (relatórios, CVEs, feeds TI). [web:300][web:303]</li>
-        <li><strong>Monitorização & triage:</strong> ajudar a priorizar alertas com base em CTI (quem ataca, porquê, TTPs mais usadas). [web:300][web:303]</li>
-        <li><strong>Investigação:</strong> usar TI para ligar IPs, domínios, hashes e técnicas a campanhas e actores conhecidos. [web:303]</li>
-        <li><strong>Resposta:</strong> apoiar decisões de bloqueio, isolamento, reset de contas e comunicações a gestão/regulador. [web:300][web:303]</li>
-        <li><strong>Melhoria contínua:</strong> actualizar regras (SIEM, EDR), playbooks, documentação e métricas de desempenho. [web:300][web:302]</li>
+        <li><strong>Briefing matinal:</strong> rever alertas críticos, incidentes em aberto e panorama de ameaças (relatórios, CVEs, feeds TI).</li>
+        <li><strong>Monitorização & triage:</strong> priorizar alertas com base em CTI (quem ataca, porquê, TTPs mais usadas para o sector).</li>
+        <li><strong>Investigação:</strong> ligar IPs, domínios, hashes e técnicas a campanhas e actores conhecidos, enriquecendo os casos.</li>
+        <li><strong>Resposta:</strong> apoiar bloqueios, isolamento de sistemas, reset de contas e comunicações técnicas/gestão/regulador.</li>
+        <li><strong>Melhoria contínua:</strong> actualizar regras (SIEM, EDR), playbooks, documentação e métricas de desempenho.</li>
       </ul>
 
       <div class="highlight-box">
-        <strong>Exemplo:</strong> um alerta de login suspeito é cruzado com feeds de CTI; se o IP/domínio estiver ligado a uma campanha activa, o incidente ganha prioridade e pode desencadear hunting e comunicação acelerada. [web:300][web:303]
+        <strong>Exemplo prático:</strong> um alerta de login suspeito é cruzado com feeds de CTI; se o IP/domínio estiver associado a uma campanha activa, o incidente sobe de prioridade e pode originar hunting dedicado e comunicação acelerada.
       </div>
     </div>
 
-    <!-- 9.2 – MELHORES FERRAMENTAS OPEN SOURCE -->
+    <!-- 9.2 – FERRAMENTAS OSS + TABELAS -->
     <div class="card">
-      <div class="block-title">9.2 · Melhores ferramentas open source de Threat Intelligence</div>
+      <div class="block-title">9.2 · Ferramentas open source de Threat Intelligence usadas no SOC</div>
       <p class="section-note">
-        Conjunto de ferramentas frequentemente recomendadas para equipas SOC/CTI, todas open source e usadas em ambientes reais. [web:298][web:301][web:311][web:315][web:295][web:316][web:312][web:317][web:313][web:314][web:319][web:324][web:329]
+        Ferramentas OSS frequentemente recomendadas para equipas SOC/CTI, com funções complementares ao longo do ciclo de Threat Intelligence.
       </p>
 
-      <div class="block-title">Tabela funcional (o que fazem)</div>
+      <div class="block-title">Tabela funcional (o que cada ferramenta faz)</div>
       <table>
         <thead>
           <tr>
             <th>Ferramenta</th>
             <th>Tipo principal</th>
-            <th>Caso de uso típico no SOC/CTI</th>
+            <th>Caso de uso típico</th>
             <th>Pontos fortes</th>
-            <th>Limitações / cuidados</th>
+            <th>Cuidados / limitações</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>MISP</td>
-            <td>Plataforma de partilha de Threat Intelligence (TIP)</td>
-            <td>Partilhar e correlacionar IOCs e eventos de ameaça com outras equipas/comunidades. [web:311][web:315]</td>
-            <td>Modelo maduro de partilha, correlação automática de IOCs, taxonomias ricas, ecossistema grande, integrações com SIEM/TIPs. [web:311][web:315]</td>
-            <td>Requer governança de dados e manutenção de instância; qualidade dos eventos depende das comunidades que usas. [web:311]</td>
+            <td>TIP de partilha de IOCs</td>
+            <td>Partilhar/correlacionar IOCs e eventos de ameaça com equipas internas ou comunidades.</td>
+            <td>Correlação automática, taxonomias ricas, grande ecossistema e integrações (SIEM, TheHive, OpenCTI).</td>
+            <td>Exige governança de dados, curadoria de eventos e manutenção da instância.</td>
           </tr>
           <tr>
             <td>OpenCTI</td>
-            <td>Plataforma de CTI orientada a grafo (TIP)</td>
-            <td>Construir “knowledge base” de actores, campanhas, TTPs e relações; servir de hub de CTI para SOC/IR. [web:295][web:316]</td>
-            <td>Modelo STIX 2, interface moderna, grafo, integra com MISP, MITRE ATT&CK, TheHive, vários feeds e conectores. [web:295][web:316]</td>
-            <td>Mais complexo de instalar/operar; precisa de desenho de modelo e sizing adequado para escalar. [web:321][web:326]</td>
+            <td>Plataforma CTI em grafo</td>
+            <td>Gerir conhecimento sobre actores, campanhas, TTPs e relações; servir de “cérebro” de CTI.</td>
+            <td>Modelo STIX 2, visualização em grafo, integra MISP, MITRE ATT&CK, TheHive e múltiplos feeds.</td>
+            <td>Stack mais pesado, precisa de sizing correcto e desenho de modelo de dados logo de início.</td>
           </tr>
           <tr>
             <td>TheHive</td>
-            <td>Plataforma de resposta a incidentes (IR/SOC)</td>
-            <td>Gerir casos SOC, investigações, playbooks e colaboração entre analistas. [web:298][web:322]</td>
-            <td>Orientado a casos, integra com Cortex e fontes de CTI, muito usado em SOCs e “home labs” avançados. [web:322][web:327]</td>
-            <td>Requer Elasticsearch/OpenSearch e tuning de infra; para máximo valor, convém integrar com Cortex/MISP/OpenCTI. [web:322][web:327]</td>
+            <td>Gestão de incidentes SOC/IR</td>
+            <td>Gerir casos, investigações e playbooks, ligando SOC, IR e CTI.</td>
+            <td>Focado em casos, integra facilmente com Cortex e MISP/OpenCTI; bom para SOCs e home labs avançados.</td>
+            <td>Requer Elasticsearch/OpenSearch e tuning; ganha valor máximo integrado com outras peças da stack.</td>
           </tr>
           <tr>
             <td>Cortex</td>
             <td>Motor de análise de observáveis</td>
-            <td>Automatizar enriquecimento de IPs, domínios, hashes, URLs com múltiplos analisadores. [web:312][web:317]</td>
-            <td>Grande catálogo de analisadores, integração nativa com TheHive, facilita standardização de enrichment. [web:312][web:317]</td>
-            <td>Depende de APIs externas e Docker para analisadores; precisa de gestão de chaves e de custos de consultas. [web:312][web:327]</td>
+            <td>Automatizar enriquecimento de IPs, domínios, hashes e URLs com múltiplos analisadores.</td>
+            <td>Grande catálogo de analisadores, integração nativa com TheHive, resultados estruturados em JSON.</td>
+            <td>Depende de APIs externas e gestão de chaves; pode gerar custos se não for bem controlado.</td>
           </tr>
           <tr>
             <td>SpiderFoot</td>
-            <td>Ferramenta de OSINT automatizado</td>
-            <td>Mapear pegada digital de IPs, domínios, e‑mails, infraestruturas relacionadas; apoio a CTI/hunting. [web:313][web:323]</td>
-            <td>Centenas de fontes OSINT, GUI, modos diferentes (varrimento/footprint, investigação), bom para expansão de infraestruturas. [web:313][web:328]</td>
-            <td>Pode recolher muita informação irrelevante; precisa de filtros e análise humana para evitar ruído. [web:313]</td>
+            <td>OSINT automatizado</td>
+            <td>Mapear pegada digital de alvos (IPs, domínios, e‑mails), apoiar recon e expansão de campanhas.</td>
+            <td>Centenas de fontes OSINT, interface web, modos guiados para iniciantes.</td>
+            <td>Produz grande volume de dados; exige filtros e análise humana para não gerar ruído.</td>
           </tr>
           <tr>
             <td>YARA</td>
-            <td>Linguagem de regras para malware/hunting</td>
-            <td>Criar assinaturas de malware e artefactos, usadas em EDR, sandboxes, hunts, análise forense. [web:314][web:319]</td>
-            <td>Muito flexível (strings, regex, padrões binários), identifica famílias/variantes além de simples hashes. [web:314][web:319]</td>
-            <td>Requer experiência para escrever/testar regras; risco de falsos positivos se mal calibradas. [web:314]</td>
+            <td>Regras de malware/hunting</td>
+            <td>Criar assinaturas para detecção de malware e artefactos em disco/memória, alinhadas com CTI.</td>
+            <td>Muito flexível (strings, regex, padrões binários), base para hunts e análise forense.</td>
+            <td>Curva de aprendizagem, precisa de testes extensivos para reduzir falsos positivos/negativos.</td>
           </tr>
           <tr>
             <td>AlienVault OSSIM</td>
-            <td>SIEM open source com TI integrada</td>
-            <td>Agregação de logs, geração de alertas e correlação com IOCs e feeds de Threat Intelligence. [web:324][web:329]</td>
-            <td>Plataforma SIEM completa baseada em Debian, com normalização, correlação e integração de TI comunitária. [web:324][web:329]</td>
-            <td>Requer tuning forte e recursos para escalar; menos “polido” que SIEMs comerciais em ambientes muito grandes. [web:324]</td>
+            <td>SIEM open source</td>
+            <td>Agregação de logs, alertas e correlação com IOCs/feeds de Threat Intelligence.</td>
+            <td>SIEM completo baseado em Debian, com normalização, correlação e TI integrada.</td>
+            <td>Requer tuning forte e recursos para escalar; menos polido que SIEMs comerciais em ambientes muito grandes.</td>
           </tr>
         </tbody>
       </table>
@@ -631,93 +632,93 @@
         <thead>
           <tr>
             <th>Ferramenta</th>
-            <th>Principais tecnologias / dependências</th>
+            <th>Stack / dependências principais</th>
             <th>Formatos & padrões suportados</th>
-            <th>Uso típico numa stack CTI/SOC</th>
+            <th>Papel típico na arquitectura</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>MISP</td>
-            <td>Aplicação web (PHP), base de dados SQL, pode integrar TAXII/STIX através de conversores e pipelines. [web:311][web:320][web:325]</td>
-            <td>Formato próprio MISP (JSON), export/import STIX 1.x/2.x, integração TAXII, CSV, feeds custom. [web:320][web:325]</td>
-            <td>TIP focado em IOCs e eventos, como fonte e sink de indicadores para SIEM, EDR, firewalls e outras TIPs. [web:315]</td>
+            <td>Aplicação web (PHP), base de dados SQL, integração com TAXII/STIX via módulos/pipelines.</td>
+            <td>Formato MISP (JSON), STIX 1.x/2.x, TAXII, CSV/feeds custom.</td>
+            <td>TIP centrado em IOCs, fonte/destino de indicadores para SIEM, EDR, firewalls e outras TIPs.</td>
           </tr>
           <tr>
             <td>OpenCTI</td>
-            <td>Stack moderna com ElasticSearch/OpenSearch, Redis, RabbitMQ, S3/MinIO, API GraphQL, UI web. [web:321]</td>
-            <td>Modelo interno alinhado com STIX 2, JSON via API, integra ATT&CK, MISP, feeds e conectores diversos. [web:295][web:316]</td>
-            <td>“Cérebro” de CTI para conhecimento de longo prazo (actores, campanhas, relacionamentos) e ligação a SOC/IR. [web:316]</td>
+            <td>ElasticSearch/OpenSearch, Redis, RabbitMQ, S3/MinIO, API GraphQL e UI web.</td>
+            <td>Modelo interno compatível com STIX 2, JSON via API, integra ATT&CK, MISP e múltiplos conectores.</td>
+            <td>“Knowledge graph” de CTI, camada central entre recolha de dados e operações SOC/IR.</td>
           </tr>
           <tr>
             <td>TheHive</td>
-            <td>Requer Elasticsearch/OpenSearch para storage; integra via APIs REST, suporta deployment em Linux/containers. [web:322][web:327]</td>
-            <td>JSON para casos e tasks, integra com MISP/OpenCTI (IOCs, alertas), export de relatórios para vários formatos. [web:322]</td>
-            <td>Front‑end principal de casos SOC/IR, orquestrando enriquecimento (Cortex) e consumo de CTI (MISP/OpenCTI). [web:327]</td>
+            <td>Servidor Java + Elasticsearch/OpenSearch; instala em Linux ou containers.</td>
+            <td>JSON para casos, integra APIs de MISP/OpenCTI (IOCs, alertas), export de relatórios.</td>
+            <td>Console principal de casos SOC/IR, orquestrando enrichment (Cortex) e CTI (MISP/OpenCTI).</td>
           </tr>
           <tr>
             <td>Cortex</td>
-            <td>Aplicação web com workers em Docker para analisadores, integra com TheHive via API. [web:312][web:317][web:327]</td>
-            <td>Recebe observáveis (IPs, domínios, hashes, URLs) em JSON e devolve resultados estruturados (JSON) por analisador. [web:312][web:317]</td>
-            <td>Camada de enrichment automático para IOCs observados em casos SOC/IR ou campanhas CTI. [web:312][web:317]</td>
+            <td>Aplicação web com workers em Docker para analisadores.</td>
+            <td>Recebe observáveis em JSON e devolve resultados estruturados por analisador.</td>
+            <td>Camada de enrichment automático para observáveis vindos de casos SOC/IR ou investigações CTI.</td>
           </tr>
           <tr>
             <td>SpiderFoot</td>
-            <td>Python 3.x, bibliotecas de scraping e rede, interface web própria; corre bem em Linux e outras plataformas. [web:323][web:328]</td>
-            <td>Saídas em HTML, CSV/JSON para export de resultados de OSINT, integra com outras ferramentas via ficheiros/APIs. [web:313][web:328]</td>
-            <td>Ferramenta de recolha OSINT adjacente ao stack CTI, fornecendo contexto a MISP/OpenCTI ou casos no TheHive. [web:313]</td>
+            <td>Python 3, bibliotecas de rede/scraping, interface web própria.</td>
+            <td>Export em HTML, CSV e JSON dos resultados de OSINT.</td>
+            <td>Ferramenta de OSINT adjacente, alimentando MISP/OpenCTI ou relatórios/casos do TheHive.</td>
           </tr>
           <tr>
             <td>YARA</td>
-            <td>Motor em C com bindings e CLI, integra com antivírus, EDR, sandboxes e ferramentas forenses. [web:314][web:319]</td>
-            <td>Regras de texto próprias, aplicadas a ficheiros/memória; saída simples (match/no match + metadados). [web:314]</td>
-            <td>Base para hunting e detecção de malware, alinhado com técnicas/TTPs descritas em relatórios de CTI. [web:319]</td>
+            <td>Motor em C com CLI/bindings, integra em EDR, sandboxes, scanners e ferramentas forenses.</td>
+            <td>Regras de texto próprias; saída: matches com metadados.</td>
+            <td>Camada de detecção/hunting para malware e artefactos ligados a TTPs descritos na CTI.</td>
           </tr>
           <tr>
             <td>AlienVault OSSIM</td>
-            <td>Distribuição baseada em Debian com servidor de gestão e sensores, integra múltiplos componentes de segurança. [web:324][web:329]</td>
-            <td>Ingestão de logs em vários formatos, normalização interna, correlação, uso de feeds de TI próprios/externos. [web:324]</td>
-            <td>SIEM “core” em ambientes de baixo custo, consumindo IOCs de MISP/OpenCTI e drives de deteção a partir de CTI. [web:324][web:329]</td>
+            <td>Distribuição baseada em Debian com servidor de gestão e sensores SIEM.</td>
+            <td>Ingestão de múltiplos formatos de log, normalização e correlação, uso de feeds de TI.</td>
+            <td>SIEM “core” que consome IOCs de MISP/OpenCTI e gera alertas operacionais para o SOC.</td>
           </tr>
         </tbody>
       </table>
 
       <div class="highlight-box.success">
-        <strong>Stack de referência (exemplo):</strong> MISP/SpiderFoot para recolha, OpenCTI como “cérebro” de CTI, TheHive + Cortex para investigação/IR e um SIEM (OSSIM ou outro) para detecção operacional. [web:298][web:301][web:311][web:295][web:312][web:313][web:324]
+        <strong>Exemplo de stack OSS:</strong> MISP + SpiderFoot para recolha, OpenCTI como “cérebro” de CTI, TheHive + Cortex para investigação/IR e um SIEM (OSSIM ou outro) como camada de detecção.
       </div>
     </div>
   </div>
 
-  <!-- 9.3 – MÉTRICAS NIS2 NAS OPERAÇÕES SOC (mantida como antes) -->
+  <!-- 9.3 – MÉTRICAS NIS2 NAS OPERAÇÕES SOC -->
   <div class="grid">
     <div class="card">
       <div class="block-title">9.3 · Métricas NIS2 aplicadas ao SOC e à Threat Intelligence</div>
       <p class="section-note">
-        A NIS2 exige gestão de risco, reporte atempado de incidentes e melhoria contínua; várias orientações propõem KPIs práticos para SOCs que queiram demonstrar conformidade. [web:296][web:305][web:309][web:302]
+        A NIS2 pede capacidades (monitorização, resposta, reporte, melhoria contínua); estes KPIs ajudam a demonstrar isso de forma mensurável.
       </p>
 
       <div class="block-title">KPIs operacionais para o SOC</div>
       <ul>
-        <li><strong>MTTD (Mean Time to Detect):</strong> tempo médio desde o início de um incidente até detecção; benchmarks apontam para poucas horas em incidentes críticos. [web:302][web:307]</li>
-        <li><strong>MTTR (Mean Time to Respond/Remediate):</strong> tempo médio desde detecção/classificação até contenção ou resolução; guias sugerem objectivos agressivos para incidentes de alto impacto. [web:302][web:307]</li>
-        <li><strong>Time-to-Classify:</strong> tempo médio para classificar um alerta como incidente/não‑incidente; SOCs regulados miram alvos &lt; 2 horas para casos críticos. [web:305]</li>
-        <li><strong>Percentagem de incidentes reportados dentro do prazo legal:</strong> % de incidentes significativos notificados em conformidade com NIS2 (notificação inicial, relatórios subsequentes e final). [web:305][web:309]</li>
-        <li><strong>Taxa de fecho de acções pós‑incidente em &lt; 90 dias:</strong> % de recomendações implementadas no prazo acordado, evidenciando melhoria contínua. [web:296]</li>
+        <li><strong>MTTD (Mean Time to Detect):</strong> tempo médio desde o início de um incidente até detecção; indicador central de eficácia de monitorização.</li>
+        <li><strong>MTTR (Mean Time to Respond/Remediate):</strong> tempo médio desde detecção até contenção/remediação; muitas vezes usado em SLAs internos e com outsourcers.</li>
+        <li><strong>Time-to-Classify:</strong> tempo para classificar um alerta (incidente vs. falso positivo), com objectivo baixo para casos críticos.</li>
+        <li><strong>Taxa de notificação dentro de prazo:</strong> percentagem de incidentes significativos reportados dentro das janelas definidas pela NIS2.</li>
+        <li><strong>Fecho de acções pós‑incidente &lt; 90 dias:</strong> percentagem de recomendações implementadas em tempo útil, mostrando melhoria contínua.</li>
       </ul>
 
-      <div class="block-title">KPIs ligados a Threat Intelligence</div>
+      <div class="block-title">KPIs específicos de Threat Intelligence</div>
       <ul>
-        <li><strong>IoC Extraction Coverage:</strong> percentagem de incidentes relevantes em que foram extraídos e registados IOCs (IPs, domínios, hashes, TTPs) de forma estruturada. [web:305]</li>
-        <li><strong>Uso de TI em decisões SOC:</strong> % de incidentes críticos em que houve consulta a relatórios/feeds de TI antes de decidir contenção ou comunicação externa. [web:303]</li>
-        <li><strong>Tempo até integração de novas ameaças:</strong> tempo médio entre publicação de relatório de ameaça crítica e actualização de regras SIEM/EDR ou playbooks associados. [web:305]</li>
-        <li><strong>Cobertura ATT&CK para ameaças prioritárias:</strong> número/taxa de técnicas relevantes com pelo menos uma detecção ou caso de uso activo no SOC. [web:290][web:302]</li>
+        <li><strong>IoC Extraction Coverage:</strong> percentagem de incidentes relevantes onde foram extraídos e registados IOCs/TTPs de forma estruturada.</li>
+        <li><strong>Uso de TI em decisões SOC:</strong> percentagem de incidentes críticos em que relatórios/feeds de TI foram consultados antes de decidir contenção/comunicação.</li>
+        <li><strong>Tempo até integração de novas ameaças:</strong> tempo médio entre um relatório de ameaça crítica e a actualização de regras SIEM/EDR ou playbooks associados.</li>
+        <li><strong>Cobertura ATT&CK:</strong> número/taxa de técnicas relevantes com pelo menos uma detecção ou caso de uso activo no SOC.</li>
       </ul>
 
       <div class="highlight-box.success">
-        <strong>Como apresentar estas métricas a auditores/regulador:</strong><br />
-        · Mapear cada KPI a requisitos NIS2 (gestão de risco, reporte de incidentes, melhoria contínua). [web:296][web:305]<br />
-        · Manter dashboards históricos (6–12 meses) para mostrar tendência de melhoria em MTTD/MTTR e cumprimento de prazos de notificação.<br />
-        · Ligar métricas de TI (cobertura ATT&CK, IoC extraction) a incidentes concretos onde ajudaram a reduzir impacto ou evitar recorrência. [web:302][web:303]
+        <strong>Como alinhar com NIS2:</strong><br />
+        · Mapear cada KPI a requisitos de gestão de risco, tratamento de incidentes e reporte.<br />
+        · Manter evidência auditável: dashboards, relatórios de incidentes, registos de treino e playbooks actualizados.<br />
+        · Mostrar tendências (6–12 meses) de melhoria em MTTD/MTTR, taxa de notificação e redução de falsos positivos.
       </div>
     </div>
   </div>
