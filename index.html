@@ -404,11 +404,15 @@
       color: var(--accent);
     }
 
+    /* --- TABELAS (Sessão 9) --- */
+
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.85rem;
       margin: 8px 0 10px;
+      table-layout: fixed;
+      word-break: break-word;
     }
 
     th, td {
@@ -421,6 +425,72 @@
     th {
       background: rgba(148, 163, 184, 0.1);
       font-weight: 600;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: rgba(15, 23, 42, 0.02);
+    }
+
+    body[data-theme="dark"] tbody tr:nth-child(odd) {
+      background-color: rgba(15, 23, 42, 0.7);
+    }
+
+    td ul {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    td ul li {
+      margin-bottom: 2px;
+    }
+
+    /* --- Versão mobile: linha vira “card” --- */
+    @media (max-width: 720px) {
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody tr {
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        overflow: hidden;
+        background: var(--card-bg);
+      }
+
+      tbody tr:nth-child(odd) {
+        background-color: var(--card-bg);
+      }
+
+      tbody td {
+        border: none;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 6px 10px;
+        position: relative;
+      }
+
+      tbody td:last-child {
+        border-bottom: none;
+      }
+
+      tbody td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -467,7 +537,7 @@
       if (saved === "light" || saved === "dark") {
         document.body.dataset.theme = saved;
       } else {
-        document.body.dataset.theme = "dark";
+        document.body.dataset-theme = "dark";
       }
       const cta = document.getElementById("cta-start");
       if (cta) {
@@ -521,15 +591,14 @@
     <a href="#dia-ti-soc">Dia de Threat Intelligence</a>
   </nav>
 
-  <!-- AQUI ENTRAM AS SECÇÕES 0–8 COMO JÁ DEFINISTE NO TEU FICHEIRO -->
-  <!-- (não as repito para não alongar ainda mais a resposta) -->
+  <!-- AQUI FICAM AS SECÇÕES 0–8 DO TEU FICHEIRO ORIGINAL -->
 
   <!-- SECÇÃO 9 – DIA DE THREAT INTELLIGENCE NO SOC -->
   <hr class="divider" />
 
   <h2 id="dia-ti-soc">Secção 9 · Um dia de Threat Intelligence nas operações SOC</h2>
   <p class="section-note">
-    Como a Threat Intelligence entra no dia-a-dia do SOC: rotina típica, principais ferramentas open source, comparação em tabelas e métricas NIS2 que fazem sentido acompanhar.
+    Como a Threat Intelligence entra no dia-a-dia do SOC: rotina típica, principais ferramentas open source, comparação em tabela e métricas NIS2 que fazem sentido acompanhar.
   </p>
 
   <div class="grid">
@@ -556,129 +625,184 @@
       </div>
     </div>
 
-    <!-- 9.2 – FERRAMENTAS OSS + TABELAS -->
+    <!-- 9.2 – FERRAMENTAS OSS + TABELA ÚNICA COM DATA-LABEL -->
     <div class="card">
       <div class="block-title">9.2 · Ferramentas open source de Threat Intelligence usadas no SOC</div>
       <p class="section-note">
-        Ferramentas OSS frequentemente recomendadas para equipas SOC/CTI, com funções complementares ao longo do ciclo de Threat Intelligence.
+        Visão rápida das principais ferramentas open source para CTI/SOC e como encaixam na arquitectura.
       </p>
 
-      <div class="block-title">Tabela funcional (o que cada ferramenta faz)</div>
       <table>
         <thead>
           <tr>
             <th>Ferramenta</th>
-            <th>Tipo principal</th>
-            <th>Caso de uso típico</th>
-            <th>Pontos fortes</th>
-            <th>Cuidados / limitações</th>
+            <th>Função principal</th>
+            <th>Onde encaixa no SOC</th>
+            <th>Stack / formatos</th>
+            <th>Forças & cuidados</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>MISP</td>
-            <td>TIP de partilha de IOCs</td>
-            <td>Partilhar/correlacionar IOCs e eventos de ameaça com equipas internas ou comunidades.</td>
-            <td>Correlação automática, taxonomias ricas, grande ecossistema e integrações (SIEM, TheHive, OpenCTI).</td>
-            <td>Exige governança de dados, curadoria de eventos e manutenção da instância.</td>
+            <td data-label="Ferramenta"><strong>MISP</strong></td>
+            <td data-label="Função principal">TIP de partilha de IOCs</td>
+            <td data-label="Onde encaixa no SOC">
+              <ul>
+                <li>Repositório central de IOCs.</li>
+                <li>Partilha com parceiros/comunidades.</li>
+                <li>Fonte de indicadores para SIEM/EDR.</li>
+              </ul>
+            </td>
+            <td data-label="Stack / formatos">
+              <ul>
+                <li>Web app (PHP) + BD SQL.</li>
+                <li>JSON MISP, STIX 1/2, TAXII, CSV.</li>
+              </ul>
+            </td>
+            <td data-label="Forças & cuidados">
+              <ul>
+                <li><strong>Forças:</strong> correlação automática, taxonomias, ecossistema grande.</li>
+                <li><strong>Cuidados:</strong> precisa de curadoria e regras claras de partilha.</li>
+              </ul>
+            </td>
           </tr>
-          <tr>
-            <td>OpenCTI</td>
-            <td>Plataforma CTI em grafo</td>
-            <td>Gerir conhecimento sobre actores, campanhas, TTPs e relações; servir de “cérebro” de CTI.</td>
-            <td>Modelo STIX 2, visualização em grafo, integra MISP, MITRE ATT&CK, TheHive e múltiplos feeds.</td>
-            <td>Stack mais pesado, precisa de sizing correcto e desenho de modelo de dados logo de início.</td>
-          </tr>
-          <tr>
-            <td>TheHive</td>
-            <td>Gestão de incidentes SOC/IR</td>
-            <td>Gerir casos, investigações e playbooks, ligando SOC, IR e CTI.</td>
-            <td>Focado em casos, integra facilmente com Cortex e MISP/OpenCTI; bom para SOCs e home labs avançados.</td>
-            <td>Requer Elasticsearch/OpenSearch e tuning; ganha valor máximo integrado com outras peças da stack.</td>
-          </tr>
-          <tr>
-            <td>Cortex</td>
-            <td>Motor de análise de observáveis</td>
-            <td>Automatizar enriquecimento de IPs, domínios, hashes e URLs com múltiplos analisadores.</td>
-            <td>Grande catálogo de analisadores, integração nativa com TheHive, resultados estruturados em JSON.</td>
-            <td>Depende de APIs externas e gestão de chaves; pode gerar custos se não for bem controlado.</td>
-          </tr>
-          <tr>
-            <td>SpiderFoot</td>
-            <td>OSINT automatizado</td>
-            <td>Mapear pegada digital de alvos (IPs, domínios, e‑mails), apoiar recon e expansão de campanhas.</td>
-            <td>Centenas de fontes OSINT, interface web, modos guiados para iniciantes.</td>
-            <td>Produz grande volume de dados; exige filtros e análise humana para não gerar ruído.</td>
-          </tr>
-          <tr>
-            <td>YARA</td>
-            <td>Regras de malware/hunting</td>
-            <td>Criar assinaturas para detecção de malware e artefactos em disco/memória, alinhadas com CTI.</td>
-            <td>Muito flexível (strings, regex, padrões binários), base para hunts e análise forense.</td>
-            <td>Curva de aprendizagem, precisa de testes extensivos para reduzir falsos positivos/negativos.</td>
-          </tr>
-          <tr>
-            <td>AlienVault OSSIM</td>
-            <td>SIEM open source</td>
-            <td>Agregação de logs, alertas e correlação com IOCs/feeds de Threat Intelligence.</td>
-            <td>SIEM completo baseado em Debian, com normalização, correlação e TI integrada.</td>
-            <td>Requer tuning forte e recursos para escalar; menos polido que SIEMs comerciais em ambientes muito grandes.</td>
-          </tr>
-        </tbody>
-      </table>
 
-      <div class="block-title">Tabela técnica (stack e formatos)</div>
-      <table>
-        <thead>
           <tr>
-            <th>Ferramenta</th>
-            <th>Stack / dependências principais</th>
-            <th>Formatos & padrões suportados</th>
-            <th>Papel típico na arquitectura</th>
+            <td data-label="Ferramenta"><strong>OpenCTI</strong></td>
+            <td data-label="Função principal">Plataforma CTI em grafo</td>
+            <td data-label="Onde encaixa no SOC">
+              <ul>
+                <li>“Cérebro” de CTI (actores, campanhas, TTPs).</li>
+                <li>Base de conhecimento para SOC/IR.</li>
+              </ul>
+            </td>
+            <td data-label="Stack / formatos">
+              <ul>
+                <li>ElasticSearch/OpenSearch, Redis, RabbitMQ.</li>
+                <li>STIX‑like JSON via GraphQL, integra ATT&CK/MISP.</li>
+              </ul>
+            </td>
+            <td data-label="Forças & cuidados">
+              <ul>
+                <li><strong>Forças:</strong> grafo visual, modelo rico, muitos conectores.</li>
+                <li><strong>Cuidados:</strong> stack pesada, exige planeamento e sizing.</li>
+              </ul>
+            </td>
           </tr>
-        </thead>
-        <tbody>
+
           <tr>
-            <td>MISP</td>
-            <td>Aplicação web (PHP), base de dados SQL, integração com TAXII/STIX via módulos/pipelines.</td>
-            <td>Formato MISP (JSON), STIX 1.x/2.x, TAXII, CSV/feeds custom.</td>
-            <td>TIP centrado em IOCs, fonte/destino de indicadores para SIEM, EDR, firewalls e outras TIPs.</td>
+            <td data-label="Ferramenta"><strong>TheHive</strong></td>
+            <td data-label="Função principal">Gestão de incidentes SOC/IR</td>
+            <td data-label="Onde encaixa no SOC">
+              <ul>
+                <li>Consola de casos do SOC.</li>
+                <li>Playbooks e colaboração entre analistas.</li>
+              </ul>
+            </td>
+            <td data-label="Stack / formatos">
+              <ul>
+                <li>Servidor Java + Elastic/OpenSearch.</li>
+                <li>JSON via API; integra MISP/OpenCTI.</li>
+              </ul>
+            </td>
+            <td data-label="Forças & cuidados">
+              <ul>
+                <li><strong>Forças:</strong> orientado a casos, integra bem com Cortex e TIPs.</li>
+                <li><strong>Cuidados:</strong> tirar partido exige definir bem o workflow.</li>
+              </ul>
+            </td>
           </tr>
+
           <tr>
-            <td>OpenCTI</td>
-            <td>ElasticSearch/OpenSearch, Redis, RabbitMQ, S3/MinIO, API GraphQL e UI web.</td>
-            <td>Modelo interno compatível com STIX 2, JSON via API, integra ATT&CK, MISP e múltiplos conectores.</td>
-            <td>“Knowledge graph” de CTI, camada central entre recolha de dados e operações SOC/IR.</td>
+            <td data-label="Ferramenta"><strong>Cortex</strong></td>
+            <td data-label="Função principal">Motor de enriquecimento</td>
+            <td data-label="Onde encaixa no SOC">
+              <ul>
+                <li>Enriquecimento de IPs/domínios/hashes.</li>
+                <li>Chamado a partir do TheHive ou scripts.</li>
+              </ul>
+            </td>
+            <td data-label="Stack / formatos">
+              <ul>
+                <li>App web + workers Docker.</li>
+                <li>Entrada/saída em JSON.</li>
+              </ul>
+            </td>
+            <td data-label="Forças & cuidados">
+              <ul>
+                <li><strong>Forças:</strong> dezenas de analisadores prontos.</li>
+                <li><strong>Cuidados:</strong> gerir chaves/API e custos de consultas.</li>
+              </ul>
+            </td>
           </tr>
+
           <tr>
-            <td>TheHive</td>
-            <td>Servidor Java + Elasticsearch/OpenSearch; instala em Linux ou containers.</td>
-            <td>JSON para casos, integra APIs de MISP/OpenCTI (IOCs, alertas), export de relatórios.</td>
-            <td>Console principal de casos SOC/IR, orquestrando enrichment (Cortex) e CTI (MISP/OpenCTI).</td>
+            <td data-label="Ferramenta"><strong>SpiderFoot</strong></td>
+            <td data-label="Função principal">OSINT automatizado</td>
+            <td data-label="Onde encaixa no SOC">
+              <ul>
+                <li>Recon de IPs, domínios, e‑mails.</li>
+                <li>Expansão de infra‑estrutura maliciosa.</li>
+              </ul>
+            </td>
+            <td data-label="Stack / formatos">
+              <ul>
+                <li>Python 3 + interface web.</li>
+                <li>Exporta HTML, CSV, JSON.</li>
+              </ul>
+            </td>
+            <td data-label="Forças & cuidados">
+              <ul>
+                <li><strong>Forças:</strong> muitas fontes, fácil de usar.</li>
+                <li><strong>Cuidados:</strong> pode gerar muito ruído se não filtrares.</li>
+              </ul>
+            </td>
           </tr>
+
           <tr>
-            <td>Cortex</td>
-            <td>Aplicação web com workers em Docker para analisadores.</td>
-            <td>Recebe observáveis em JSON e devolve resultados estruturados por analisador.</td>
-            <td>Camada de enrichment automático para observáveis vindos de casos SOC/IR ou investigações CTI.</td>
+            <td data-label="Ferramenta"><strong>YARA</strong></td>
+            <td data-label="Função principal">Regras de malware/hunting</td>
+            <td data-label="Onde encaixa no SOC">
+              <ul>
+                <li>Detecção em EDR, sandboxes, forense.</li>
+                <li>Hunting guiado por TTPs/CTI.</li>
+              </ul>
+            </td>
+            <td data-label="Stack / formatos">
+              <ul>
+                <li>Motor em C + CLI/bindings.</li>
+                <li>Regras de texto próprias.</li>
+              </ul>
+            </td>
+            <td data-label="Forças & cuidados">
+              <ul>
+                <li><strong>Forças:</strong> muito flexível, vai além de hashes.</li>
+                <li><strong>Cuidados:</strong> precisa de boas práticas para evitar falsos positivos.</li>
+              </ul>
+            </td>
           </tr>
+
           <tr>
-            <td>SpiderFoot</td>
-            <td>Python 3, bibliotecas de rede/scraping, interface web própria.</td>
-            <td>Export em HTML, CSV e JSON dos resultados de OSINT.</td>
-            <td>Ferramenta de OSINT adjacente, alimentando MISP/OpenCTI ou relatórios/casos do TheHive.</td>
-          </tr>
-          <tr>
-            <td>YARA</td>
-            <td>Motor em C com CLI/bindings, integra em EDR, sandboxes, scanners e ferramentas forenses.</td>
-            <td>Regras de texto próprias; saída: matches com metadados.</td>
-            <td>Camada de detecção/hunting para malware e artefactos ligados a TTPs descritos na CTI.</td>
-          </tr>
-          <tr>
-            <td>AlienVault OSSIM</td>
-            <td>Distribuição baseada em Debian com servidor de gestão e sensores SIEM.</td>
-            <td>Ingestão de múltiplos formatos de log, normalização e correlação, uso de feeds de TI.</td>
-            <td>SIEM “core” que consome IOCs de MISP/OpenCTI e gera alertas operacionais para o SOC.</td>
+            <td data-label="Ferramenta"><strong>AlienVault OSSIM</strong></td>
+            <td data-label="Função principal">SIEM open source</td>
+            <td data-label="Onde encaixa no SOC">
+              <ul>
+                <li>Camada de logs, alertas e correlação.</li>
+                <li>Consome IOCs de MISP/OpenCTI.</li>
+              </ul>
+            </td>
+            <td data-label="Stack / formatos">
+              <ul>
+                <li>Distribuição baseada em Debian.</li>
+                <li>Vários formatos de log, normalização interna.</li>
+              </ul>
+            </td>
+            <td data-label="Forças & cuidados">
+              <ul>
+                <li><strong>Forças:</strong> SIEM completo sem licenças altas.</li>
+                <li><strong>Cuidados:</strong> tuning e recursos são críticos para escalar.</li>
+              </ul>
+            </td>
           </tr>
         </tbody>
       </table>
