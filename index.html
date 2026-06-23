@@ -19,7 +19,7 @@
       --danger: #f97373;
       --success: #4ade80;
       --warning: #fbbf24;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      background: #020617;
       color: var(--text-main);
     }
 
@@ -56,6 +56,11 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 32px 16px 48px;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+    }
+
+    body[data-theme="light"] .page {
+      background: #f3f4f6;
     }
 
     header {
@@ -227,12 +232,12 @@
       border-radius: 12px;
       padding: 16px 16px 14px;
       border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
     }
 
     body[data-theme="dark"] .card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), rgba(15, 23, 42, 0.9));
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.8);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), rgba(15, 23, 42, 0.95));
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
     }
 
     .block-title {
@@ -386,6 +391,7 @@
         padding: 10mm;
         max-width: 100%;
         box-shadow: none !important;
+        background: #ffffff !important;
       }
       nav, .top-bar, .badge, .cta-start {
         display: none !important;
@@ -469,7 +475,6 @@
     SECÇÕES 0–8
     Aqui inseres o conteúdo que já tinhas: sobre, plano de 10 semanas, labs, ferramentas, frameworks,
     tópicos avançados, OSINT/automação, SOC/hunting, etc.
-    A Secção 9 vem logo a seguir.
   -->
 
   <!-- SECÇÃO 9 – DIA DE THREAT INTELLIGENCE NO SOC -->
