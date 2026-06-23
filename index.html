@@ -415,7 +415,7 @@
       if (saved === "light" || saved === "dark") {
         document.body.dataset.theme = saved;
       } else {
-        document.body.dataset.theme = "dark";
+        document.body.dataset-theme = "dark";
       }
       const cta = document.getElementById("cta-start");
       if (cta) {
@@ -429,7 +429,7 @@
     });
   </script>
 </head>
-<body>
+<body data-theme="dark">
 <div class="page">
 
   <div class="top-bar">
@@ -474,7 +474,7 @@
   <!-- SECÇÃO 1 – SOBRE O ROTEIRO -->
   <h2 id="sobre">Secção 1 · Sobre este roteiro</h2>
   <p class="section-note">
-    Roteiro intensivo de 10 semanas (~3h/semana) focado em Threat Intelligence aplicada: fundamentos, frameworks, labs, ferramentas de código aberto e integração com SOC, IR e NIS2.[web:367][web:369][web:373]
+    Roteiro intensivo de 10 semanas (~3h/semana) focado em Threat Intelligence aplicada: fundamentos, frameworks, labs, ferramentas de código aberto e integração com SOC, IR e NIS2.
   </p>
 
   <div class="grid">
@@ -483,15 +483,15 @@
       <ul>
         <li>Construir bases sólidas de conceitos, ciclo de vida e tipos de Threat Intelligence.</li>
         <li>Aprender a consumir, produzir e partilhar inteligência útil, não apenas IOCs.</li>
-        <li>Praticar com ferramentas open source (MISP, OpenCTI, TheHive, Cortex, SpiderFoot, YARA, OSSIM).[web:301][web:370][web:308]</li>
-        <li>Alinhar TI com SOC, incident response e requisitos NIS2.[web:373][web:374]</li>
+        <li>Praticar com ferramentas open source (<a href="https://www.misp-project.org" target="_blank" rel="noreferrer noopener">MISP</a>, <a href="https://www.opencti.io" target="_blank" rel="noreferrer noopener">OpenCTI</a>, <a href="https://thehive-project.org" target="_blank" rel="noreferrer noopener">TheHive</a>, <a href="https://github.com/TheHive-Project/Cortex" target="_blank" rel="noreferrer noopener">Cortex</a>, <a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noreferrer noopener">SpiderFoot</a>, YARA, <a href="https://en.wikipedia.org/wiki/OSSIM" target="_blank" rel="noreferrer noopener">OSSIM</a>).</li>
+        <li>Alinhar Threat Intelligence com SOC, incident response e requisitos NIS2.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Como usar este plano</div>
       <ul>
         <li>Seguir o plano semanal e, se possível, manter um caderno/logbook de aprendizagem.</li>
-        <li>Criar um pequeno portefólio: notas de inteligência, mini‑relatórios, scripts/labs.</li>
+        <li>Criar um pequeno portefólio: notas de inteligência, mini‑relatórios, scripts e labs.</li>
         <li>Rever o progresso ao fim de 4, 8 e 10 semanas, ajustando profundidade conforme o tempo disponível.</li>
       </ul>
       <div class="highlight-box success">
@@ -504,16 +504,16 @@
   <hr class="divider" />
   <h2 id="plano-10-semanas">Secção 2 · Plano de 10 semanas</h2>
   <p class="section-note">
-    Visão de alto nível das 10 semanas: o que focar, o que produzir e como os conhecimentos se encadeiam.[web:367][web:369]
+    Visão de alto nível das 10 semanas: o que focar, o que produzir e como os conhecimentos se encadeiam.
   </p>
 
   <div class="grid" id="nivel1">
     <div class="card">
       <div class="block-title">Semana 1 · Fundamentos de TI</div>
       <ul>
-        <li>Conceitos base: ameaça, risco, actor, campanha, IOC, TTP.[web:369][web:374]</li>
-        <li>Tipos de TI: estratégica, operacional, tática, técnica.[web:373]</li>
-        <li>Ciclo de inteligência: planeamento, recolha, análise, disseminação, feedback.[web:374]</li>
+        <li>Conceitos base: ameaça, risco, actor, campanha, IOC, TTP.</li>
+        <li>Tipos de TI: estratégica, operacional, tática, técnica.</li>
+        <li>Ciclo de inteligência: planeamento, recolha, análise, disseminação, feedback.</li>
       </ul>
       <div class="highlight-box">
         <strong>Entrega:</strong> 1 página a explicar “O que é Threat Intelligence e para que serve num SOC”.
@@ -523,20 +523,20 @@
     <div class="card">
       <div class="block-title">Semana 2 · Frameworks de referência</div>
       <ul>
-        <li>MITRE ATT&CK: tácticas, técnicas, grupos, software.[web:369][web:374]</li>
-        <li>Kill Chain e Diamond Model: como contar a história de um ataque.[web:369]</li>
+        <li><a href="https://attack.mitre.org" target="_blank" rel="noreferrer noopener">MITRE ATT&CK</a>: tácticas, técnicas, grupos, software.</li>
+        <li>Kill Chain e Diamond Model: como contar a história de um ataque.</li>
         <li>Mapear um incidente simples a ATT&CK + Kill Chain.</li>
       </ul>
       <div class="highlight-box">
-        <strong>Entrega:</strong> mapa ATT&CK de uma campanha pública (por exemplo, APT conhecida).
+        <strong>Entrega:</strong> mapa ATT&CK de uma campanha pública (por exemplo, APT conhecida) usando o <a href="https://mitre-attack.github.io/attack-navigator" target="_blank" rel="noreferrer noopener">ATT&CK Navigator</a>.
       </div>
     </div>
 
     <div class="card">
       <div class="block-title">Semana 3 · OSINT e fontes de dados</div>
       <ul>
-        <li>Fontes OSINT: relatórios públicos, feeds, repositórios de CTI, redes sociais técnicas.[web:369][web:373]</li>
-        <li>Ferramentas OSINT: SpiderFoot, Maltego CE, OSINT Framework.[web:301][web:370]</li>
+        <li>Fontes OSINT: relatórios públicos, feeds, repositórios de CTI, redes sociais técnicas.</li>
+        <li>Ferramentas OSINT: <a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noreferrer noopener">SpiderFoot</a>, Maltego CE, OSINT Framework.</li>
         <li>Boas práticas de recolha e citação de fontes.</li>
       </ul>
       <div class="highlight-box">
@@ -547,8 +547,8 @@
     <div class="card">
       <div class="block-title">Semana 4 · IOCs, TTPs e enriquecimento</div>
       <ul>
-        <li>Tipos de IOCs: IPs, domínios, URLs, hashes, certificados, artefactos.[web:373][web:374]</li>
-        <li>Ferramentas de enrichment: VirusTotal, ThreatMiner, AbuseIPDB, etc.[web:301][web:370]</li>
+        <li>Tipos de IOCs: IPs, domínios, URLs, hashes, certificados, artefactos.</li>
+        <li>Ferramentas de enrichment: VirusTotal, ThreatMiner, AbuseIPDB, etc.</li>
         <li>Da IOC a TTP: como ligar indicadores a ATT&CK e a actores.</li>
       </ul>
       <div class="highlight-box">
@@ -559,9 +559,9 @@
     <div class="card">
       <div class="block-title">Semana 5 · Plataformas de CTI (MISP, OpenCTI)</div>
       <ul>
-        <li>Instalar ou usar instâncias de teste de MISP e/ou OpenCTI.[web:308][web:301]</li>
-        <li>Criar eventos, importar IOCs, usar taxonomias/tags.[web:308]</li>
-        <li>Explorar integrações base (export STIX/TAXII, feeds).[web:374][web:308]</li>
+        <li>Instalar ou usar instâncias de teste de <a href="https://www.misp-project.org" target="_blank" rel="noreferrer noopener">MISP</a> e/ou <a href="https://www.opencti.io" target="_blank" rel="noreferrer noopener">OpenCTI</a>.</li>
+        <li>Criar eventos, importar IOCs, usar taxonomias/tags.</li>
+        <li>Explorar integrações base (export STIX/TAXII, feeds).</li>
       </ul>
       <div class="highlight-box">
         <strong>Entrega:</strong> captura de ecrã + descrição de um evento de ameaça modelado em MISP/OpenCTI.
@@ -571,9 +571,9 @@
     <div class="card">
       <div class="block-title">Semana 6 · SOC, SIEM e integração de TI</div>
       <ul>
-        <li>Função do SOC, níveis de analistas, fluxo de incidentes.[web:371][web:373]</li>
-        <li>SIEM (ex.: OSSIM, ELK, Wazuh) e ingestão de IOCs.[web:301][web:371]</li>
-        <li>Usar TI para priorizar alertas e reduzir ruído.[web:373]</li>
+        <li>Função do SOC, níveis de analistas, fluxo de incidentes.</li>
+        <li>SIEM (ex.: <a href="https://en.wikipedia.org/wiki/OSSIM" target="_blank" rel="noreferrer noopener">OSSIM</a>, ELK, Wazuh) e ingestão de IOCs.</li>
+        <li>Usar TI para priorizar alertas e reduzir ruído.</li>
       </ul>
       <div class="highlight-box">
         <strong>Entrega:</strong> pequeno runbook: “Como usar TI para priorizar um alerta de login suspeito”.
@@ -583,8 +583,8 @@
     <div class="card">
       <div class="block-title">Semana 7 · Incident Response & TheHive/Cortex</div>
       <ul>
-        <li>Ciclo de resposta a incidentes (NIST/SANS).[web:371]</li>
-        <li>TheHive como case management, Cortex para enrichment.[web:308][web:301]</li>
+        <li>Ciclo de resposta a incidentes (NIST/SANS).</li>
+        <li><a href="https://thehive-project.org" target="_blank" rel="noreferrer noopener">TheHive</a> como case management, <a href="https://github.com/TheHive-Project/Cortex" target="_blank" rel="noreferrer noopener">Cortex</a> para enrichment.</li>
         <li>Documentar um incidente com IOCs/TTPs, timeline e acções.</li>
       </ul>
       <div class="highlight-box">
@@ -595,9 +595,9 @@
     <div class="card">
       <div class="block-title">Semana 8 · YARA, malware e hunting</div>
       <ul>
-        <li>Noções de análise de malware (estática/dinâmica) e famílias comuns.[web:367][web:371]</li>
-        <li>Regras YARA para detecção de artefactos específicos.[web:301][web:370]</li>
-        <li>Usar TTPs e YARA para orientar hunts em logs/EDR.[web:373]</li>
+        <li>Noções de análise de malware (estática/dinâmica) e famílias comuns.</li>
+        <li>Regras YARA para detecção de artefactos específicos.</li>
+        <li>Usar TTPs e YARA para orientar hunts em logs/EDR.</li>
       </ul>
       <div class="highlight-box">
         <strong>Entrega:</strong> 1–2 regras YARA comentadas + explicação de que ameaça cobrem.
@@ -607,8 +607,8 @@
     <div class="card">
       <div class="block-title">Semana 9 · Automação & playbooks</div>
       <ul>
-        <li>Noções de SOAR e playbooks (Shuffle, Cortex, scripts Python).[web:367][web:371]</li>
-        <li>Automatizar enrichment de IOCs e tarefas repetitivas.[web:373]</li>
+        <li>Noções de SOAR e playbooks (Shuffle, Cortex, scripts Python).</li>
+        <li>Automatizar enrichment de IOCs e tarefas repetitivas.</li>
         <li>Definir critérios de quando automatizar vs. manter manual.</li>
       </ul>
       <div class="highlight-box">
@@ -620,7 +620,7 @@
       <div class="block-title">Semana 10 · Portefólio & NIS2</div>
       <ul>
         <li>Organizar relatórios, notas de TI, scripts e prints de labs.</li>
-        <li>Mapear práticas de TI aos requisitos NIS2 (monitorização, resposta, reporte).[web:374]</li>
+        <li>Mapear práticas de TI aos requisitos NIS2 (monitorização, resposta, reporte).</li>
         <li>Preparar um “resumo executivo” do que foi aprendido.</li>
       </ul>
       <div class="highlight-box success">
@@ -633,37 +633,37 @@
   <hr class="divider" />
   <h2 id="cheatsheet-labs">Secção 3 · Cheatsheet de laboratórios</h2>
   <p class="section-note">
-    Sugestões de laboratórios gratuitos para consolidares os conceitos semana a semana (TryHackMe, CyberDefenders, VMs gratuitas, etc.).[web:367][web:371][web:373]
+    Sugestões de laboratórios gratuitos para consolidares os conceitos semana a semana (TryHackMe, CyberDefenders, VMs gratuitas, etc.).
   </p>
 
   <div class="grid">
     <div class="card">
       <div class="block-title">Fundamentos & frameworks (Semanas 1–2)</div>
       <ul>
-        <li>Explorar MITRE ATT&CK Navigator e mapear um actor/grupo conhecido.[web:369][web:374]</li>
-        <li>CTF/CTI write‑ups: ler 1–2 relatórios de APT e extrair IOCs + TTPs.[web:369][web:373]</li>
+        <li>Explorar <a href="https://mitre-attack.github.io/attack-navigator" target="_blank" rel="noreferrer noopener">MITRE ATT&CK Navigator</a> e mapear um actor/grupo conhecido.</li>
+        <li>Ler 1–2 relatórios de APT e extrair IOCs + TTPs.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">OSINT & IOCs (Semanas 3–4)</div>
       <ul>
-        <li>Executar SpiderFoot contra um domínio controlado e analisar a pegada digital.[web:301][web:370]</li>
-        <li>Usar VirusTotal/ThreatMiner para enriquecer IOCs de um caso prático.[web:301][web:370][web:373]</li>
+        <li>Executar <a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noreferrer noopener">SpiderFoot</a> contra um domínio controlado e analisar a pegada digital.</li>
+        <li>Usar VirusTotal/ThreatMiner para enriquecer IOCs de um caso prático.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Plataformas TI & SOC (Semanas 5–7)</div>
       <ul>
-        <li>Instalar MISP em VM ou usar instância demo para criar e partilhar eventos.[web:308][web:301]</li>
-        <li>Explorar TheHive + Cortex com um caso fictício, enviando IOCs para enrichment.[web:308][web:301]</li>
-        <li>Usar um stack tipo Security Onion/Wazuh para ver logs e alertas de teste.[web:371]</li>
+        <li>Instalar <a href="https://www.misp-project.org" target="_blank" rel="noreferrer noopener">MISP</a> em VM ou usar instância demo para criar e partilhar eventos.</li>
+        <li>Explorar <a href="https://thehive-project.org" target="_blank" rel="noreferrer noopener">TheHive</a> + <a href="https://github.com/TheHive-Project/Cortex" target="_blank" rel="noreferrer noopener">Cortex</a> com um caso fictício, enviando IOCs para enrichment.</li>
+        <li>Usar um stack tipo Security Onion/Wazuh para ver logs e alertas de teste.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Malware & hunting (Semanas 8–9)</div>
       <ul>
-        <li>Laboratórios de malware analysis em ambientes controlados (REMnux/FLARE VM).[web:367][web:371]</li>
-        <li>TryHackMe / CyberDefenders focados em SOC / hunting com ATT&CK.[web:371][web:373]</li>
+        <li>Laboratórios de malware analysis em ambientes controlados (REMnux/FLARE VM).</li>
+        <li>TryHackMe / CyberDefenders focados em SOC / hunting com ATT&CK.</li>
       </ul>
     </div>
   </div>
@@ -672,40 +672,40 @@
   <hr class="divider" />
   <h2 id="ferramentas">Secção 4 · Ferramentas open source essenciais</h2>
   <p class="section-note">
-    Conjunto mínimo de ferramentas open source para um laboratório de Threat Intelligence completo.[web:301][web:370][web:308]
+    Conjunto mínimo de ferramentas open source para um laboratório de Threat Intelligence completo.
   </p>
 
   <div class="grid tools-grid">
     <div class="card">
       <div class="block-title">Plataformas de Threat Intelligence</div>
       <ul>
-        <li><strong>MISP:</strong> partilha e correlação de IOCs e eventos de ameaça.</li>
-        <li><strong>OpenCTI:</strong> grafo de conhecimento de actores, campanhas, TTPs e relações.</li>
-        <li><strong>Yeti / IntelMQ (opcional):</strong> gestão de feeds e repositório de TI.[web:308]</li>
+        <li><a href="https://www.misp-project.org" target="_blank" rel="noreferrer noopener"><strong>MISP</strong></a>: partilha e correlação de IOCs e eventos de ameaça.</li>
+        <li><a href="https://www.opencti.io" target="_blank" rel="noreferrer noopener"><strong>OpenCTI</strong></a>: grafo de conhecimento de actores, campanhas, TTPs e relações.</li>
+        <li><strong>Yeti / IntelMQ</strong> (opcional): gestão de feeds e repositório de TI.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">SOC, IR e enrichment</div>
       <ul>
-        <li><strong>TheHive:</strong> gestão de casos e resposta a incidentes colaborativa.</li>
-        <li><strong>Cortex:</strong> enrichment de observáveis com dezenas de analisadores.[web:308][web:301]</li>
-        <li><strong>OSSIM / ELK / Wazuh:</strong> SIEM/log management com suporte a TI.[web:301][web:371]</li>
+        <li><a href="https://thehive-project.org" target="_blank" rel="noreferrer noopener"><strong>TheHive</strong></a>: gestão de casos e resposta a incidentes colaborativa.</li>
+        <li><a href="https://github.com/TheHive-Project/Cortex" target="_blank" rel="noreferrer noopener"><strong>Cortex</strong></a>: enrichment de observáveis com dezenas de analisadores.</li>
+        <li><a href="https://en.wikipedia.org/wiki/OSSIM" target="_blank" rel="noreferrer noopener"><strong>OSSIM</strong></a> / ELK / Wazuh: SIEM/log management com suporte a TI.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">OSINT & análise</div>
       <ul>
-        <li><strong>SpiderFoot:</strong> OSINT automatizado para IPs, domínios, e‑mails.[web:301][web:370]</li>
-        <li><strong>Maltego CE:</strong> pivoting visual sobre entidades e relações.[web:301][web:370]</li>
-        <li><strong>OSINT Framework:</strong> catálogo de fontes OSINT por tipo de alvo.[web:301][web:370]</li>
+        <li><a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noreferrer noopener"><strong>SpiderFoot</strong></a>: OSINT automatizado para IPs, domínios, e‑mails.</li>
+        <li><strong>Maltego CE</strong>: pivoting visual sobre entidades e relações.</li>
+        <li><strong>OSINT Framework</strong>: catálogo de fontes OSINT por tipo de alvo.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Malware / hunting</div>
       <ul>
-        <li><strong>YARA:</strong> detecção e classificação de malware por regras.[web:301][web:370]</li>
-        <li><strong>Cuckoo Sandbox / Any.Run:</strong> análise dinâmica de samples.[web:367][web:370]</li>
-        <li><strong>Zeek:</strong> monitorização profunda de tráfego de rede.[web:301][web:370]</li>
+        <li><strong>YARA</strong>: detecção e classificação de malware por regras.</li>
+        <li><strong>Cuckoo Sandbox / Any.Run</strong>: análise dinâmica de samples.</li>
+        <li><strong>Zeek</strong>: monitorização profunda de tráfego de rede.</li>
       </ul>
     </div>
   </div>
@@ -714,23 +714,23 @@
   <hr class="divider" />
   <h2 id="frameworks">Secção 5 · Frameworks e modelos de Threat Intelligence</h2>
   <p class="section-note">
-    Frameworks que servem de linguagem comum entre analistas, SOC, gestão e auditores.[web:369][web:374]
+    Frameworks que servem de linguagem comum entre analistas, SOC, gestão e auditores.
   </p>
 
   <div class="grid">
     <div class="card">
       <div class="block-title">MITRE ATT&CK</div>
       <ul>
-        <li>Catálogo de tácticas e técnicas usadas por adversários em diferentes plataformas.[web:374]</li>
-        <li>Permite mapear detecções, lacunas de cobertura e casos de uso do SOC.[web:373][web:374]</li>
+        <li>Catálogo de tácticas e técnicas usadas por adversários em diferentes plataformas, disponível em <a href="https://attack.mitre.org" target="_blank" rel="noreferrer noopener">attack.mitre.org</a>.</li>
+        <li>Permite mapear detecções, lacunas de cobertura e casos de uso do SOC.</li>
         <li>Base para threat hunting, análise de lacunas e comunicação com gestão.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Kill Chain & Diamond Model</div>
       <ul>
-        <li><strong>Kill Chain:</strong> foca a progressão do ataque (recon, weaponization, delivery, etc.).[web:369]</li>
-        <li><strong>Diamond Model:</strong> descreve relação entre adversário, vítima, infra e capacidades.[web:369]</li>
+        <li><strong>Kill Chain:</strong> foca a progressão do ataque (recon, weaponization, delivery, etc.).</li>
+        <li><strong>Diamond Model:</strong> descreve relação entre adversário, vítima, infra e capacidades.</li>
         <li>Usados para estruturar relatórios de TI e playbooks de resposta.</li>
       </ul>
     </div>
@@ -740,23 +740,23 @@
   <hr class="divider" />
   <h2 id="proximos-passos">Secção 6 · Próximos passos depois das 10 semanas</h2>
   <p class="section-note">
-    Sugestões para continuar a evoluir após terminar o roteiro base.[web:367][web:369][web:373]
+    Sugestões para continuar a evoluir após terminar o roteiro base.
   </p>
 
   <div class="grid">
     <div class="card">
       <div class="block-title">Aprofundar CTI</div>
       <ul>
-        <li>Especializar em sector (financeiro, saúde, OT, etc.) e nas ameaças mais relevantes.[web:373][web:374]</li>
-        <li>Participar em comunidades de TI, ISACs, grupos de partilha e CTFs de CTI.[web:369][web:373]</li>
-        <li>Estudar metodologias de análise (ACH, análise de cenários, etc.).[web:372]</li>
+        <li>Especializar em sector (financeiro, saúde, OT, etc.) e nas ameaças mais relevantes.</li>
+        <li>Participar em comunidades de TI, ISACs, grupos de partilha e CTFs de CTI.</li>
+        <li>Estudar metodologias de análise (ACH, análise de cenários, etc.).</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Carreira & certificações</div>
       <ul>
-        <li>Posições: analista de CTI, threat hunter, analista SOC nível 2/3.[web:371][web:373]</li>
-        <li>Cursos e formações específicas de CTI e SOC blue team.[web:366][web:373]</li>
+        <li>Posições: analista de CTI, threat hunter, analista SOC nível 2/3.</li>
+        <li>Cursos e formações específicas de CTI e SOC blue team.</li>
       </ul>
     </div>
   </div>
@@ -765,22 +765,22 @@
   <hr class="divider" />
   <h2 id="topicos-avancados">Secção 7 · Tópicos avançados de Threat Intelligence</h2>
   <p class="section-note">
-    Ideias para aprofundar quando os fundamentos já estiverem confortáveis.[web:367][web:372][web:368]
+    Ideias para aprofundar quando os fundamentos já estiverem confortáveis.
   </p>
 
   <div class="grid">
     <div class="card">
       <div class="block-title">Modelação avançada</div>
       <ul>
-        <li>Modelos de risco baseados em TI, análise de campanhas prolongadas e clusters de actividade.[web:367][web:372]</li>
-        <li>Armazenar e explorar dados históricos de TI para detecção de padrões.[web:374]</li>
+        <li>Modelos de risco baseados em TI, análise de campanhas prolongadas e clusters de actividade.</li>
+        <li>Armazenar e explorar dados históricos de TI para detecção de padrões.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">AI & automação</div>
       <ul>
-        <li>Usar AI para triagem de alertas, classificação de IOCs e sumarização de relatórios.[web:368][web:373]</li>
-        <li>Multi‑agent systems para orquestrar recolha, enrichment e resposta.[web:368]</li>
+        <li>Usar AI para triagem de alertas, classificação de IOCs e sumarização de relatórios.</li>
+        <li>Multi‑agent systems para orquestrar recolha, enrichment e resposta.</li>
       </ul>
     </div>
   </div>
@@ -789,22 +789,22 @@
   <hr class="divider" />
   <h2 id="osint-automacao">Secção 8 · OSINT e automação na prática</h2>
   <p class="section-note">
-    Como combinar OSINT, scripts e plataformas para aumentar a capacidade da equipa de Threat Intelligence.[web:368][web:373]
+    Como combinar OSINT, scripts e plataformas para aumentar a capacidade da equipa de Threat Intelligence.
   </p>
 
   <div class="grid">
     <div class="card">
       <div class="block-title">Pipelines de OSINT</div>
       <ul>
-        <li>Construir um pequeno script ou playbook para recolher IOCs de fontes OSINT e normalizar para MISP/OpenCTI.[web:308][web:368]</li>
-        <li>Definir filtros para reduzir ruído (por sector, geografia, tipo de activo).[web:368][web:373]</li>
+        <li>Construir um pequeno script ou playbook para recolher IOCs de fontes OSINT e normalizar para <a href="https://www.misp-project.org" target="_blank" rel="noreferrer noopener">MISP</a>/<a href="https://www.opencti.io" target="_blank" rel="noreferrer noopener">OpenCTI</a>.</li>
+        <li>Definir filtros para reduzir ruído (por sector, geografia, tipo de activo).</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Automação SOC</div>
       <ul>
-        <li>Playbooks de enrich & triage: por exemplo, para alertas de phishing ou brute force.[web:371][web:373]</li>
-        <li>Medir impacto: redução de MTTD/MTTR e de trabalho manual repetitivo.[web:368][web:373]</li>
+        <li>Playbooks de enrich & triage: por exemplo, para alertas de phishing ou brute force.</li>
+        <li>Medir impacto: redução de MTTD/MTTR e de trabalho manual repetitivo.</li>
       </ul>
     </div>
   </div>
@@ -812,22 +812,22 @@
   <hr class="divider" />
   <h2 id="soc-hunting">Secção 8.1 · SOC, hunting e Threat Intelligence</h2>
   <p class="section-note">
-    Como Threat Intelligence alimenta hunting e operações diárias de SOC.[web:371][web:373]
+    Como Threat Intelligence alimenta hunting e operações diárias de SOC.
   </p>
 
   <div class="grid">
     <div class="card">
       <div class="block-title">Threat hunting guiado por TI</div>
       <ul>
-        <li>Usar TTPs mapeadas em ATT&CK para definir hipóteses de hunting.[web:371][web:373][web:374]</li>
-        <li>Traduzir campanhas recentes em queries no SIEM e em detecções em EDR.[web:371][web:373]</li>
+        <li>Usar TTPs mapeadas em <a href="https://attack.mitre.org" target="_blank" rel="noreferrer noopener">ATT&CK</a> para definir hipóteses de hunting.</li>
+        <li>Traduzir campanhas recentes em queries no SIEM e em detecções em EDR.</li>
       </ul>
     </div>
     <div class="card">
       <div class="block-title">Loop de feedback SOC ↔ TI</div>
       <ul>
-        <li>Incidentes do SOC alimentam novas IOCs/TTPs nos repositórios de TI.[web:373]</li>
-        <li>Relatórios de TI inspiram novos casos de uso e regras de detecção.[web:373][web:374]</li>
+        <li>Incidentes do SOC alimentam novas IOCs/TTPs nos repositórios de TI.</li>
+        <li>Relatórios de TI inspiram novos casos de uso e regras de detecção.</li>
       </ul>
     </div>
   </div>
@@ -838,7 +838,7 @@
   <h2 id="dia-ti-soc">Secção 9 · Um dia de Threat Intelligence nas operações SOC</h2>
   <p class="section-note">
     Como a Threat Intelligence entra no dia-a-dia do SOC: rotina típica, principais ferramentas open source usadas por equipas de CTI/SOC
-    e métricas NIS2 que ajudam a demonstrar eficácia e conformidade.[web:371][web:373][web:301][web:370][web:308]
+    e métricas NIS2 que ajudam a demonstrar eficácia e conformidade.
   </p>
 
   <div class="grid">
@@ -846,23 +846,23 @@
     <div class="card">
       <div class="block-title">9.1 · Como é um dia típico de Threat Intelligence num SOC</div>
       <ul>
-        <li>De manhã, o analista de CTI/SOC revê dashboards do SIEM, incidentes do turno anterior e faz um “threat briefing” com base em relatórios recentes, CVEs novas e feeds de inteligência.[web:373]</li>
-        <li>Ao longo do dia, correlaciona alertas com IOCs/TTPs conhecidos, apoia investigações (phishing, tentativas de intrusão, malware) e sugere acções de contenção e melhoria de detecções.[web:373]</li>
-        <li>Ao final do dia, regista lições aprendidas, actualiza playbooks, ajusta regras de detecção e produz notas de inteligência ou relatórios curtos para gestão e SOC.[web:373]</li>
+        <li>De manhã, o analista de CTI/SOC revê dashboards do SIEM, incidentes do turno anterior e faz um “threat briefing” com base em relatórios recentes, CVEs novas e feeds de inteligência.</li>
+        <li>Ao longo do dia, correlaciona alertas com IOCs/TTPs conhecidos, apoia investigações (phishing, tentativas de intrusão, malware) e sugere acções de contenção e melhoria de detecções.</li>
+        <li>Ao final do dia, regista lições aprendidas, actualiza playbooks, ajusta regras de detecção e produz notas de inteligência ou relatórios curtos para gestão e SOC.</li>
       </ul>
 
       <div class="block-title">Rotina diária resumida</div>
       <ul>
-        <li><strong>Briefing matinal:</strong> rever alertas críticos, incidentes em aberto e panorama de ameaças (relatórios, CVEs, feeds TI).[web:373]</li>
-        <li><strong>Monitorização & triage:</strong> priorizar alertas com base em CTI (quem ataca, porquê, TTPs mais usadas para o sector).[web:373][web:374]</li>
-        <li><strong>Investigação:</strong> ligar IPs, domínios, hashes e técnicas a campanhas e actores conhecidos, enriquecendo os casos.[web:373][web:301][web:370]</li>
-        <li><strong>Resposta:</strong> apoiar bloqueios, isolamento de sistemas, reset de contas e comunicações técnicas/gestão/regulador.[web:371][web:373]</li>
-        <li><strong>Melhoria contínua:</strong> actualizar regras (SIEM, EDR), playbooks, documentação e métricas de desempenho.[web:371][web:373]</li>
+        <li><strong>Briefing matinal:</strong> rever alertas críticos, incidentes em aberto e panorama de ameaças (relatórios, CVEs, feeds TI).</li>
+        <li><strong>Monitorização & triage:</strong> priorizar alertas com base em TI (quem ataca, porquê, TTPs mais usadas para o sector).</li>
+        <li><strong>Investigação:</strong> ligar IPs, domínios, hashes e técnicas a campanhas e actores conhecidos, enriquecendo os casos.</li>
+        <li><strong>Resposta:</strong> apoiar bloqueios, isolamento de sistemas, reset de contas e comunicações técnicas/gestão/regulador.</li>
+        <li><strong>Melhoria contínua:</strong> actualizar regras (SIEM, EDR), playbooks, documentação e métricas de desempenho.</li>
       </ul>
 
       <div class="highlight-box">
         <strong>Exemplo prático:</strong> um alerta de login suspeito é cruzado com feeds de TI; se o IP/domínio estiver associado a uma campanha activa,
-        o incidente sobe de prioridade e pode originar hunting dedicado e comunicação acelerada.[web:373]
+        o incidente sobe de prioridade e pode originar hunting dedicado e comunicação acelerada.
       </div>
     </div>
 
@@ -870,7 +870,7 @@
     <div class="card">
       <div class="block-title">9.2 · Ferramentas open source de Threat Intelligence usadas no SOC</div>
       <p class="section-note">
-        Visão rápida das principais ferramentas open source para CTI/SOC e como encaixam na arquitectura de um SOC moderno.[web:301][web:370][web:308]
+        Visão rápida das principais ferramentas open source para CTI/SOC e como encaixam na arquitectura de um SOC moderno.
       </p>
 
       <table>
@@ -885,7 +885,7 @@
         </thead>
         <tbody>
           <tr>
-            <td data-label="Ferramenta"><strong>MISP</strong></td>
+            <td data-label="Ferramenta"><strong><a href="https://www.misp-project.org" target="_blank" rel="noreferrer noopener">MISP</a></strong></td>
             <td data-label="Função principal">TIP de partilha de IOCs</td>
             <td data-label="Onde encaixa no SOC">
               <ul>
@@ -896,106 +896,106 @@
             </td>
             <td data-label="Stack / formatos">
               <ul>
-                <li>Web app (PHP) + BD SQL.[web:308]</li>
-                <li>JSON MISP, STIX 1/2, TAXII, CSV.[web:308][web:374]</li>
+                <li>Web app (PHP) + base de dados SQL.</li>
+                <li>JSON MISP, STIX 1/2, TAXII, CSV.</li>
               </ul>
             </td>
             <td data-label="Forças & cuidados">
               <ul>
-                <li><strong>Forças:</strong> correlação automática, taxonomias, ecossistema grande.[web:308]</li>
-                <li><strong>Cuidados:</strong> precisa de curadoria e regras claras de partilha.[web:308]</li>
+                <li><strong>Forças:</strong> correlação automática, taxonomias, ecossistema grande.</li>
+                <li><strong>Cuidados:</strong> precisa de curadoria e regras claras de partilha.</li>
               </ul>
             </td>
           </tr>
 
           <tr>
-            <td data-label="Ferramenta"><strong>OpenCTI</strong></td>
+            <td data-label="Ferramenta"><strong><a href="https://www.opencti.io" target="_blank" rel="noreferrer noopener">OpenCTI</a></strong></td>
             <td data-label="Função principal">Plataforma CTI em grafo</td>
             <td data-label="Onde encaixa no SOC">
               <ul>
-                <li>“Cérebro” de CTI (actores, campanhas, TTPs).[web:308][web:374]</li>
-                <li>Base de conhecimento para SOC/IR.[web:373][web:374]</li>
+                <li>“Cérebro” de CTI (actores, campanhas, TTPs).</li>
+                <li>Base de conhecimento para SOC/IR.</li>
               </ul>
             </td>
             <td data-label="Stack / formatos">
               <ul>
-                <li>ElasticSearch/OpenSearch, Redis, RabbitMQ.[web:308]</li>
-                <li>STIX‑like JSON via GraphQL, integra ATT&CK/MISP.[web:308][web:374]</li>
+                <li>ElasticSearch/OpenSearch, Redis, RabbitMQ.</li>
+                <li>JSON (GraphQL), integra ATT&CK/MISP.</li>
               </ul>
             </td>
             <td data-label="Forças & cuidados">
               <ul>
-                <li><strong>Forças:</strong> grafo visual, modelo rico, muitos conectores.[web:308]</li>
-                <li><strong>Cuidados:</strong> stack pesada, exige planeamento e sizing.[web:308]</li>
+                <li><strong>Forças:</strong> grafo visual, modelo rico, muitos conectores.</li>
+                <li><strong>Cuidados:</strong> stack pesada, exige planeamento e sizing.</li>
               </ul>
             </td>
           </tr>
 
           <tr>
-            <td data-label="Ferramenta"><strong>TheHive</strong></td>
+            <td data-label="Ferramenta"><strong><a href="https://thehive-project.org" target="_blank" rel="noreferrer noopener">TheHive</a></strong></td>
             <td data-label="Função principal">Gestão de incidentes SOC/IR</td>
             <td data-label="Onde encaixa no SOC">
               <ul>
-                <li>Consola de casos do SOC.[web:308][web:371]</li>
-                <li>Playbooks e colaboração entre analistas.[web:371]</li>
+                <li>Consola de casos do SOC.</li>
+                <li>Playbooks e colaboração entre analistas.</li>
               </ul>
             </td>
             <td data-label="Stack / formatos">
               <ul>
-                <li>Servidor Java + Elastic/OpenSearch.[web:308]</li>
-                <li>JSON via API; integra MISP/OpenCTI.[web:308]</li>
+                <li>Servidor Java + Elastic/OpenSearch.</li>
+                <li>JSON via API; integra MISP/OpenCTI.</li>
               </ul>
             </td>
             <td data-label="Forças & cuidados">
               <ul>
-                <li><strong>Forças:</strong> orientado a casos, integra bem com Cortex e TIPs.[web:308][web:301]</li>
-                <li><strong>Cuidados:</strong> tirar partido exige definir bem o workflow.[web:308]</li>
+                <li><strong>Forças:</strong> orientado a casos, integra bem com Cortex e TIPs.</li>
+                <li><strong>Cuidados:</strong> tirar partido exige definir bem o workflow.</li>
               </ul>
             </td>
           </tr>
 
           <tr>
-            <td data-label="Ferramenta"><strong>Cortex</strong></td>
+            <td data-label="Ferramenta"><strong><a href="https://github.com/TheHive-Project/Cortex" target="_blank" rel="noreferrer noopener">Cortex</a></strong></td>
             <td data-label="Função principal">Motor de enriquecimento</td>
             <td data-label="Onde encaixa no SOC">
               <ul>
-                <li>Enriquecimento de IPs/domínios/hashes.[web:308][web:301]</li>
-                <li>Chamado a partir do TheHive ou scripts.[web:308]</li>
+                <li>Enriquecimento de IPs, domínios e hashes.</li>
+                <li>Chamado a partir do TheHive ou scripts.</li>
               </ul>
             </td>
             <td data-label="Stack / formatos">
               <ul>
-                <li>App web + workers Docker.[web:308]</li>
-                <li>Entrada/saída em JSON.[web:308]</li>
+                <li>Aplicação web + workers (Docker, etc.).</li>
+                <li>Entrada/saída em JSON.</li>
               </ul>
             </td>
             <td data-label="Forças & cuidados">
               <ul>
-                <li><strong>Forças:</strong> dezenas de analisadores prontos.[web:308][web:301]</li>
-                <li><strong>Cuidados:</strong> gerir chaves/API e custos de consultas.[web:308]</li>
+                <li><strong>Forças:</strong> dezenas de analisadores prontos.</li>
+                <li><strong>Cuidados:</strong> gerir chaves/API e custos de consultas.</li>
               </ul>
             </td>
           </tr>
 
           <tr>
-            <td data-label="Ferramenta"><strong>SpiderFoot</strong></td>
+            <td data-label="Ferramenta"><strong><a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noreferrer noopener">SpiderFoot</a></strong></td>
             <td data-label="Função principal">OSINT automatizado</td>
             <td data-label="Onde encaixa no SOC">
               <ul>
-                <li>Recon de IPs, domínios, e‑mails.[web:301][web:370]</li>
-                <li>Expansão de infra‑estrutura maliciosa.[web:301][web:370]</li>
+                <li>Recon de IPs, domínios e e‑mails.</li>
+                <li>Expansão de infra‑estrutura maliciosa.</li>
               </ul>
             </td>
             <td data-label="Stack / formatos">
               <ul>
-                <li>Python 3 + interface web.[web:301]</li>
-                <li>Exporta HTML, CSV, JSON.[web:301]</li>
+                <li>Python 3 + interface web.</li>
+                <li>Exporta HTML, CSV e JSON.</li>
               </ul>
             </td>
             <td data-label="Forças & cuidados">
               <ul>
-                <li><strong>Forças:</strong> muitas fontes, fácil de usar.[web:301][web:370]</li>
-                <li><strong>Cuidados:</strong> pode gerar muito ruído se não filtrares.[web:301][web:370]</li>
+                <li><strong>Forças:</strong> muitas fontes, fácil de usar.</li>
+                <li><strong>Cuidados:</strong> pode gerar muito ruído se não filtrares.</li>
               </ul>
             </td>
           </tr>
@@ -1005,43 +1005,43 @@
             <td data-label="Função principal">Regras de malware/hunting</td>
             <td data-label="Onde encaixa no SOC">
               <ul>
-                <li>Detecção em EDR, sandboxes, forense.[web:301][web:370]</li>
-                <li>Hunting guiado por TTPs/CTI.[web:373]</li>
+                <li>Detecção em EDR, sandboxes e forense.</li>
+                <li>Hunting guiado por TTPs e Threat Intelligence.</li>
               </ul>
             </td>
             <td data-label="Stack / formatos">
               <ul>
-                <li>Motor em C + CLI/bindings.[web:301]</li>
-                <li>Regras de texto próprias.[web:301]</li>
+                <li>Motor em C + linha de comando/bindings.</li>
+                <li>Regras de texto próprias.</li>
               </ul>
             </td>
             <td data-label="Forças & cuidados">
               <ul>
-                <li><strong>Forças:</strong> muito flexível, vai além de hashes.[web:301][web:370]</li>
-                <li><strong>Cuidados:</strong> precisa de boas práticas para evitar falsos positivos.[web:367][web:371]</li>
+                <li><strong>Forças:</strong> muito flexível, vai além de hashes.</li>
+                <li><strong>Cuidados:</strong> precisa de boas práticas para evitar falsos positivos.</li>
               </ul>
             </td>
           </tr>
 
           <tr>
-            <td data-label="Ferramenta"><strong>AlienVault OSSIM</strong></td>
+            <td data-label="Ferramenta"><strong><a href="https://en.wikipedia.org/wiki/OSSIM" target="_blank" rel="noreferrer noopener">AlienVault OSSIM</a></strong></td>
             <td data-label="Função principal">SIEM open source</td>
             <td data-label="Onde encaixa no SOC">
               <ul>
-                <li>Camada de logs, alertas e correlação.[web:301][web:371]</li>
-                <li>Consome IOCs de MISP/OpenCTI.[web:301][web:308]</li>
+                <li>Camada de logs, alertas e correlação.</li>
+                <li>Consome IOCs de MISP/OpenCTI.</li>
               </ul>
             </td>
             <td data-label="Stack / formatos">
               <ul>
-                <li>Distribuição baseada em Debian.[web:301]</li>
-                <li>Vários formatos de log, normalização interna.[web:301]</li>
+                <li>Distribuição baseada em Debian.</li>
+                <li>Vários formatos de log, normalização interna.</li>
               </ul>
             </td>
             <td data-label="Forças & cuidados">
               <ul>
-                <li><strong>Forças:</strong> SIEM completo sem licenças altas.[web:301][web:371]</li>
-                <li><strong>Cuidados:</strong> tuning e recursos são críticos para escalar.[web:371]</li>
+                <li><strong>Forças:</strong> SIEM completo sem licenças altas.</li>
+                <li><strong>Cuidados:</strong> tuning e recursos são críticos para escalar.</li>
               </ul>
             </td>
           </tr>
@@ -1049,8 +1049,7 @@
       </table>
 
       <div class="highlight-box.success">
-        <strong>Exemplo de stack OSS:</strong> MISP + SpiderFoot para recolha, OpenCTI como “cérebro” de CTI, TheHive + Cortex para investigação/IR
-        e um SIEM (OSSIM ou outro) como camada de detecção.[web:301][web:370][web:308][web:371][web:373]
+        <strong>Exemplo de stack OSS:</strong> <a href="https://www.misp-project.org" target="_blank" rel="noreferrer noopener">MISP</a> + <a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noreferrer noopener">SpiderFoot</a> para recolha, <a href="https://www.opencti.io" target="_blank" rel="noreferrer noopener">OpenCTI</a> como “cérebro” de CTI, <a href="https://thehive-project.org" target="_blank" rel="noreferrer noopener">TheHive</a> + <a href="https://github.com/TheHive-Project/Cortex" target="_blank" rel="noreferrer noopener">Cortex</a> para investigação/IR e um SIEM (<a href="https://en.wikipedia.org/wiki/OSSIM" target="_blank" rel="noreferrer noopener">OSSIM</a> ou outro) como camada de detecção.
       </div>
     </div>
   </div>
@@ -1060,31 +1059,31 @@
     <div class="card">
       <div class="block-title">9.3 · Métricas NIS2 aplicadas ao SOC e à Threat Intelligence</div>
       <p class="section-note">
-        A NIS2 pede capacidades de monitorização, resposta, reporte e melhoria contínua; estes KPIs ajudam a tornar isso visível e mensurável.[web:374][web:373]
+        A NIS2 pede capacidades de monitorização, resposta, reporte e melhoria contínua; estes KPIs ajudam a tornar isso visível e mensurável.
       </p>
 
       <div class="block-title">KPIs operacionais para o SOC</div>
       <ul>
-        <li><strong>MTTD (Mean Time to Detect):</strong> tempo médio desde o início de um incidente até detecção; indicador central de eficácia de monitorização.[web:373][web:374]</li>
-        <li><strong>MTTR (Mean Time to Respond/Remediate):</strong> tempo médio desde detecção até contenção/remediação; muitas vezes usado em SLAs internos e com outsourcers.[web:373]</li>
-        <li><strong>Time-to-Classify:</strong> tempo para classificar um alerta (incidente vs. falso positivo), com objectivo baixo para casos críticos.[web:373]</li>
-        <li><strong>Taxa de notificação dentro de prazo:</strong> percentagem de incidentes significativos reportados dentro das janelas definidas pela NIS2.[web:374]</li>
-        <li><strong>Fecho de acções pós‑incidente &lt; 90 dias:</strong> percentagem de recomendações implementadas em tempo útil, mostrando melhoria contínua.[web:374]</li>
+        <li><strong>MTTD (Mean Time to Detect):</strong> tempo médio desde o início de um incidente até detecção; indicador central de eficácia de monitorização.</li>
+        <li><strong>MTTR (Mean Time to Respond/Remediate):</strong> tempo médio desde detecção até contenção/remediação; muitas vezes usado em SLAs internos e com outsourcers.</li>
+        <li><strong>Time-to-Classify:</strong> tempo para classificar um alerta (incidente vs. falso positivo), com objectivo baixo para casos críticos.</li>
+        <li><strong>Taxa de notificação dentro de prazo:</strong> percentagem de incidentes significativos reportados dentro das janelas definidas pela NIS2.</li>
+        <li><strong>Fecho de acções pós‑incidente &lt; 90 dias:</strong> percentagem de recomendações implementadas em tempo útil, mostrando melhoria contínua.</li>
       </ul>
 
       <div class="block-title">KPIs específicos de Threat Intelligence</div>
       <ul>
-        <li><strong>IoC Extraction Coverage:</strong> percentagem de incidentes relevantes onde foram extraídos e registados IOCs/TTPs de forma estruturada.[web:373]</li>
-        <li><strong>Uso de TI em decisões SOC:</strong> percentagem de incidentes críticos em que relatórios/feeds de TI foram consultados antes de decidir contenção/comunicação.[web:373]</li>
-        <li><strong>Tempo até integração de novas ameaças:</strong> tempo médio entre um relatório de ameaça crítica e a actualização de regras SIEM/EDR ou playbooks associados.[web:374][web:373]</li>
-        <li><strong>Cobertura ATT&CK:</strong> número/taxa de técnicas relevantes com pelo menos uma detecção ou caso de uso activo no SOC.[web:374][web:373]</li>
+        <li><strong>IoC Extraction Coverage:</strong> percentagem de incidentes relevantes onde foram extraídos e registados IOCs/TTPs de forma estruturada.</li>
+        <li><strong>Uso de TI em decisões SOC:</strong> percentagem de incidentes críticos em que relatórios/feeds de TI foram consultados antes de decidir contenção/comunicação.</li>
+        <li><strong>Tempo até integração de novas ameaças:</strong> tempo médio entre um relatório de ameaça crítica e a actualização de regras SIEM/EDR ou playbooks associados.</li>
+        <li><strong>Cobertura ATT&CK:</strong> número/taxa de técnicas relevantes com pelo menos uma detecção ou caso de uso activo no SOC.</li>
       </ul>
 
       <div class="highlight-box.success">
         <strong>Como alinhar com NIS2:</strong><br />
-        · Mapear cada KPI a requisitos de gestão de risco, tratamento de incidentes e reporte.[web:374]<br />
-        · Manter evidência auditável: dashboards, relatórios de incidentes, registos de treino e playbooks actualizados.[web:373][web:374]<br />
-        · Mostrar tendências (6–12 meses) de melhoria em MTTD/MTTR, taxa de notificação e redução de falsos positivos.[web:373][web:374]
+        · Mapear cada KPI a requisitos de gestão de risco, tratamento de incidentes e reporte.<br />
+        · Manter evidência auditável: dashboards, relatórios de incidentes, registos de treino e playbooks actualizados.<br />
+        · Mostrar tendências (6–12 meses) de melhoria em MTTD/MTTR, taxa de notificação e redução de falsos positivos.
       </div>
     </div>
   </div>
@@ -1095,4 +1094,4 @@
 
 </div>
 </body>
-                                                                        </html>
+</html>
