@@ -2,7 +2,9 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <title>Plano de Threat Intelligence – 10 Semanas</title>
+  <title>Roteiro de Threat Intelligence – 10 Semanas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Roteiro prático de 10 semanas para Threat Intelligence: labs gratuitos, ferramentas open source, frameworks e aplicação em SOC com foco em NIS2." />
   <style>
     /* Tema escuro (predefinido) */
     body[data-theme="dark"] {
@@ -58,19 +60,21 @@
 
     header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     header h1 {
-      font-size: 2.2rem;
-      margin: 0 0 8px;
+      font-size: 2.3rem;
+      margin: 0 0 10px;
       letter-spacing: 0.03em;
     }
 
     header p {
       margin: 0;
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.98rem;
+      max-width: 640px;
+      margin-inline: auto;
     }
 
     .badge {
@@ -155,9 +159,9 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 16px auto 20px;
+      margin: 20px auto 22px;
       justify-content: center;
-      padding: 6px 0;
+      padding: 8px 0;
       background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0));
     }
 
@@ -186,8 +190,8 @@
     }
 
     h2 {
-      font-size: 1.3rem;
-      margin: 24px 0 10px;
+      font-size: 1.35rem;
+      margin: 28px 0 10px;
       border-left: 3px solid var(--accent);
       padding-left: 10px;
     }
@@ -201,32 +205,14 @@
     .section-note {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .timeline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 8px 0 18px;
-      font-size: 0.78rem;
-    }
-
-    .pill {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--text-muted);
-      margin-right: 4px;
-      margin-bottom: 4px;
+      margin-bottom: 14px;
+      max-width: 760px;
     }
 
     .divider {
       border: none;
       border-top: 1px solid rgba(148, 163, 184, 0.35);
-      margin: 24px 0 18px;
+      margin: 28px 0 20px;
     }
 
     .grid {
@@ -249,51 +235,12 @@
       box-shadow: 0 14px 35px rgba(15, 23, 42, 0.8);
     }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
-
-    .tag-week {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-    }
-
-    .tag-time {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .tag-level {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      background: rgba(15, 23, 42, 0.02);
-    }
-
-    .tag-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
     .block-title {
       font-size: 0.83rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
-      margin: 10px 0 4px;
+      margin: 6px 0 6px;
     }
 
     ul {
@@ -316,81 +263,6 @@
 
     .highlight-box.success {
       border-left: 3px solid var(--success);
-    }
-
-    .highlight-box.question {
-      border-left: 3px solid var(--accent);
-    }
-
-    .highlight-box.warn {
-      border-left: 3px solid var(--warning);
-    }
-
-    .labs-grid,
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 8px;
-    }
-
-    .lab-card,
-    .tool-card {
-      background: var(--bg-alt);
-      border-radius: 10px;
-      padding: 12px 12px 10px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s;
-    }
-
-    body[data-theme="dark"] .lab-card,
-    body[data-theme="dark"] .tool-card {
-      background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
-    }
-
-    .lab-card:hover,
-    .tool-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
-
-    .lab-title,
-    .tool-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .lab-meta,
-    .tool-meta {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .lab-link a,
-    .tool-link a {
-      font-size: 0.82rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .lab-link a:hover,
-    .tool-link a:hover {
-      text-decoration: underline;
-    }
-
-    .lab-tag,
-    .tool-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      padding: 2px 6px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      margin-right: 4px;
-      margin-bottom: 2px;
     }
 
     footer {
@@ -495,7 +367,7 @@
 
     @media (max-width: 640px) {
       header h1 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
       }
       .page {
         padding: 20px 14px 32px;
@@ -537,7 +409,7 @@
       if (saved === "light" || saved === "dark") {
         document.body.dataset.theme = saved;
       } else {
-        document.body.dataset-theme = "dark";
+        document.body.dataset.theme = "dark";
       }
       const cta = document.getElementById("cta-start");
       if (cta) {
@@ -555,7 +427,9 @@
 <div class="page">
 
   <div class="top-bar">
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema claro/escuro">Alternar tema</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema claro/escuro">
+      Alternar tema
+    </button>
   </div>
 
   <header>
@@ -574,7 +448,7 @@
     </picture>
 
     <h1>Roteiro de Threat Intelligence</h1>
-    <p>De principiante a praticante confiante, com foco em exercícios, laboratórios gratuitos, ferramentas de código aberto e produção de relatórios reais.</p>
+    <p>De principiante a praticante confiante em Threat Intelligence, com foco em exercícios, laboratórios gratuitos, ferramentas open source e aplicação prática em SOC.</p>
     <button id="cta-start" class="cta-start">Começar na Semana 1</button>
   </header>
 
@@ -591,14 +465,20 @@
     <a href="#dia-ti-soc">Dia de Threat Intelligence</a>
   </nav>
 
-  <!-- AQUI FICAM AS SECÇÕES 0–8 DO TEU FICHEIRO ORIGINAL -->
+  <!--
+    SECÇÕES 0–8
+    Aqui inseres o conteúdo que já tinhas: sobre, plano de 10 semanas, labs, ferramentas, frameworks,
+    tópicos avançados, OSINT/automação, SOC/hunting, etc.
+    A Secção 9 vem logo a seguir.
+  -->
 
   <!-- SECÇÃO 9 – DIA DE THREAT INTELLIGENCE NO SOC -->
   <hr class="divider" />
 
   <h2 id="dia-ti-soc">Secção 9 · Um dia de Threat Intelligence nas operações SOC</h2>
   <p class="section-note">
-    Como a Threat Intelligence entra no dia-a-dia do SOC: rotina típica, principais ferramentas open source, comparação em tabela e métricas NIS2 que fazem sentido acompanhar.
+    Como a Threat Intelligence entra no dia-a-dia do SOC: rotina típica, principais ferramentas open source usadas por equipas de CTI/SOC
+    e métricas NIS2 que ajudam a demonstrar eficácia e conformidade.
   </p>
 
   <div class="grid">
@@ -621,7 +501,8 @@
       </ul>
 
       <div class="highlight-box">
-        <strong>Exemplo prático:</strong> um alerta de login suspeito é cruzado com feeds de CTI; se o IP/domínio estiver associado a uma campanha activa, o incidente sobe de prioridade e pode originar hunting dedicado e comunicação acelerada.
+        <strong>Exemplo prático:</strong> um alerta de login suspeito é cruzado com feeds de TI; se o IP/domínio estiver associado a uma campanha activa,
+        o incidente sobe de prioridade e pode originar hunting dedicado e comunicação acelerada.
       </div>
     </div>
 
@@ -629,7 +510,7 @@
     <div class="card">
       <div class="block-title">9.2 · Ferramentas open source de Threat Intelligence usadas no SOC</div>
       <p class="section-note">
-        Visão rápida das principais ferramentas open source para CTI/SOC e como encaixam na arquitectura.
+        Visão rápida das principais ferramentas open source para CTI/SOC e como encaixam na arquitectura de um SOC moderno.
       </p>
 
       <table>
@@ -808,7 +689,8 @@
       </table>
 
       <div class="highlight-box.success">
-        <strong>Exemplo de stack OSS:</strong> MISP + SpiderFoot para recolha, OpenCTI como “cérebro” de CTI, TheHive + Cortex para investigação/IR e um SIEM (OSSIM ou outro) como camada de detecção.
+        <strong>Exemplo de stack OSS:</strong> MISP + SpiderFoot para recolha, OpenCTI como “cérebro” de CTI, TheHive + Cortex para investigação/IR
+        e um SIEM (OSSIM ou outro) como camada de detecção.
       </div>
     </div>
   </div>
@@ -818,7 +700,7 @@
     <div class="card">
       <div class="block-title">9.3 · Métricas NIS2 aplicadas ao SOC e à Threat Intelligence</div>
       <p class="section-note">
-        A NIS2 pede capacidades (monitorização, resposta, reporte, melhoria contínua); estes KPIs ajudam a demonstrar isso de forma mensurável.
+        A NIS2 pede capacidades de monitorização, resposta, reporte e melhoria contínua; estes KPIs ajudam a tornar isso visível e mensurável.
       </p>
 
       <div class="block-title">KPIs operacionais para o SOC</div>
